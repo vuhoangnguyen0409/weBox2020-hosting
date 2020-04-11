@@ -1,5 +1,3 @@
-AddType application/x-httpd-php .php .html
-
 Options -Indexes
 RewriteEngine on
 RewriteRule \d+-[a-z0-9-]+/(\d+)-[a-z0-9-]+\.html$ /detail.php?id=$1 [NC,L]

@@ -5,22 +5,18 @@
  * @copyright 2014
  */
 
-/* * Cấu hình kết nối CSDL*
+/* * Cấu hình kết nối CSDL**/
 $hostname = 'localhost';
 $hostuser = 'root';
 $hostpass = '';
-$dbname = 'phpnc74_json';*/
-/* * Hosting* */
-$hostname = 'localhost';
-$hostuser = 'webdemo_user';
-$hostpass = '3MxNtJil';
-$dbname = 'webdemo_db';
+$dbname = 'phpnc74_json-hosting';
+
 
 /** Cấu hình tiếp đầu ngữ cho session **/
 $prefix = 'phpnc75_';
 
 /** Cấu hình đường dẫn đến site (dùng cho KCFinder) **/
-$siteURL = 'http://webox2020.local/';
+$siteURL = 'http://wee.local/';
 //$siteURL = 'http://www.chuphinhphuquoc.com/';
 
 /** Cấu hình cho username **/

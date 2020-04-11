@@ -1,9 +1,9 @@
-<!-- 
-                              ____          
+<!--
+                              ____
           \ \  /   \  / /   /      \
            \ \/ / \ \/ /   |  |  |  |
             \__/   \__/     \ ____ /
-            
+
     DESIGN BY WEBBOX | THIETKEWEBPHUQUOC.COM
     AUTHOR : NGUYEN DAI HA & VU HOANG NGUYEN
     WEBSITE: WWW.THIETKEWEBPHUQUOC.COM
@@ -36,15 +36,15 @@
 <body>
     <?php include('inc/header.php');?>
 
-        
 
-    
+
+
     <!-- Start Content Wrap -->
     <div id="contents_wrap">
         <div id="contents">
 
     <div id="main_index">
-                
+
                 <!-- Start Slider -->
                 <div id="slider" class="slider-wrap home-slider-bg">
                     <div class="slider-ct">
@@ -54,38 +54,37 @@
                     </div>
                 </div>
                 <!-- End Slider -->
-                
+
                 <!-- Start Home Services -->
                  <?php include('inc/home-list-svr.php')?>
                 <!-- End Home Services -->
-                
-                
+
+
                 <!-- Start Home Wrap -->
                 <div class="home-wrap">
-                
+
                     <!-- Start Home List Business Web -->
                     <?php include('inc/home-list-one-page-web.php')?>
                     <!-- End Home List Business Web -->
-                    
+
                     <!-- Start Home List Shop Web -->
                     <?php include('inc/home-list-shop-web.php')?>
                     <!-- End Home List Shop Web -->
-                                                      
+
                     <!-- Start Home List Business Web -->
                     <?php include('inc/home-list-bus-web.php')?>
                     <!-- End Home List Business Web -->
-                    
 
-                    
+
+
                 </div>
-            
-                
+
+
             </div>
         </div>
     </div>
     <!-- End Content Wrap -->
     <div class="voucher">	<div class="voucherBox">		<p class="close">x</p>		<h2>Get voucher</h2>		<form method="post" action="">			<input type="text" name="fone" placeholder="sềEđiện thoại của bạn">			<input type="submit" name="send">			<input type="image" src="img/common/Send_mail.png" name="getVoucher">		</form>				<p class="received">Bạn đã nhận voucher rồi <span class="close">x</span></p>	</div></div>
-	';       
-		
+	';
+
     <?php include('inc/footer.php');?>
-    
