@@ -1,0 +1,603 @@
+.detail_main {
+    position: relative;
+}
+.detail_main_phone {
+    float: right;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 21%;
+    z-index: 2;
+}
+.detail_main_web img {
+    display: block;
+}
+.detail_main_phone_active {
+    display: block;
+    top: 50%;
+    left: 50%;
+    right: inherit;
+    bottom: inherit;
+    transform: translate(-50%,-50%);
+    width: 40%;
+}
+.detail_main_phone_img {
+    float: right;
+}
+.detail_main_phone_nonactive {
+    display: none;
+}
+.detail_main_web {
+    max-height: 545px;
+    box-shadow: 0 0 1px 1px #3b3b3c;
+    position: absolute;
+    bottom: 20px;
+    left: 5.5%;
+    width: 63.8%;
+    overflow: hidden;
+}
+.detail_main_web img {
+    display: block;
+    width: 100%;
+}
+.detail_main_web_nonactive {
+    background: #4e4e4e;
+}
+.detail_main_web_nonactive img {
+    opacity: 0.6;
+}
+.detail_main_img {
+    background: #4e4e4e;
+}
+.detail_main_img img {
+    display: block;
+    opacity: 0.6;
+    width: 100%;    
+}
+.detail_devices {
+    display: none;
+    background: #272727;
+    padding: 10px 20px;
+    text-align: right;
+}
+.desktop-btn, .tablet-btn, .mobile-btn {
+    display: inline-block;
+    font-size: 26px;
+    padding: 0 20px 0 0;
+    vertical-align: middle;
+}
+.desktop-btn a, .tablet-btn a, .mobile-btn a {
+    color: #fff;
+}
+.h2_line_detail {
+    color: #58b475;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    font-size: 36px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.detail_ct {
+    padding-bottom: 10rem !important;
+}
+#right .detail_title {
+    display: block;
+}
+.detail_title {
+    display: none;
+}
+.detail_id {
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.detail_id span {
+    color: #58b475;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+}
+.detail_btn_wrap {
+    display: inline-block;
+    padding: 30px 0 25px;
+    width: 75%;
+    margin: auto;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+}
+.detail_btn_demo {
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+.detail_btn_down {
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+.detail_btn_demo a, .detail_btn_down a {
+    background: #58b475;
+    border: 1px solid #58b475;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 15px 15px;
+    margin: 0 15px;
+    text-decoration: none;
+    max-width: 260px;
+    width: 100%;
+}
+.detail_btn_demo a:hover {
+    background: transparent;
+    border: 1px solid #51a66c;
+    color: #58b475;
+    transition: all ease-in 0.3s;
+}
+.detail_description {
+    margin-bottom: 60px;
+}
+.detail_description_txt {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+.detail_price {
+    text-align: right;
+}
+.real_value_total {
+	display: none;
+}
+.detail_price_value {
+    color: #58b475;
+    display: inline-block;
+    font-size: 38px;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    text-align: left;
+    vertical-align: bottom;
+}
+.detail_price_unit {
+    color: #333;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.detail_box {
+    border: 1px solid #ddd;
+    color: #fff;
+    float: left;
+    padding: 0 0 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.detail_box_toggle {
+    background: #58b475;
+    cursor: pointer;
+    float: left;
+    padding: 10px 20px;
+    width: 100%;
+}
+.detail_box_free {
+    display: none;
+}
+.detail_box_free_txt {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    width: 60%;
+}
+.detail_box_free_price {
+    font-size: 20px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    float: right;
+    text-align: right;
+    width: 40%;
+}
+.detail_box_target {	display: none;
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+}
+.real_value {	display: none;}
+.detail_box_btn {
+    display: inline-block;
+    text-align: center;
+    padding: 0 0;
+    height: 68px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;   
+}
+.detail_box_btn .detail_box_btn_reg, 
+.detail_box_btn .detail_box_btn_down {
+    background: #805cd4;
+    color: #fff;
+    display: block;
+    padding: 15px 20px;
+    margin: 10px 0 10px;
+    text-decoration: none;
+    opacity: 1 !important;
+}
+.close_detail_form {
+    background: #ee5454;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    padding: 15px 20px;
+    margin: 15px 0 0;
+    text-align: center;
+    text-decoration: none;
+    opacity: 1 !important;
+}
+.close_detail_form:hover,
+.close_detail_form_active:hover {
+    background: #c34545;
+    cursor: pointer;
+}
+.close_detail_form i {
+    margin-right: 10px;
+}
+.detail_box_btn .detail_box_btn_reg:hover {
+    background: #6c40d2 ;
+    cursor: pointer;
+}
+#main .btn_download {
+    background: #f7aa66;
+    border: 1px solid #f7aa66;
+    color: #fff;
+    cursor: pointer;
+}
+#main .btn_download:hover {
+    background: transparent;
+    border: 1px solid #f7aa66;
+    color: #f7aa66;
+}
+.detail_box_btn .active {
+    display: block !important;    
+}
+.detail_box_btn .non_active {
+    display: none !important;    
+}
+.detail_box_btn a i {
+    margin-right: 5px;
+}
+.reg_close_btn {
+    background: #58b475;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 4px 10px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    max-width: 32px;
+    max-height: 32px;
+}
+.close_detail_form_active {
+    background: #ee5454;
+    width: 100%;
+    z-index: 1;
+}
+.tb_detail_option {
+    width: 100%;
+}
+.tb_detail_option tr {
+    border-top: 1px solid #ddd;
+}
+.tb_detail_option tr:first-child {
+    border-top: none;
+}
+
+.tb_detail_option td {
+    color: #333;
+    font-size: 14px;
+    padding: 12px 0;
+}
+.tb_detail_option .td_tit {
+    padding-left: 10px;
+    text-align: left;
+}
+.tb_detail_option .td_tit input {
+    vertical-align: -2px;
+    margin-right: 8px;
+}
+.tb_detail_option .td_price {
+    text-align: right;
+    padding-right: 10px;
+}
+.tb_detail_option_extra .td_price_unit {
+    display: none;
+}
+.tb_detail_option .td_total_price {
+    text-align: right;
+}
+.detail_support {
+    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 100%;
+}
+.detail_support_tit {
+    border-bottom: 1px solid #ddd;
+    font-size: 36px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}   
+.detail_support_name {
+    display: inline-block;
+    font-size: 18px;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 10px 0;
+    width: 150px;
+}
+.detail_support_txt .tel, .detail_support_txt .tel a {
+    color: #58b475;
+    font-size: 26px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    text-decoration: none;
+}
+.regist_popup, .regist_popup .wrap_regist_popup {
+    color: #666;
+    max-width: 960px !important;
+}
+.regist_popup .wrap_regist_popup {
+    padding: 20px 20px 40px 20px;
+}
+.wrap_regist_popup {
+    background: #fff;
+    display: inline-block;
+    max-width: 750px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    overflow-y: scroll;
+}
+.wrap_regist_popup::-webkit-scrollbar-track
+{
+/*	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;*/
+}
+
+.wrap_regist_popup::-webkit-scrollbar
+{
+	width: 6px;
+	/*background-color: #F5F5F5;*/
+}
+
+.wrap_regist_popup::-webkit-scrollbar-thumb
+{
+	background-color: #58b475;
+}
+.wrap_regist_popup .bxslider li {
+    position: initial !important;
+    width: 100% !important;
+}
+.form_regist {
+    float: left;
+    width: 100%;
+}
+#pro_form, #laststep_basic {
+ 
+}
+.regist_tit_h2 {
+    border-bottom: 1px solid #ddd;
+    color: #58b475  ;
+    letter-spacing: 3px;
+    font-size: 30px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 25px;
+}
+.regist_tit_h3 {
+    color: #666;
+    font-size: 20px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.regist_tit_h4 {
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    font-size: 22px;
+    padding: 0 5px 5px 0;
+    margin-bottom: 10px;
+    text-align: left;    
+}
+.regist_input {
+    border: 1px solid #ddd;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.regist_input::-webkit-input-placeholder        { color: #c5c5c5; } /* Chrome/Opera/Safari */
+.regist_input::-moz-placeholder                 { color: #c5c5c5; } /* Firefox 19+ */
+.regist_input:-ms-input-placeholder             { color: #c5c5c5; } /* IE 10+ */
+.regist_input:-moz-placeholder                  { color: #c5c5c5; } /* Firefox 18- */
+.regist_input:focus::-webkit-input-placeholder  { color:transparent; }
+.regist_input:focus:-moz-placeholder            { color:transparent; } /* FF 4-18 */
+.regist_input:focus::-moz-placeholder           { color:transparent; } /* FF 19+ */
+.regist_input:focus:-ms-input-placeholder       { color:transparent; } /* IE 10+ */
+
+.reg_input_info_wrap {
+    POSITION: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9;
+}
+.hide_register {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 20px 30px 25px;
+    z-index: 1;
+    opacity: 0;
+    transition: all ease-out 800ms;
+    -ms-transition : all ease-out 800ms;
+    -webkit-box-shadow: all ease-out 800ms;
+    -moz-box-shadow: all ease-out 800ms;
+}
+.hide_register_active {
+    opacity: 1;
+}
+.regist_email_txt {
+    color: #58b475;
+    font-size: 12px;
+    text-align: left;
+}
+.regist_checkout {
+    display: none;    
+    border: 1px solid #58b475;
+    padding: 10px;
+    margin: 0 0 0;
+    float: right;
+    text-align: center;
+    width: 47%;
+}
+.reg_input_btn_wrap {
+    position: relative;
+}
+.reg_input_btn {
+    background: #6698f7;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #fff;
+    display: block;
+    text-align: center;
+    text-indent: 20px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    width: 100%;
+    cursor: pointer;
+}
+.reg_input_btn:hover {
+    background: #467de4;
+}
+.reg_input_btn_wrap i {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    font-size: 20px;
+    left: 120px;
+}
+.regist_checkout_title .h2_line_detail {
+    color: #666;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.regist_checkout_title .detail_id {
+    margin-bottom: 15px; 
+}
+.regist_send {
+    float: left;
+    margin: 20px 0 0;
+    width: 100%;
+}
+.regist_send a, input.submitBtn {
+    background: #58b475 !important;
+    color: #fff;
+    display: block;
+	width: 100%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.regist_send a:hover, input.submitBtn {
+    background: #36a258;
+}
+.regist_include_wrap {
+    float: left;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    margin-top: 20px;
+    width: 100%;
+}
+.regist_include_tit {
+    display: inline-block;
+    width: 100%;
+}
+.regist_benefit_list {
+    color: #58b475;
+    float: left;
+    width: 100%;
+}
+.regist_benefit_list_txt {
+    color: #58b475;
+    font-size: 18px;
+    padding: 5px 0;
+}
+.regist_benefit_list_txt i {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+#fblike {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    width: 100px;
+    height: 48px;
+}
+@media screen and (max-width: 968px){
+    #left, #right {
+        width: 100% !important;
+    }  
+    .form_regist, .regist_checkout {
+        float: left;
+        width: 100%;
+    }
+    .regist_checkout {
+        margin-top: 40px;
+    }
+    #main > .detail_title {
+        display: block;
+        padding: 0 20px;
+    }
+    #right .detail_title {
+        display: none;
+    }
+}
+@media screen and (max-width: 468px){
+    .detail_devices {
+        display: block;
+    }
+    .detail_main_web {
+        box-shadow: none;
+        position: static;
+        width: 100%;
+    }
+    .detail_main_img {
+        display: none;
+    }
+    .desktop-btn, .tablet-btn, .mobile-btn {
+        padding: 0 0 0 20px;
+    }
+    .detail_main_phone {
+        opacity: 0;
+    }
+    .detail_main_phone_active {
+        opacity: 1;
+    }
+}
+.show {
+	display: block !important;
+}
+/*
+.regist_form {
+	color: #333;
+}
+.regist_form input {
+	color: #333;
+}*/

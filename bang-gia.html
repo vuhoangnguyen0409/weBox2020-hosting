@@ -1,0 +1,104 @@
+<!-- 
+
+                              ____          
+
+          \ \  /   \  / /   /      \
+
+           \ \/ / \ \/ /   |  |  |  |
+
+            \__/   \__/     \ ____ /
+
+    DESIGN BY WEBBOX | THIETKEWEBPHUQUOC.COM
+
+    AUTHOR : NGUYEN DAI HA & VU HOANG NGUYEN
+
+    WEBSITE: WWW.THIETKEWEBPHUQUOC.COM
+
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<meta http-equiv="content-type" content="text/html" />
+    <title>Bảng Giá Thiết Kế Web | Thiết Kế Web Chuyên Nghiệp Tại Phú Quốc</title>
+	<meta name="author" content="Nguyễn Đại Hà | Vũ Hoàng Nguyên" />
+    <meta name="description" content="Thiết kế Website chuyên nghiệp đẳng cấp tại Phú Quốc đa đạng các lĩnh vực nhà hàng, khách sạn, ẩm thuật, du lịch, bán hàng.... với đội ngũ nhân viên chuyên nghiệp sẵn sàng hỗ trợ 24/7 mọi lúc."/>
+    <meta name="keywords" content="Thiết Kế Website Tại Phú Quốc"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes"/>
+    <meta property="og:url"                content="http://www.thietkewebphuquoc.com/detail.html" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Thiết Kế Web Chuyên Nghiệp Tại Phú Quốc | Trang Chủ" />
+    <meta property="og:description"        content="WebBox chuyên thiết kế website chuyên nghiệp đẳng cấp tại Phú Quốc đa đạng các lĩnh vực nhà hàng, khách sạn, ẩm thuật, du lịch, bán hàng.... với đội ngũ nhân viên chuyên nghiệp sẵn sàng hỗ trợ 24/7 mọi lúc." />
+    <meta property="og:image"              content="http://www.thietkewebphuquoc.com/img/common/bg-branding.jpg" />
+	<?php include('inc/head.php');?>
+</head>
+
+<body>
+
+    <?php include('inc/header.php');?>
+    <!-- Start Content Wrap -->
+    <div id="contents_wrap">
+        <div id="contents">
+            <!-- Start Main -->
+            <div id="main" >
+
+                <!-- Start Slider -->
+                <div id="slider" class="sub-slider slider-wrap price-slider-bg">
+                    <div class="slider-ct">
+                        <h1 class="h1_line">Bảng Giá</h1>
+                    </div>
+                </div>
+                <!-- End Slider -->
+                
+                <div class="price-wrap">
+                    
+                    <div class="left">
+                        <!-- Tab links -->
+                        <div class="price-tab">
+                          <button class="tablinks active" onclick="openCity(event, 'Onepage')">Web One Page</button>
+                          <button class="tablinks" onclick="openCity(event, 'DoanhNghiep')">Web Doanh Nghiệp</button>
+                          <button class="tablinks" onclick="openCity(event, 'BanHang')">Web Bán Hàng</button>
+                          <button class="tablinks" onclick="openCity(event, 'ChupHinh')">Chụp Hình Sản Phẩm</button>
+                        </div>
+                        <!-- Tab content -->
+                    </div>
+                    
+                    <div class="right">
+                        <div id="Onepage" class="tabcontent">
+                            <?php include('inc/price-one-page.php')?>
+                        </div>
+        
+                        <div id="DoanhNghiep" class="tabcontent">
+                            <?php include('inc/price-business-page.php')?>
+                        </div>
+        
+                        <div id="BanHang" class="tabcontent">
+                            <?php include('inc/price-shop-page.php')?>
+                        </div>
+                        <div id="ChupHinh" class="tabcontent">
+                            <?php include('inc/price-photo-page.php')?>
+                        </div>
+
+                    </div>
+                    
+                    <div class="agency-wrap">
+                        <?php include('inc/agency-slide.php')?>
+                    </div>
+                        
+                </div>
+                
+
+                
+            </div>
+
+            <!-- End Main -->
+
+        </div>
+
+    </div>
+
+    <!-- End Content Wrap -->
+
+<?php include('inc/footer.php');?>
+

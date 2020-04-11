@@ -1,0 +1,460 @@
+@media screen and (min-width: 1450px){
+    .isotope_fixed {
+        
+    }
+}
+@media screen and (max-width: 1450px){ 
+    .isotope_fixed {
+        border-left: none;
+        max-width: 100%;
+        padding-left: 0;
+        width: 100%;
+        text-align: center !important;
+        top: 55px;
+        left: 0;
+    }   
+}
+@media screen and (max-width: 1200px){
+    #main {
+        padding: 0 10px;
+    }
+    .ct_num_txt {
+        padding: 20px 0;
+    }
+}
+@media screen and (max-width: 1000px){
+    .h_tab_active {
+        height: 53px;
+    }
+    .isotope_fixed {
+        top: 53px;
+    }
+}
+@media screen and (max-width: 968px){
+    
+/* Start Masorny */
+.masonry_grid {
+    margin: 0 0 0 0;
+    padding: 0;
+}
+.masorny_item {
+    width: 30.33%;
+    margin: 0 1.5% 3% 1.5%;
+}
+#left, #right {
+    padding: 0 20px;
+} 
+/* End Masorny */    
+
+/* Start Popup */
+#show_popup {
+    width: 80%;
+}
+
+/* End Popup */
+
+/* Start Main Show */
+.main_show p {
+    display: none;
+}
+.h_intro_part {
+    padding: 110px 0 37px;
+}
+/* End Main Show */
+
+/* Start Content */
+.ct_number {
+    padding: 2rem 1rem;
+}
+.detail_ct {
+    margin-bottom: 5rem;
+}
+.brand_item {
+    width: 50%;
+}
+/* End Content */
+}
+
+@media screen and (max-width: 768px){
+    
+.inner {
+	margin: 0 auto;
+	padding: 0 10px;
+	width: 100%;
+    box-sizing: border-box;
+}
+
+/* Start Header */
+.h_tab {
+    padding: 0;
+}
+.h_logo_txt {
+    padding: 0 0;
+}
+.h_language, #nav_header {
+    display: none;
+}
+.h_intro_txt {
+    margin: 25px 0 0 0;
+}
+/* End Header */
+
+/* Start Content */
+#contents_wrap {
+    overflow: hidden;
+}
+#left .detail_id {
+    margin-bottom: 15px;
+}
+.modaly {
+    width: 90%;
+    padding: 0;
+}
+.wrap_main_img {
+    height: auto;
+}
+.isotope_wrap {
+    margin-bottom: 40px;
+}
+.isotope_item {
+    width: 47.57%;
+}
+.h_intro_detail {
+    padding: 50px 0 17px;
+}
+.h_intro_detail h1 {
+    font-size: 11vw;
+}
+.ct_serv_list {
+    padding: 15px 10px;
+}
+.ct_serv_box {
+    width: 50%;
+    padding: 0 10px 50px;
+}
+.col-2 {
+    margin-bottom: 4rem;
+    width: 100%;
+}
+.ct_number {
+    padding: 1rem;
+}
+.ct_num_txt {
+    border-right: none;
+    padding: 10px 0;
+    width: 50%;
+    font-size: 3vw;    
+}
+.ct_num_icon {
+    margin-bottom: 10px;
+}
+.ct_num_icon i {
+    font-size: 5vw;
+    vertical-align: middle;
+}
+.ct_num_txt span {
+    margin-bottom: 0;
+    font-size: 7vw !important;
+}
+.ct_mem_box {
+    margin-bottom: 40px;
+    width: 50%;
+}
+.ct_contact_wrap .col-left, .ct_contact_wrap .col-right {
+    width: 100%;
+}
+.ct_contact_wrap .col-left {
+    padding: 0;
+}
+.ct_contact {
+    padding: 0 0 2rem;
+}
+.slick-dots li {
+    margin: 0 !important;
+}
+.slick-dots li button:before {
+    font-size: 10px !important;
+}
+.brand_desc, .resource_desc, .res_desc {
+    padding: 0 20px;
+}
+.res_item, .res_pl_item {
+    width: 100%;
+}
+.detail_wrap .detail_btn_wrap {
+    width: 90%;
+}
+.detail_wrap .detail_btn_demo a, .detail_wrap .detail_btn_down a {
+    margin: 0;
+}
+
+/* End Content */
+
+/* Start Footer */
+.f_copy {
+    display: none;
+}
+.f_logo {
+    width: 80%;
+}
+#global_footer {
+    padding: 16px 0 10px;
+}
+/* End Footer
+}
+
+@media screen and (max-width: 640px){ 
+
+/* Start Header */
+.h_intro h1 {
+    line-height: 65px;
+    font-size:52px;
+}
+/* End Header */
+ 
+/* Start Masorny */
+
+.masonry_grid {
+    /*margin: 0 -4.7% 0 0;*/
+}
+.masorny_item {
+    width: 45%;
+    margin: 0 2.5% 5% 2.5%;
+}
+/* End Masorny */ 
+    
+/* Start Popup Content */
+#show_popup {
+    width: 95%;
+}
+.wrap_live_btn {
+    display: block;
+    margin: 20px 0 0 0;
+}
+.wrap_buy_btn {
+    display: block;
+    margin: 5px 0 0 0;
+}
+/* End Popup Content */    
+
+/* Start Content */
+.detail_btn_demo, .detail_btn_down {
+    padding: 0 10px;
+}
+.detail_wrap .detail_btn_wrap {
+    width: 104%;
+}
+/* End Content */
+
+}
+
+@media screen and (max-width: 468px){ 
+
+/* Start Header */
+.h_intro h1 {
+    line-height: 12vw;
+    font-size:11vw;
+}
+.h_intro_txt {
+    font-size:14px;
+    margin: 10px 0 0;
+}
+/* End Header */
+  
+/* Start Masorny */
+.masonry_grid {
+    margin: 0 0 0 0;
+}
+.masorny_item {
+    position: initial !important;
+    margin: 0 2.5% 10% 2.5%;
+    width: 95%;
+}
+/* End Masorny */  
+
+/* Start Popup Content */
+.wrap_info_name {
+    width: 100%;
+}
+.wrap_info_price {
+    text-align: center;
+    width: 100%;
+}
+.wrap_info_value {
+    display: block;
+}
+.wrap_select {
+    float:none;
+}
+/* End Popup Content */  
+ 
+/* Start Content */
+#contents {
+    padding-bottom: 35px;
+}
+.isotope_grip {
+    margin-right: 0;
+}
+.isotope_item {
+    margin-bottom: 30px;
+    width: 100%;
+}
+.h_intro_detail {
+    padding: 90px 0 37px;
+}
+.h_intro_detail h1 {
+    line-height: 50px;
+}
+.isotope_all {
+    display: none;
+}
+.isotope_button, .h2_line h2, .h2_line_part h2 {
+    font-size: 6vw;
+}
+.ct_serv_list, .ct_fk_list {
+    margin-bottom: 4rem;
+}
+.ct_serv_box {
+    width: 100%;
+}
+.ct_serv_txt {
+    text-align: center;
+}
+.ct_serv_box h4 {
+    text-align: center;
+}
+.slick-dots {
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.ct_mem_box {
+    padding: 0;
+    width: 100%;
+}
+.ct_mem_box:last-child {
+    margin-bottom: 0;
+}
+.ct_num_txt {
+    font-size: 3vw;
+}
+.ct_num_icon i {
+    font-size: 5.8vw;
+}
+.ct_num_txt span {
+    font-size: 8vw !important;
+}
+.ct_intro_txt {
+    padding: 0 0 2rem;
+}
+.ct_mem_name {
+    left: 0;
+    right: 0;
+}
+.brand_desc, .resource_desc, .res_desc {
+    padding: 0 0px;
+    text-align: left;
+} 
+.brand_item {
+    width: 100%;
+}
+.tabs li {
+    margin: 0;
+    width: 100%;
+}
+.tabs h3 a {
+    width: 100%;
+}
+.res_item_info {
+    width: 100%;
+}
+.res_pl_item_info {
+    padding: 0;
+    width: 100%;
+}
+.res_item_photo, .res_pl_item_photo {
+    padding: 0;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.res_item_photo img, .res_pl_item_photo img {
+    margin: auto;
+}
+.detail_btn_demo {
+    margin-bottom: 20px;
+}
+.detail_btn_demo, .detail_btn_down {
+    float: left !important; 
+    width: 100% !important;
+    padding: 0 !important;
+}
+.detail_wrap .detail_btn_demo a, .detail_wrap .detail_btn_down a {
+    max-width: 100%;
+}
+.detail_wrap .detail_btn_wrap {
+    width: 100%;
+}
+/* End Content */ 
+ 
+/* Start Main Img */
+.h_intro_part {
+    padding: 130px 0 47px;
+}
+.h_intro_part h1 {
+    line-height: 50px;
+    font-size: 12vw;
+}
+
+/* End Main Img */ 
+ 
+/* Start Footer */
+#global_footer {
+    background: transparent;
+}
+.f_logo {
+    display: none !important;
+}
+.f_phone {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 39px;
+    z-index: 99999;
+}
+.f_phone i {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    position: static;
+    padding: 11px;
+    font-size: 16px;
+}  
+.f_phone a {
+    display: block;
+}
+.f_tel {
+    float: left;
+    width: 50%;
+}
+.f_sms {
+    background: #6d42d0;
+    float: right;
+    padding: 1px 0;
+    width: 50%;
+}
+.f_tel_txt {
+    display: inline;
+    padding: 0 5px;
+    vertical-align: 1px;
+    letter-spacing: 1px;
+}  
+.f_sms_txt {
+    display: inline;
+    font-size: 16px;
+    padding: 0 5px;
+    vertical-align: -1px;
+    letter-spacing: 1px;
+}
+/* End Footer */ 
+}

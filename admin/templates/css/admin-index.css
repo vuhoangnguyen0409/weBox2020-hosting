@@ -1,0 +1,241 @@
+/*
+Style admin/index
+*/
+
+* {
+    box-sizing: border-box;
+}
+.col-3 {
+    width: 33.33%;
+}
+.bg-blue {
+    background: #1676fb !important;
+}
+.bg-yellow {
+    background: #f4bd0e !important;
+}
+.bg-pink {
+    background: #ff63a5 !important;
+}
+.bg-green {
+    background: #1ee0ac !important;
+}
+.flex {
+    display: flex;
+}
+
+.justify--space-between {
+    justify-content: space-between;
+}
+
+.justify--center {
+    justify-content: center;
+}
+
+.listing .inner {
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: inherit !important;
+}
+
+.listing .inner a {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    background: #fff5b1;
+    color: #fff;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-size: 22px;
+    position: relative;
+}
+
+.listing .inner p { 
+    margin: 0;
+    width: 100%;
+}
+
+.listing .inner a i {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.listing .inner a span {
+    padding-left: 10px;
+}
+
+.listing .inner a:first-child {
+    color: #000;
+}
+
+.listing .inner a:nth-child(2) {
+    background-color: #ff0000;
+}
+
+.listing .inner a:nth-child(3) {
+    background-color: #0000ff;
+}
+
+.listing .inner a:nth-child(4) {
+    background-color: #a14242;
+}
+
+.listing .inner a:nth-child(5) {
+    background-color: #1d972e;
+}
+
+.listing .inner a:nth-child(6) {
+    background-color: #151c16;
+}
+
+.listing .inner a:nth-child(7) {
+    background-color: #a0a9a1;
+}
+
+.listing .inner a:nth-child(8) {
+    background-color: #1fe33b;
+}
+
+/* Animation*/
+/*
+.listing .inner a::before,
+.listing .inner a::after,
+.listing .inner p::before,
+.listing .inner p::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #fff;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    z-index: 10;
+    top: 5px;
+}
+
+.listing .inner p::before,
+.listing .inner p::after {
+    top: auto;
+    bottom: 5px;
+}
+
+.listing .inner a::before {
+    transition-delay: .6s;
+    height: 1px;
+    left: 5px;
+}
+
+.listing .inner a::after {
+    transition-delay: .4s;
+    width: 1px;
+    right: 5px;
+}
+
+.listing .inner p::before {
+    transition-delay: .2s;
+    height: 1px;
+    right: 5px;
+}
+
+.listing .inner p::after {
+    width: 1px;
+    left: 5px;
+}
+
+.listing .inner a:hover::before {
+    width: calc(100% - 10px);
+    transition-delay: .1s;
+}
+
+.listing .inner a:hover::after {
+    height: calc(100% - 10px);
+    transition-delay: .3s;
+}
+
+.listing .inner a:hover p::before {
+    width: calc(100% - 10px);
+    transition-delay: .5s;
+}
+
+.listing .inner a:hover p::after {
+    height: calc(100% - 10px);
+    transition-delay: .7s;
+}
+*/
+.box-data {
+    padding: 15px;
+    min-width: 350px;
+}
+.box-data-inner {
+    background: #fff;
+    border: 1px solid #dbdfea;
+    border-radius: 5px;
+}
+.data-user li, .data-comment li {
+    padding: 20px;
+    border-bottom: 1px solid #dbdfea;
+    display: inline-block;
+    width: 100%;
+}
+.data-user li:last-child, .data-comment li:last-child {
+    border-bottom: none;
+}
+.data-user li .i-avatar, .data-comment li .i-avatar {
+    float: left;
+    padding: 13px;
+    background: #798bff;
+    color: #fff;
+    border-radius: 50%;
+}
+.data-user .tit, .data-comment .tit {
+    color: #364a63;
+    font-size: 16px;
+    font-weight: 600;
+}
+.view-all {
+    float: right;
+    color: #798bff;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.view-all:hover {
+    color: #465fff;
+}
+.data-user .info, .data-comment .info {
+    float: left;
+    padding-left: 15px;
+    line-height: 21px;
+}
+.data-user .info span, .data-comment .info span {
+    display: block;
+}
+.data-comment .info .comment {
+    font-size: 13px;
+    white-space: nowrap;
+}
+.data-user .name, .data-comment .name {
+    color: #364a63;
+    font-size: 14px;
+    font-weight: 500;
+}
+.data-user .email, .data-comment .email {
+    color: #8094ae;
+    font-size: 11px;
+}
+#admin-home {
+    background: transparent;
+}
+@media only screen and (min-width: 769px) {
+
+    .listing .inner {
+        max-width: 600px;
+        margin: auto;
+    }
+
+}

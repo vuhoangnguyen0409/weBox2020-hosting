@@ -1,0 +1,25 @@
+.popular_wrap {
+    display: inline-block;
+    width: 100%;
+}
+.popular_wrap .h3_line {
+    border-bottom: 1px solid #ddd;
+    font-size: 36px;
+    font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+    text-align: left;
+    padding-bottom: 10px;
+    margin: 60px 0 15px;
+}
+.popular_box {
+    margin: 0 -20px;
+}
+.popular_item {
+    float: left;
+    width: 33.33%;
+    padding: 20px;
+}
+.popular_item .h4_line {
+    font-size: 22px;
+    font-weight: 300;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

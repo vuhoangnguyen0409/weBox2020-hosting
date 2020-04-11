@@ -1,0 +1,44 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "nguyen.daiha@yahoo.com"; // this is your Email address
+    $from = $_POST['useremail']; // this is the sender's Email address
+    $name = $_POST['username'];
+    $phone = $_POST['userphone'];
+    $service = $_POST['userservice'];
+    $subject = "Đăng Ký Dịch Vụ";
+    $subject2 = "Đăng Ký Dịch Vụ (Copy)";
+    $message = $name . " đăng ký dịch vụ :" . $service . "\n\n" . " Điện Thoại :" . $phone . "\n\n" . $_POST['message'];
+    $message2 = $name . " đăng ký dịch vụ ( copy ) :" . $service . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
+<div class="dk-shop-wrap">
+
+    <h2 class="title">ĐĂNG KÝ DỊCH VỤ</h2>
+
+    <form action="" class="dk-shop-form">
+
+        <select name="userservice" class="select">
+          <option value="NT">Chụp Hình Nền Trắng</option>
+          <option value="CT">Chụp Hình Concept</option>
+          <option value="3D">Chụp Hình Ghost 3D</option>
+          <option value="LB">Chụp Hình LookBook</option>
+        </select>
+
+        <input class="name" name="username" type="text" placeholder="Họ Tên *" required="true"/>
+        <input class="email" name="useremail" type="email" placeholder="Email *" required="true"/>
+        <input class="phone" name="userphone" type="tel" placeholder="Điện Thoại *" required="true" />
+        <textarea class="txtnote" name="usernote" rows="4" placeholder="Nội dung yêu cầu..."> </textarea>
+        <button class="submit" name="submit" type="submit" value="Hoàn Tất">Hoàn Tất</button>
+        <p class="note"> Dùng thử <em>miễn phí</em> - Hoàn tiền trong <em>7 ngày</em></p>
+    </form>
+
+</div>
+
