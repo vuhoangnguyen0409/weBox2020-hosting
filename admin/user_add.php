@@ -52,7 +52,7 @@ if (isset($_POST["btnUserAdd"])) {
     AUTHOR : NGUYEN DAI HA & VU HOANG NGUYEN
     WEBSITE: WWW.THIETKEWEBPHUQUOC.COM
 -->
-<?// Gọi phần đầu giao diện
+<?php // Gọi phần đầu giao diện
 require('templates/header_default.php');?>
 
 <body id="admin-page">
@@ -75,14 +75,14 @@ require('templates/header_default.php');?>
 
                 <!-- Start Right Content-->
                 <div class="content">
-                    <form class="form" action="<?echo $_SERVER["PHP_SELF"]?>" method="post">
-                        <?if (ErrorHandler::hasError()) {?>
-                                <div class="error_msg"><?echo ErrorHandler::getError()?></div>
-                        <?}?>
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+                        <?php if (ErrorHandler::hasError()) {?>
+                                <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
+                        <?php }?>
                         <div class="input-group">
                             <label>Tài Khoản</label>
                             <div class="input-item">
-                                <input type="text" name="txtUser"<? if (isset($_POST["txtUser"])) {?> value="<?htmlspecialchars($_POST["txtUser"])?>" <?}?>/>
+                                <input type="text" name="txtUser"<?php  if (isset($_POST["txtUser"])) {?> value="<?php htmlspecialchars($_POST["txtUser"])?>" <?php }?>/>
 
                             </div>
                         </div>
@@ -145,7 +145,7 @@ require('templates/header_default.php');?>
                                 <input type="submit" name="btnUserAdd" value="Thêm Thành Viên" />
                             </div>
                         </div>
-                        
+
                     </form>
                 </div><!-- Start Right Content -->
             </div>

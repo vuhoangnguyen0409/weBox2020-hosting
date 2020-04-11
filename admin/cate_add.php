@@ -50,16 +50,16 @@ require('templates/header_default.php');
 
                 <!-- Start Right Content-->
                 <div class="content cate-page">
-                        <form  class="form" action="<?$_SERVER["PHP_SELF"]?>" method="post">
-                            <?if (ErrorHandler::hasError()) {?>
+                        <form  class="form" action="<?php $_SERVER["PHP_SELF"]?>" method="post">
+                            <?php if (ErrorHandler::hasError()) {?>
                                 <div class="input-group">
-                                    <div class="error_msg"><?=ErrorHandler::getError()?></div>
+                                    <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
                                 </div>
-                            <?}?>
+                            <?php }?>
                             <div class="input-group">
                                 <label>Tên danh mục:</label>
                                 <div class="input-item">
-                                    <input type="text" name="txtCate"<?if (isset($_POST["txtCate"])) {?> value="<?= htmlspecialchars($_POST["txtCate"])?>" <?}?>/>
+                                    <input type="text" name="txtCate"<?php if (isset($_POST["txtCate"])) {?> value="<?php echo htmlspecialchars($_POST["txtCate"])?>" <?php }?>/>
                                 </div>
                             </div>
                             <div class="input-group">

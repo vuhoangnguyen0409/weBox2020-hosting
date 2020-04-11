@@ -18,7 +18,7 @@ loadLibs(array("none_uni_alias.php"));
 
         <div class="clearfix h_tab">
 
-            <div class="h_logo "> 
+            <div class="h_logo ">
                 <a class="h_logo_favi" href="<?php echo MYDOMAIN;?>index.html">W</a>
                 <a class="h_logo_txt" href="<?php echo MYDOMAIN;?>index.html">WebBox</a>
 
@@ -36,7 +36,7 @@ loadLibs(array("none_uni_alias.php"));
 
                         <li> <a href="<?php echo MYDOMAIN;?>index.html">Trang Chủ</a> </li>
 						<?php
-		
+
 						//Kết nối CSDL
 						require("libs/connect_db.php");
 
@@ -72,7 +72,7 @@ loadLibs(array("none_uni_alias.php"));
                 </nav>
 
             </div>
-            
+
             <div class="f_callback">
                 <form id="f_callback" action="">
                     <input class="f_input_phone" type="tel" name="phone" pattern="[0-9]" required placeholder="Nhập số Phone của bạn">
@@ -80,7 +80,7 @@ loadLibs(array("none_uni_alias.php"));
                     <label>Tư vấn viên sẽ liên hệ ngay khi nhận được yêu cầu gọi lại từ Quý Khách</label>
                 </form>
             </div>
-            
+
             <!--<div class="h_contact">
                 <a class="h_ct_phone" href="tel:0918192395"><i class="fa fa-mobile" aria-hidden="true"></i>0918.19.23.95</a>
                 <p class="h_ct_copy">&#64; WebBox Digital</p>
@@ -91,7 +91,7 @@ loadLibs(array("none_uni_alias.php"));
 
         <!-- End Header Menu -->
 
-        
+
 
     </div>
 
