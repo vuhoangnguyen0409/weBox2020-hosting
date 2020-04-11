@@ -1,10 +1,10 @@
-<?php define('MYDOMAIN', 'http://www.chuphinhphuquoc.com/');?>
+
 
 <footer id="global_footer">
     <a class="f-price" href="pop-bang-gia.html" id="manual-ajax"><i class="fa fa-tags" aria-hidden="true"></i> Bảng Giá</a>
     <a href="#" class="f-top"> > </a>
     <!--<div class="f_box">
-    
+
         <div class="f_logo">WEBBOX <h5 class="f_slogan">Thế Giới Web Chuyên Nghiệp</h5></div>
         <div class="f_copy">Copyright &copy 2017 - Design by <span>WEBBOX</span>
             <div id="backgroundaudio">
@@ -16,7 +16,7 @@
         </div>
 
         <div class="f_phone">
-            <a class="f_tel" href="tel:0918192395"><i class="fa fa-phone" aria-hidden="true"><span class="f_tel_txt"> Call </span></i></a> 
+            <a class="f_tel" href="tel:0918192395"><i class="fa fa-phone" aria-hidden="true"><span class="f_tel_txt"> Call </span></i></a>
             <span class="f_pc_tel"><a class="f_pc_tel_txt">0918192395</a></span>
             <a class="f_sms" href="sms:0918192395"><i class="fa fa-envelope" aria-hidden="true"><span class="f_sms_txt"> Send SMS </span></i></a>
         </div>
@@ -40,7 +40,7 @@
     <!-- Add meanmenu files -->
     <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/meanmenu/jquery.meanmenu.min.js"></script>
     <!-- Add Number Animate files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/animatenumber/jquery.animateNumber.min.js"></script>  
+    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/animatenumber/jquery.animateNumber.min.js"></script>
     <!-- Add Menu SP files -->
     <link href="<?php echo MYDOMAIN;?>js/meanmenu/meanmenu.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Add Images Loader -->
@@ -68,7 +68,7 @@
     <!-- Add Auto Load -->
     <!--<script type="text/javascript" src="<?php echo MYDOMAIN;?>js/scroll/jquery.jscroll.js"></script>-->
 
-    
+
     <!-- Add Load Logo-->
     <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/loadgo.min.js"></script>
     <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/function.js"></script>
@@ -81,15 +81,15 @@
 
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    
+
 
       ga('create', 'UA-101860334-1', 'auto');
 
       ga('send', 'pageview');
-	  
 
 
-    
+
+
 
     </script>
 <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/greensock/TweenMax.min.js"></script>
@@ -100,7 +100,7 @@
 				triggerAtCenter: false,
 				playoutAnimations: true
 			});
-		});			
+		});
 </script>
 
 

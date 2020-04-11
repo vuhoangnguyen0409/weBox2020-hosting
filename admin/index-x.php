@@ -58,11 +58,11 @@ $listcomment = $comment->listAllComment();
 
 <body id="admin-page">
     <div class="left-admin-header">
-        <?php include('../inc/admin-left-menu.php')?>
+        <?php include('templates/admin-left-menu.php')?>
     </div>
 
     <div class="right-admin-header">
-        <?php include('../inc/admin-top-menu.php')?>
+        <?php include('templates/admin-top-menu.php')?>
 
         <!-- Start Right Content Wrap-->
         <div class="ct-wrap">

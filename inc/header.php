@@ -1,8 +1,3 @@
-<?php define('MYDOMAIN', 'http://www.chuphinhphuquoc.com/');
-    //$rootPath = $_SERVER['DOCUMENT_ROOT'];
-    //include($rootPath.'/inc/thecube.php');
-?>
-
 
 <?php
 // Lấy cấu hình site
