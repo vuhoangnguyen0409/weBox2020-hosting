@@ -9,9 +9,9 @@ require('../phpnc75_platform.php');
 loadLibs(array("check_admin.php"));
 
 // Chuẩn bị thông tin cho giao diện
-$admin_function = 'Quản Lý Bản Tin';
+$admin_function = 'Quản Lý Danh Mục';
 $custon_menu = array(
-    'news_add.php' => 'Thêm tin'
+    'label_add.php' => 'Thêm danh mục'
 );
 
 /** Thuật toán phân trang **/
@@ -24,16 +24,15 @@ if (isset($_GET["page"])) {
 // Công thức để xác định vị trí record bắt đầu lấy ra trong CSDL
 $startRecord = $rowPerPage * ($currentPage - 1);
 
-// Load danh sách bản tin
-$news = new News();
+// Load dữ liệu danh mục
+$label = new Label();
 // Khai báo phân trang
-$totalRecord = $news->totalNews();
+$totalRecord = $label->totalLabel();
 $totalPage =  ceil($totalRecord / $rowPerPage);
 $limit = 'limit ' .$startRecord. ', '.$rowPerPage;
-// Liet ke cate
-$newslist = $news->listAllNews($limit);
-$total_news = $news->totalNews();
-
+// Liet ke label
+$labelList = $label->listAllLabel($limit);
+$totalLabel = $label->totalLabel();
 
 // Nội dung trang
 require('templates/header_default.php');
@@ -45,24 +44,24 @@ require('templates/header_default.php');
     </div>
 
     <div class="right-admin-header">
-        <?php  include('templates/admin-top-menu.php')?>
+        <?php include('templates/admin-top-menu.php')?>
 
         <!-- Start Right Content Wrap-->
         <div class="ct-wrap">
             <div class="ct-wrap-inner">
                 <div class="breadcrumb">
                     <div class="bread-tit">
-                        <h3 class="h3-line">Bài Viết</h3>
-                        <p class="num-count">Bạn hiện đang có : <em><?php echo $total_news?></em> Bài Viết</p>
+                        <h3 class="h3-line">Thẻ</h3>
+                        <p class="num-count">Bạn hiện đang có : <em><?php echo $totalLabel?></em> Thẻ</p>
                     </div>
                     <div class="bread-btn">
                         <div class="btn-down"><a href=""><i class="fa fa-download"></i> Tải xuống</a></div>
-                        <div class="btn-add"><a href="=/../admin/news_add.php">+</a></div>
+                        <div class="btn-add"><a href="=/../label_add.php">+</a></div>
                     </div>
                 </div>
 
                 <!-- Start Right Content-->
-                <div class="content tb-data news-page">
+                <div class="content tb-data">
                     <div class="ct-panel">
                         <div class="option-box">
 
@@ -98,39 +97,26 @@ require('templates/header_default.php');
                     <table class="list-table">
                         <tr class="list-heading">
                             <th class="check-all"><input type="checkbox" id="checkall" /><label class="checkmask"></label></th>
-                            <th class="data-col tit-col">Tiêu Đề</th>
-                            <th class="data-col user-col">Tác Giả</th>
-                            <th class="data-col category-col">Chuyên Mục</th>
-                            <th class="data-col time-col">Thời Gian</th>
+                            <th class="data-col tit-col">Tên Thẻ</th>
+                            <th class="data-col link-col">Liên Kết</th>
                             <th class="data-col action-col">Tác Vụ</th>
+
                         </tr>
 
-                        <?php if (empty($newslist)) {?>
+                        <?php if (empty($labelList)) {?>
                         <tr class="list-data">
                             <td colspan="4" class="text-center">Chưa có dữ liệu</td>
                         </tr>';
                         <?php } else {
                         $stt = $startRecord;
-                        foreach ($newslist as $news_item) {?>
+                        foreach ($labelList as $label_item) {?>
                             <tr class="list-data">
                                 <td class="check-all"><input type="checkbox" id="checkall" /><label class="checkmask"></label></td>
-                                <td class="tit-data"><?php echo $news_item["news_title"]?></td>
-                                <td class="user-data"><?php echo $news_item["username"]?></td>
-                                <td class="category-data"><?php echo $news_item["cate_name"]?></td>
-                                <td class="date-data">
-                                    <p class="date"><?php echo date("d/m/Y", $news_item["news_date"])?></p>
-                                    <p class="publish"><?php switch ($news_item["news_public"]) {
-                                            case "Y":
-                                                echo 'Đã xuất bản';
-                                                break;
-                                            case "N":
-                                                echo 'Bản nháp';
-                                                break;
-                                        }?></p>
-                                </td>
+                                <td class="tit-data"><?php echo $label_item["label_name"]?></td>
+                                <td class="num-data"><?php echo $label_item["total_detail"]?> <span>Bài Viết</span></td>
                                 <td class="action-data">
-                                    <a href="news_edit.php?id=<?php echo $news_item["newsid"]?>"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
-                                    <a href="news_del.php?id=<?php echo $news_item["newsid"]?>" onclick="return xacnhan('Bạn có chắc muốn xóa bản tin có ID là: <?php echo $news_item["newsid"]?>');"><i class="fa fa-trash"></i></a>
+                                    <a href="label_edit.php?id=<?php echo $label_item["labelid"]?>"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                                    <a href="label_del.php?id=<?php echo $label_item["labelid"]?>" onclick="return xacnhan('Bạn có chắc muốn xóa danh mục có ID là: <?php echo $label_item["labelid"]?>');"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                     <?php     }
@@ -195,7 +181,7 @@ require('templates/header_default.php');
                         </div>
                         <div class="bread-btn">
                             <div class="btn-down"><a href=""><i class="fa fa-download"></i> Tải xuống</a></div>
-                            <div class="btn-add"><a href="=/../admin/news_add.php">+</a></div>
+                            <div class="btn-add"><a href="=/../label_add.php">+</a></div>
                         </div>
                     </div>
                     <?php }?>
@@ -210,4 +196,4 @@ require('templates/header_default.php');
 
 
 
-    <?php  require('templates/footer_default.php');?>
+    <?php require('templates/footer_default.php');?>

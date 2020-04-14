@@ -119,7 +119,7 @@ require('templates/header_default.php');
                                 <td class="tit-data"><?php echo $detail_item["detail_name"]?></td>
                                 <td class="user-data"><?php echo $detail_item["username"]?></td>
                                 <td class="category-data"><?php echo $detail_item["cate_name"]?></td>
-                                <td class="tag-data"><?php echo $detail_item["tag_name"]?></td>
+                                <td class="tag-data"><?php echo $detail_item["label_name"]?></td>
                                 <td class="date-data">
                                     <p class="date"><?php echo date("d/m/Y", $detail_item["detail_date"])?></p>
                                     <p class="publish"><?php switch ($detail_item["status"]) {

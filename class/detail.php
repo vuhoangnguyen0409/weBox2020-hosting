@@ -18,7 +18,7 @@ class Detail extends Database {
     protected $detailStatus;
     protected $detailCate;
 	protected $detailPoster;
-    protected $detailTag;
+    protected $detailLabel;
 
     /**
      * Set name for a detail item
@@ -230,23 +230,23 @@ class Detail extends Database {
     }
 
     /**
-     * Set tag id for a detail item
+     * Set label id for a detail item
      * =============================
-     * @param int detailTag
+     * @param int detaillabel
      **/
-    public function setDetailTag($detailTag) {
-        if (!empty($detailTag)) {
-            $this->detailTag = (int)$detailTag;
+    public function setDetailLabel($detailLabel) {
+        if (!empty($detailLabel)) {
+            $this->detailLabel = (int)$detailLabel;
         }
     }
 
     /**
-     * Get tag id of a detail item
+     * Get label id of a detail item
      * ============================
      * @return string
      **/
-    public function getdetailTag() {
-        return $this->detailTag;
+    public function getdetailLabel() {
+        return $this->detailLabel;
     }
 
     /**
@@ -267,8 +267,8 @@ class Detail extends Database {
      * @return array
      **/
     public function listAllDetail($limit=null) {
-        //$sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, tag_name from detail left join category on detail.cateid=category.cateid left join user on detail.userid=user.userid left join tag on detail.tagid=tag.tagid order by detailid DESC';
-        $sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, tag_name from detail left join user on detail.userid=user.userid left join category on detail.cateid=category.cateid left join tag on detail.tagid=tag.tagid order by detailid DESC';
+        //$sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, label_name from detail left join category on detail.cateid=category.cateid left join user on detail.userid=user.userid left join label on detail.labelid=label.labelid order by detailid DESC';
+        $sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, label_name from detail left join user on detail.userid=user.userid left join category on detail.cateid=category.cateid left join label on detail.labelid=label.labelid order by detailid DESC';
         if (!empty($limit)) {
             $sql .= ' '.$limit;
         }
@@ -324,9 +324,9 @@ class Detail extends Database {
         $keywords = addslashes($this->SeoKeywords);
         $description = addslashes($this->SeoDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
-        //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, tagid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "d", "e", "f", 20, "Y", 1, 2, 2)';
+        //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "d", "e", "f", 20, "Y", 1, 2, 2)';
 
-        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, tagid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ', ' .$this->detailTag. ')';
+        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ', ' .$this->detaillabel. ')';
         $this->query($sql);
     }
 
@@ -349,7 +349,7 @@ class Detail extends Database {
         $this->detailStatus = $data["status"];
         $this->detailPoster = $data["userid"];
         $this->detailCate = $data["cateid"];
-        $this->detailTag = $data["tagid"];
+        $this->detailLabel = $data["labelid"];
     }
 
     /**
@@ -385,7 +385,7 @@ class Detail extends Database {
         $keywords = addslashes($this->SeoKeywords);
         $descritption = addslashes($this->SeoDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
-        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', tagid=' .$this->detailTag. ' where detailid='.$id;
+        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
         $this->query($sql);
     }
 

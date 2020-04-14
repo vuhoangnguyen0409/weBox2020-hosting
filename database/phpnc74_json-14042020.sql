@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2020 at 03:00 AM
+-- Generation Time: Apr 14, 2020 at 04:26 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `phpnc74_json`
+-- Database: `phpnc74_json-hosting`
 --
 
 -- --------------------------------------------------------
@@ -30,29 +30,32 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `cateid` int(10) UNSIGNED NOT NULL,
-  `cate_name` varchar(100) NOT NULL
+  `cate_name` varchar(100) NOT NULL,
+  `parent_id` int(10) DEFAULT NULL,
+  `level` int(10) DEFAULT NULL,
+  `cate_img` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`cateid`, `cate_name`) VALUES
-(1, 'Sự kiện'),
-(2, 'Xã hội'),
-(3, 'Thế giới'),
-(4, 'Thể thao'),
-(5, 'Giáo dục'),
-(6, 'Kinh doanh'),
-(7, 'Văn hóa'),
-(8, 'Giải trí'),
-(9, 'Pháp luật'),
-(10, 'Sức khỏe'),
-(11, 'Du lịch'),
-(12, 'Sức mạnh số'),
-(13, 'Xe'),
-(15, 'Chuyện lạ'),
-(16, 'Khẩu trang');
+INSERT INTO `category` (`cateid`, `cate_name`, `parent_id`, `level`, `cate_img`) VALUES
+(1, 'web Onepage', 0, 1, NULL),
+(2, 'Web bán hàng', 0, 1, NULL),
+(3, 'Web doanh nghiệp', 0, 1, NULL),
+(4, 'Du lịch', 1, 2, NULL),
+(5, 'Ẩm Thực', 1, 2, NULL),
+(6, 'Thời Trang', 1, 2, NULL),
+(7, 'Du Lịch', 1, 2, NULL),
+(8, 'Thiết kế', 2, 2, NULL),
+(9, 'Ẩm Thực', 2, 2, NULL),
+(10, 'Kiến trúc', 2, 2, NULL),
+(11, 'Thời trang', 2, 2, NULL),
+(12, 'Marketing', 3, 2, NULL),
+(13, 'Kiến trúc', 3, 2, NULL),
+(14, 'In Ấn', 3, 2, NULL),
+(15, 'Giáo dục', 3, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -64,20 +67,65 @@ CREATE TABLE `comments` (
   `commentid` int(10) UNSIGNED NOT NULL,
   `comment_content` text NOT NULL,
   `newsid` int(10) UNSIGNED NOT NULL,
-  `userid` int(10) UNSIGNED NOT NULL
+  `userid` int(10) UNSIGNED NOT NULL,
+  `comment_date` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`commentid`, `comment_content`, `newsid`, `userid`) VALUES
-(1, 'Hello', 37, 2),
-(2, 'Goodbye', 37, 1),
-(3, 'Goodbye\nmy love', 37, 1),
-(4, 'Hello<br />\neverybody', 37, 1),
-(5, 'Jackie Do quá giỏi', 37, 1),
-(6, 'to @admin:<br />\nAdmin à...<br />\nEm bảo anh đi đi<br />\nSao anh không đứng lại<br />\nEm bảo anh đừng đợi<br />\nSao anh vội đi ... mất tiêu', 37, 2);
+INSERT INTO `comments` (`commentid`, `comment_content`, `newsid`, `userid`, `comment_date`) VALUES
+(4, 'Hello<br />\neverybody', 4, 1, 1586058656),
+(7, 'hay', 2, 17, 1586058656);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail`
+--
+
+CREATE TABLE `detail` (
+  `detailid` int(10) NOT NULL,
+  `detail_name` varchar(255) NOT NULL,
+  `detail_intro` varchar(255) NOT NULL,
+  `SEO_keywords` varchar(255) NOT NULL,
+  `SEO_description` varchar(255) NOT NULL,
+  `detail_img` varchar(255) NOT NULL,
+  `detail_content` longtext NOT NULL,
+  `detail_date` int(50) NOT NULL,
+  `status` char(1) NOT NULL,
+  `userid` int(10) NOT NULL,
+  `cateid` int(10) NOT NULL,
+  `labelid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `detail`
+--
+
+INSERT INTO `detail` (`detailid`, `detail_name`, `detail_intro`, `SEO_keywords`, `SEO_description`, `detail_img`, `detail_content`, `detail_date`, `status`, `userid`, `cateid`, `labelid`) VALUES
+(2, 'Gforces VN', 'web dealer', 'abc', 'def', '', 'qwertyu', 0, 'Y', 1, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `label`
+--
+
+CREATE TABLE `label` (
+  `labelid` int(10) NOT NULL,
+  `label_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `label`
+--
+
+INSERT INTO `label` (`labelid`, `label_name`) VALUES
+(1, 'giàm giá 5%'),
+(2, 'giảm giá 20%'),
+(3, 'giảm giá 90%');
 
 -- --------------------------------------------------------
 
@@ -173,20 +221,21 @@ CREATE TABLE `user` (
   `userid` int(10) UNSIGNED NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` char(32) NOT NULL,
-  `level` int(1) UNSIGNED NOT NULL COMMENT '1: Admin - 2: Member'
+  `level` int(1) UNSIGNED NOT NULL COMMENT '1: Admin - 2: Member',
+  `email` varchar(255) DEFAULT NULL,
+  `tel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userid`, `username`, `password`, `level`) VALUES
-(1, 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 1),
-(2, 'jackiedo', '827ccb0eea8a706c4c34a16891f84e7b', 2),
-(3, 'kenny', '827ccb0eea8a706c4c34a16891f84e7b', 2),
-(7, 'richard', '827ccb0eea8a706c4c34a16891f84e7b', 1),
-(11, 'nguyen', '9a3bdc603c940a18467d167af15d4c8c', 1),
-(14, 'hahaha', '5d93ceb70e2bf5daa84ec3d0cd2c731a', 2);
+INSERT INTO `user` (`userid`, `username`, `password`, `level`, `email`, `tel`) VALUES
+(1, 'vuhoangnguyen', '5d93ceb70e2bf5daa84ec3d0cd2c731a', 1, 'vuhoangnguyen49@gmail.com', 974487944),
+(7, 'richard', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'vuhoangnguyen040990@gmail.com', 974487944),
+(11, 'nguyen', '9a3bdc603c940a18467d167af15d4c8c', 1, 'nguyen.vuhoang@gforces.auto', 974487944),
+(16, 'vuhoang', '5d93ceb70e2bf5daa84ec3d0cd2c731a', 1, 'abc@gmail.com', 99009),
+(20, 'daiha', '200820e3227815ed1756a6b531e7e0d2', 2, 'nguyen.daiha@yahoo.com', 964602940);
 
 --
 -- Indexes for dumped tables
@@ -203,6 +252,18 @@ ALTER TABLE `category`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`commentid`);
+
+--
+-- Indexes for table `detail`
+--
+ALTER TABLE `detail`
+  ADD PRIMARY KEY (`detailid`);
+
+--
+-- Indexes for table `label`
+--
+ALTER TABLE `label`
+  ADD PRIMARY KEY (`labelid`);
 
 --
 -- Indexes for table `news`
@@ -230,13 +291,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cateid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cateid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `commentid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `detail`
+--
+ALTER TABLE `detail`
+  MODIFY `detailid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `label`
+--
+ALTER TABLE `label`
+  MODIFY `labelid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -254,7 +327,7 @@ ALTER TABLE `setting`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

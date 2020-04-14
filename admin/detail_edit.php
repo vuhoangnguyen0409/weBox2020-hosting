@@ -19,14 +19,14 @@ $detail->getDetailInfoById($id);
 // Lấy thông tin danh mục đổ vào listbox
 $cate = new Cate();
 $catelist = $cate->listAllCate();
-$tag = new Tag();
-$taglist = $tag->listAllTag();
+$label = new Label();
+$labeLlist = $label->listAllLabel();
 
 // Sau khi submit
 if (isset($_POST["btnDetailEdit"])) {
     if ($_POST["sltCate"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn danh mục');
-    } elseif ($_POST["sltTag"] == 'none') {
+    } elseif ($_POST["sltLabel"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn thẻ');
     } elseif (empty($_POST["txtName"])) {
         ErrorHandler::setError('Vui lòng nhập tiêu đề');
@@ -54,7 +54,7 @@ if (isset($_POST["btnDetailEdit"])) {
         $detail->setDetailStatus($_POST["rdoPublic"]);
         $detail->setDetailPoster($_SESSION[$prefix."userid"]);
         $detail->setDetailCate($_POST["sltCate"]);
-        $detail->setDetailTag($_POST["sltTag"]);
+        $detail->setDetailLabel($_POST["sltLabel"]);
         // Kiểm tra lỗi upload
         if (!empty($_FILES["fImg"]["name"])) {
             $newdetail = clone $detail;
@@ -236,19 +236,19 @@ echo '
             <div class="input-group">
                 <label>Thẻ:</label>
                 <div class="input-item fixright">
-                    <select name="sltTag">
+                    <select name="sltLabel">
                         <option value="none">Chọn Thẻ</option>';
-                        foreach ($taglist as $tag_item) {
+                        foreach ($labellist as $label_item) {
                             echo '
-                            <option value="' .$tag_item["tagid"]. '"';
-                            if (isset($_POST["sltTag"]) && $_POST["sltTag"] == $tag_item["tagid"]) {
+                            <option value="' .$label_item["labelid"]. '"';
+                            if (isset($_POST["sltLabel"]) && $_POST["sltLabel"] == $label_item["labelid"]) {
                                 echo ' selected="selected"';
                             } else {
-                                if ($detail->getDetailTag() == $tag_item["tagid"]) {
+                                if ($detail->getDetailLabel() == $label_item["labelid"]) {
                                     echo ' selected="selected"';
                                 }
                             }
-                            echo '>' .$tag_item["tag_name"]. '</option>';
+                            echo '>' .$label_item["label_name"]. '</option>';
                         }
                         echo '
                     </select>

@@ -12,14 +12,14 @@ loadLibs(array("check_admin.php", "strip_uni.php", "fix_upload_name.php", "get_e
 $cate = new Cate();
 $catelist = $cate->listAllCate();
 
-$tag = new Tag();
-$taglist = $tag->listAllTag();
+$label = new Label();
+$labelList = $label->listAllLabel();
 
 // Sau khi submit
 if (isset($_POST["btnDetailAdd"])) {
     if ($_POST["sltCate"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn danh mục');
-    } elseif ($_POST["sltTag"] == 'none') {
+    } elseif ($_POST["sltLabel"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn thẻ');
     } elseif (empty($_POST["txtName"])) {
         ErrorHandler::setError('Vui lòng nhập tiêu đề');
@@ -47,7 +47,7 @@ if (isset($_POST["btnDetailAdd"])) {
         $news->setDetailStatus($_POST["rdoPublic"]);
         $news->setDetailPoster($_SESSION[$prefix."userid"]);
         $news->setDetailCate($_POST["sltCate"]);
-        $news->setDetailTag($_POST["sltTag"]);
+        $news->setDetailLabel($_POST["sltLabel"]);
         // Kiểm tra lỗi upload
         if (!$news->uploadDetailImg('fImg', '../data/detail_img')) {
             ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
@@ -197,14 +197,14 @@ require('templates/header_default.php');
                             <div class="input-group">
                                 <label>Thẻ</label>
                                 <div class="input-item fixright">
-                                    <select name="sltTag">
+                                    <select name="sltlabel">
                                         <option value="none">Chọn Thẻ</option>
-                                        <?php foreach ($taglist as $tag_item) {?>
+                                        <?php foreach ($labelList as $label_item) {?>
 
-                                            <option value="<?php echo $tag_item["tagid"]?>"
-                                                <?php if (isset($_POST["sltTag"]) && $_POST["sltTag"] == $tag_item["tagid"]) {?>
+                                            <option value="<?php echo $label_item["labelid"]?>"
+                                                <?php if (isset($_POST["sltLabel"]) && $_POST["sltLabel"] == $label_item["labelid"]) {?>
                                                      selected="selected"
-                                                <?php }?> > <?php echo $tag_item["tag_name"]?>
+                                                <?php }?> > <?php echo $label_item["label_name"]?>
                                             </option>
                                         <?php }?>
                                     </select>
