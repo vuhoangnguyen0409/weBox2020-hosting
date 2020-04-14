@@ -2,7 +2,7 @@
 
 /**
  * Class for working with category on site
- * 
+ *
  * @author Jackie Do
  * @copyright 2014
  * @version 1.0
@@ -10,7 +10,7 @@
 
 class Cate extends Database {
     protected $cateName;
-    
+
     /**
      * Set name for a category
      * =======================
@@ -20,11 +20,11 @@ class Cate extends Database {
         parent::__construct();
         $this->setCateName($cateName);
     }
-    
+
     /**
      * Set name for a category
      * =======================
-     * @param string cateName 
+     * @param string cateName
      **/
     public function setCateName($cateName) {
         if (!empty($cateName)) {
@@ -32,7 +32,7 @@ class Cate extends Database {
             $this->cateName = strip_tags($cateName);
         }
     }
-    
+
     /**
      * Get name of an category
      * =======================
@@ -41,14 +41,14 @@ class Cate extends Database {
     public function getCateName() {
         return $this->cateName;
     }
-    
+
     /**
      * List all category on site
      * =========================
      * @return array
      **/
     public function listAllCate($limit=null) {
-        $sql = 'select category.cateid, cate_name, count(newsid) as total_news from category left join news on category.cateid=news.cateid group by cate_name order by category.cateid desc';
+        $sql = 'select category.cateid, cate_name, count(detailid) as total_detail from category left join detail on category.cateid=detail.cateid group by cate_name order by category.cateid desc';
         if (!empty($limit)) {
             $sql .= ' '.$limit;
         }
@@ -57,9 +57,14 @@ class Cate extends Database {
         while ($row = $this->fetch()) {
             $data[] = $row;
         };
+        //print "<pre>";
+        //print_r($data);
+        //print "</pre>";
+        //die;
         return $data;
+
     }
-    
+
     /**
      * Check if exists category in database
      * ====================================
@@ -73,7 +78,7 @@ class Cate extends Database {
         }
         return true;
     }
-    
+
     /**
      * Insert category information into DBMS
      * =====================================
@@ -88,7 +93,7 @@ class Cate extends Database {
             return false;
         }
     }
-    
+
     /**
      * Get category info from database by id
      * =====================================
@@ -100,7 +105,7 @@ class Cate extends Database {
         $data = $this->fetch();
         $this->cateName = $data["cate_name"];
     }
-    
+
     /**
      * Delete category in database
      * ===========================
@@ -110,7 +115,7 @@ class Cate extends Database {
         $sql = 'delete from category where cateid='.$id;
         $this->query($sql);
     }
-    
+
     /**
      * Edit category information in database
      * =====================================
@@ -126,7 +131,7 @@ class Cate extends Database {
             return false;
         }
     }
-    
+
     /**
      * Count total category in database
      * ================================

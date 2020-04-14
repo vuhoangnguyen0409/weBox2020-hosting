@@ -210,4 +210,4 @@ require('templates/header_default.php');
 
 
 
-    <?php  include('../inc/footer.php');?>
+    <?php  require('templates/footer_default.php');?>

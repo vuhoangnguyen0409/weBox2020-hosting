@@ -216,4 +216,4 @@ $list = $userlist->listAllUser($limit);
 
 
 
-    <?php include('../inc/footer.php');?>
+    <?php require('templates/footer_default.php');?>

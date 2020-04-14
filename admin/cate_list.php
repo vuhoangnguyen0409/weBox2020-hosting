@@ -113,7 +113,7 @@ require('templates/header_default.php');
                             <tr class="list-data">
                                 <td class="check-all"><input type="checkbox" id="checkall" /><label class="checkmask"></label></td>
                                 <td class="tit-data"><?php echo $cate_item["cate_name"]?></td>
-                                <td class="num-data"><?php echo $cate_item["total_news"]?> <span>Bài Viết</span></td>
+                                <td class="num-data"><?php echo $cate_item["total_detail"]?> <span>Bài Viết</span></td>
                                 <td class="action-data">
                                     <a href="cate_edit.php?id=<?php echo $cate_item["cateid"]?>"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
                                     <a href="cate_del.php?id=<?php echo $cate_item["cateid"]?>" onclick="return xacnhan('Bạn có chắc muốn xóa danh mục có ID là: <?php echo $cate_item["cateid"]?>');"><i class="fa fa-trash"></i></a>
@@ -196,4 +196,4 @@ require('templates/header_default.php');
 
 
 
-    <?php include('../inc/footer.php');?>
+    <?php require('templates/footer_default.php');?>

@@ -691,17 +691,48 @@ select:focus {
     border-top-right-radius: 5px;
 }
 .news-page .upload-photo {
+    background: url(/../img/icon/gallery.png) #fff no-repeat center center;
+    background-size: 50px;
     width: 100%;
     position: relative;
     border: 1px solid #dbdfea;
+    min-height: 160px;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
 }
 .news-page .upload-photo:after {
     content: "";
-    display: block;
+    display: none;
     padding-bottom: 100%;
 }
 .news-page .upload-photo input {
     height: 100%;
     position: absolute;
     width: 100%;
+    opacity: 0;
+    z-index: 1;
+}
+.news-page .upload-photo img {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.news-page .note {
+    font-size: 12px;
+    color: #8094ae;
+    margin: 5px 0 0;
+}
+#admin-page .news-page .submit {
+    background: #6576ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    padding: 10px;
 }

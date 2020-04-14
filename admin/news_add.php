@@ -73,10 +73,7 @@ require('templates/header_default.php');
                         <h3 class="h3-line">Thêm Bài Viết</h3>
                         <p class="num-count">Nhập thông tin đầy đủ vào các mục trống</p>
                     </div>
-                    <div class="bread-btn">
-                        <div class="btn-down"><a href=""><i class="fa fa-download"></i> Tải xuống</a></div>
-                        <div class="btn-add"><a href="=/../admin/news_add.php">+</a></div>
-                    </div>
+
                 </div>
 
                 <!-- Start Right Content-->
@@ -85,7 +82,7 @@ require('templates/header_default.php');
                     <form class="form" action="=<?$_SERVER["PHP_SELF"]?>" method="post" enctype="multipart/form-data">
                         <?if (ErrorHandler::hasError()) {?>
                         <div class="input-group">
-                            <div class="error_msg"><?ErrorHandler::getError()?></div>
+                            <div class="error_msg"><?= ErrorHandler::getError()?></div>
                         </div>
                         <?}?>
                         
@@ -93,9 +90,9 @@ require('templates/header_default.php');
                             <div class="input-group">
                                 <label>Tiêu đề</label>
                                 <div class="input-item">
-                                    <input type="text" name="txtTitle"
+                                    <input class="title" type="text" name="txtTitle"
                                     <?if (isset($_POST["txtTitle"])) {?>
-                                        value="<?htmlspecialchars($_POST["txtTitle"])?>"
+                                        value="<?= htmlspecialchars($_POST["txtTitle"])?>"
                                     <?}?>/>
                                 </div>
                             </div>
@@ -126,28 +123,21 @@ require('templates/header_default.php');
                         <div class="ct-right">
                         
                             <div class="input-group">
-                                <label></label>
                                 <div class="input-item">
-                                    <input class="submit" type="submit" name="btnNewsAdd" value="Thêm tin" />
+                                    <input class="submit" type="submit" name="btnNewsAdd" value="Đăng Tin" />
                                 </div>
                             </div>
-                        
-                            <div class="input-group">
-                                <label>Ảnh Đại Diện</label>
-                                <div class="input-item">
-                                    <p class="upload-photo"><input type="file" name="fImg" /></p>
-                                    <p class="note">Nhấp vào để sửa hoặc cập nhật</p>
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <label>Công bố:</label>
-                                <div class="input-item">
-                                    <label><input type="radio" name="rdoPublic" value="Y" checked="checked" /> Có</label>
-                                    <label><input type="radio" name="rdoPublic" value="N" /> Không</label>
-                                </div>
-                            </div>
-
                             
+                            <div class="input-group">
+                                <label>Chế Độ Xem</label>
+                                <div class="input-item">
+                                    <select name="rdoPublic">
+                                        <option value="Y" selected="">Công Khai</option>
+                                        <option value="N">Bản Nháp</option>
+                                    </select>
+                                </div>
+                            </div>
+                                                
                             <div class="input-group">
                                 <label>Chuyên Mục</label>
                                 <div class="input-item fixright">
@@ -166,11 +156,23 @@ require('templates/header_default.php');
                             </div>
                             
                             <div class="input-group">
+                                <label>Ảnh Đại Diện</label>
+                                <div class="input-item">
+                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật</p>
+                                </div>
+                            </div>
+                            
+
+                            
+                            
+                            
+                            <div class="input-group">
                                 <label>SEO Title</label>
                                 <div class="input-item">
                                     <input type="text" name="txtSource"<?
                                     if (isset($_POST["txtSource"])) {?>
-                                        value="<?htmlspecialchars($_POST["txtSource"])?>"
+                                        value="<?= htmlspecialchars($_POST["txtSource"])?>"
                                     <?}?> placeholder="<?=txtTitle?>"/>
                                 </div>
                             </div>
@@ -178,7 +180,7 @@ require('templates/header_default.php');
                             <div class="input-group">
                                 <label>SEO Description</label>
                                 <div class="input-item">
-                                    <textarea name="txtIntro" placeholder="<?=txtDescription?>"><?if (isset($_POST["txtIntro"])) {echo $_POST["txtIntro"];}?></textarea>
+                                    <textarea name="txtIntro" placeholder="<?=txtDescription?>"><? if (isset($_POST["txtIntro"])) {echo $_POST["txtIntro"];}?></textarea>
                                 </div>
                             </div>
                             
@@ -196,111 +198,4 @@ require('templates/header_default.php');
 
 
 
-    <?php include('../inc/footer.php');?>
-
-
-<?
-echo '
-<div class="module">
-    <h3>Thông Tin Bản Tin</h3>
-    <div class="content">
-        <form action="' .$_SERVER["PHP_SELF"]. '" method="post" enctype="multipart/form-data">';
-            if (ErrorHandler::hasError()) {
-                echo '<div class="input-group">
-                    <div class="error_msg">' .ErrorHandler::getError(). '</div>
-                </div>';
-            }
-            echo '
-            <div class="input-group">
-                <label>Danh mục:</label>
-                <div class="input-item fixright">
-                    <select name="sltCate">
-                        <option value="none">Chọn danh mục</option>';
-                        foreach ($catelist as $cate_item) {
-                            echo '
-                            <option value="' .$cate_item["cateid"]. '"';
-                            if (isset($_POST["sltCate"]) && $_POST["sltCate"] == $cate_item["cateid"]) {
-                                echo ' selected="selected"';
-                            }
-                            echo '>' .$cate_item["cate_name"]. '</option>';
-                        }
-                        echo '
-                    </select>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Tiêu đề:</label>
-                <div class="input-item">
-                    <input type="text" name="txtTitle"';
-                    if (isset($_POST["txtTitle"])) {
-                        echo ' value="' .htmlspecialchars($_POST["txtTitle"]). '"';
-                    }
-                    echo ' />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Nguồn tin:</label>
-                <div class="input-item">
-                    <input type="text" name="txtSource"';
-                    if (isset($_POST["txtSource"])) {
-                        echo ' value="' .htmlspecialchars($_POST["txtSource"]). '"';
-                    }
-                    echo ' />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Trích dẫn:</label>
-                <div class="input-item">
-                    <textarea name="txtIntro" rows="5">';
-                    if (isset($_POST["txtIntro"])) {
-                        echo $_POST["txtIntro"];
-                    }
-                    echo '</textarea>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Nội dung:</label>
-                <div class="input-item fixright">
-                    <textarea name="txtFull" rows="10">';
-                    if (isset($_POST["txtFull"])) {
-                        echo $_POST["txtFull"];
-                    }
-                    echo '</textarea>
-                    <script type="text/javascript">
-                        CKEDITOR.replace("txtFull", {
-                            filebrowserBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=files",
-                            filebrowserImageBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=images",
-                            filebrowserFlashBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=flash",
-                            filebrowserUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=files",
-                            filebrowserImageUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=images",
-                            filebrowserFlashUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=flash",
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Hình tin:</label>
-                <div class="input-item">
-                    Chỉ chấp nhận những phần mở rộng:<b> ' .implode(", ", $accept_upload_ext). '</b>.<br />
-                    <input type="file" name="fImg" />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Công bố:</label>
-                <div class="input-item">
-                    <label><input type="radio" name="rdoPublic" value="Y" checked="checked" /> Có</label>
-                    <label><input type="radio" name="rdoPublic" value="N" /> Không</label>
-                </div>
-            </div>
-            <div class="input-group">
-                <label></label>
-                <div class="input-item">
-                    <input type="submit" name="btnNewsAdd" value="Thêm tin" />
-                </div>
-            </div>
-        </form>
-    </div>
-</div>';
-require('templates/footer_default.php');
-
-?>
+    <?php require('templates/footer_default.php');?>

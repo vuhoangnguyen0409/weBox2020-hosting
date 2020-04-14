@@ -62,14 +62,148 @@ if (isset($_POST["btnNewsEdit"])) {
     }
 }
 
-$admin_function = 'Sửa Tin';
-$custon_menu = array(
-    'news_list.php' => 'Quản lý tin'
-);
 $custom_js_file = array(
     '../scripts/ckeditor/ckeditor.js'
 );
 require('templates/header_default.php');
+?>
+
+<body id="admin-page">
+    <div class="left-admin-header">
+        <?php include('templates/admin-left-menu.php')?>
+    </div>
+
+    <div class="right-admin-header">
+        <?php include('templates/admin-top-menu.php')?>
+        <!-- Start Right Content Wrap-->
+        <div class="ct-wrap">
+            <div class="ct-wrap-inner">
+                <div class="breadcrumb">
+                    <div class="bread-tit">
+                        <h3 class="h3-line">Thêm Bài Viết</h3>
+                        <p class="num-count">Nhập thông tin đầy đủ vào các mục trống</p>
+                    </div>
+
+                </div>
+
+                <!-- Start Right Content-->
+                <div class="content news-page">
+                
+                    <form class="form" action="<?=$_SERVER["PHP_SELF"]?>?id=<?=$id?>" method="post" enctype="multipart/form-data">
+                    <?if (ErrorHandler::hasError()) {?>
+                        <div class="input-group">
+                            <div class="error_msg"><?= ErrorHandler::getError()?></div>
+                        </div>
+                    <?}?>
+                    
+                        <div class="ct-left">
+                            <div class="input-group">
+                                <label>Tiêu Đề</label>
+                                <div class="input-item">
+                                    <input type="text" name="txtTitle"<?
+                                    if (isset($_POST["txtTitle"])) {?>
+                                        value="<?= htmlspecialchars($_POST["txtTitle"])?>"
+                                    <?} else {?>
+                                        value="<?= htmlspecialchars($news->getNewsTitle())?>"
+                                    <?}?>/>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Nội Dung</label>
+                                <div class="input-item fixright">
+                                    <textarea name="txtFull" rows="10">
+                                    <?if (isset($_POST["txtFull"])) {
+                                        echo $_POST["txtFull"];
+                                    } else {
+                                        echo str_replace('{$siteURL}', $siteURL, $news->getNewsFull());
+                                    }?></textarea>
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace("txtFull", {
+                                            filebrowserBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=files",
+                                            filebrowserImageBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=images",
+                                            filebrowserFlashBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=flash",
+                                            filebrowserUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=files",
+                                            filebrowserImageUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=images",
+                                            filebrowserFlashUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=flash",
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="ct-right">
+                            <div class="input-group">
+                                <div class="input-item">
+                                    <input class="submit" type="submit" name="btnNewsEdit" value="Cập Nhật" />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Chế Độ Xem</label>
+                                <div class="input-item">
+                                    <select name="rdoPublic">
+                                        <option value="Y" <?if ($news->getNewsPublic() == 'Y') {?> selected=""<?}?>> Công Khai</option>
+                                        <option value="N" <?if ($news->getNewsPublic() == 'N') {?> selected=""<?}?>> Bản Nháp</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Chuyên Mục</label>
+                                <div class="input-item fixright">
+                                    <select name="sltCate">
+                                        <option value="none">Chọn Chuyên Mục</option>
+                                        <?foreach ($catelist as $cate_item) {?>
+                                            <option value="<?= $cate_item["cateid"]?>"
+                                            <?if (isset($_POST["sltCate"]) && $_POST["sltCate"] == $cate_item["cateid"]) {?>
+                                                    selected="selected"
+                                            <?} else {
+                                                if ($news->getNewsCate() == $cate_item["cateid"]) {?>
+                                                    selected="selected"
+                                                <?}
+                                            }?>><?=$cate_item["cate_name"]?></option>
+                                        <?}?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Ảnh Đại Diện</label>
+                                <div class="input-item">
+                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="../data/news_img/<?=$news->getNewsImg()?>" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?=implode(", ", $accept_upload_ext)?>.</p>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>SEO Title</label>
+                                <div class="input-item">
+                                    <input type="text" name="txtSource"
+                                    <?if (isset($_POST["txtSource"])) {?>
+                                        value="<?=htmlspecialchars($_POST["txtSource"])?>"
+                                    <?} else {?>
+                                        value="<?=htmlspecialchars($news->getNewsSource())?>"
+                                    <?}?>/>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>SEO Description</label>
+                                <div class="input-item">
+                                    <textarea name="txtIntro" rows="5"><?if (isset($_POST["txtIntro"])) {
+                                        echo $_POST["txtIntro"];
+                                    } else {
+                                        echo $news->getNewsIntro();
+                                    }?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <?php require('templates/footer_default.php');?>
+<?
 echo '
 <div class="module">
     <h3>Thông Tin Bản Tin</h3>

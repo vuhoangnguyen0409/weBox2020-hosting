@@ -119,7 +119,7 @@ $listcomment = $comment->listAllComment();
 
 
 
-    <?php include('../inc/footer.php');?>
+    <?php require('templates/footer_default.php');?>
 
 
             <table class="function-table" style="display: none;">
