@@ -16,7 +16,7 @@ $dbname = 'phpnc74_json-hosting';
 $prefix = 'phpnc75_';
 
 /** Cấu hình đường dẫn đến site (dùng cho KCFinder) **/
-$siteURL = 'http://wee.local/';
+$siteURL = 'http://w2.local/';
 //$siteURL = 'http://www.chuphinhphuquoc.com/';
 
 /** Cấu hình cho username **/
