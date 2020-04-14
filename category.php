@@ -1,6 +1,6 @@
-<!-- 
+<!--
 
-                              ____          
+                              ____
 
           \ \  /   \  / /   /      \
 
@@ -8,7 +8,7 @@
 
             \__/   \__/     \ ____ /
 
-            
+
 
     DESIGN BY WEBBOX | THIETKEWEBPHUQUOC.COM
 
@@ -19,9 +19,6 @@
 -->
 
 <?php
-// Lấy cấu hình site
-//require("phpnc75_platform.php");
-//loadLibs(array("none_uni_alias.php"));
 
 // Chuẩn bị các giá trị
 if (!isset($_GET["id"])) {
@@ -77,10 +74,6 @@ $id = $_GET["id"];
 
 
 
-
-
-
-
 <body>
 
 
@@ -103,35 +96,28 @@ $id = $_GET["id"];
                     </div>
                 </div>
                 <!-- End Slider -->
-				
-				<?php
-		
-						//Kết nối CSDL
-						require("libs/connect_db.php");
 
-						// Lấy tất cả các danh mục tin tạo thành các liên kết
-						$sql = 'SELECT * FROM category where category.level=2 AND category.parent_id="' .$id. '" ORDER BY cateid DESC';
-						$query = $mysqli->query($sql);;
-						$menu = array();
-						while ($data = $query -> fetch_assoc()) {
-							$menu[] = $data;
-						}
-						foreach ($menu as $item) {
-							echo '
-							<li><a href="' .$item["cateid"]. '-' .noneUniAlias($item["cate_name"], true). '/index.html">' .$item["cate_name"]. '</a></li>';
-						}
-				?>
 
 
                 <!-- Start Filter Isotope -->
                 <div class="isotope_wrap clearfix">
                     <h3 class="s-all"><a class="isotope_button isotope_all" data-filter="*"><span>Tất Cả</span></a></h3>
-                    <h3 class="s-food"><a class="isotope_button" data-filter=".food"><span>Ẩm Thực</span></a></h3>
-                    <h3 class="s-shop"><a class="isotope_button" data-filter=".shop"><span>Thời Trang</span></a></h3>
-                    <h3 class="s-travel"><a class="isotope_button" data-filter=".travel"><span>Du Lịch</span></a></h3>
-                    <h3 class="s-edu"><a class="isotope_button" data-filter=".edu"><span>Giáo Dục</span></a></h3>
-                    <h3 class="s-arc"><a class="isotope_button" data-filter=".arc"><span>Kiến Trúc</span></a></h3>
-                    <!--<a class="isotope_button" data-filter=".services">Services</a>-->
+                    <?php
+
+    						//Kết nối CSDL
+    						require("libs/connect_db.php");
+
+    						// Lấy tất cả các danh mục tin tạo thành các liên kết
+    						$sql = 'SELECT * FROM category where category.level=2 AND category.parent_id="' .$id. '" ORDER BY cateid DESC';
+    						$query = $mysqli->query($sql);;
+    						$menu = array();
+    						while ($data = $query -> fetch_assoc()) {
+    							$menu[] = $data;
+    						}
+    						foreach ($menu as $item) {
+                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$item["cate_name"]. '" href="' .$item["cateid"]. '-' .noneUniAlias($item["cate_name"], true). '/index.html"><span>' .$item["cate_name"]. '</span></a></h3>';
+    						}
+    				?>
                 </div>
                 <!-- End Filter Isotope -->
 
