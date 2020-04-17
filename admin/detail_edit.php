@@ -14,7 +14,7 @@ $id = $_GET["id"];
 // Lấy thông tin bản tin để vào form
 $detail = new Detail();
 $detail->getDetailInfoById($id);
-var_dump($detail);
+//var_dump($detail);
 //die();
 // Lấy thông tin danh mục đổ vào listbox
 $cate = new Cate();
@@ -220,7 +220,7 @@ require('templates/header_default.php');?>
                                     <?php if (isset($_POST["taKeywords"])) {
                                         echo $_POST["taKeywords"];
                                     } else {
-                                        echo $detail->getSeoKeywords();
+                                        echo $detail->getDetailKeywords();
                                     }?>
                                     </textarea>
                                 </div>
@@ -232,7 +232,7 @@ require('templates/header_default.php');?>
                                     <?php if (isset($_POST["taDescription"])) {
                                         echo $_POST["taDescription"];
                                     } else {
-                                        echo $detail->getSeoDescription();
+                                        echo $detail->getDetailDescription();
                                     }?>
                                     </textarea>
                                 </div>

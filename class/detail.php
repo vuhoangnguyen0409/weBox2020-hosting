@@ -10,8 +10,8 @@
 class Detail extends Database {
     protected $detailName;
     protected $detailIntro;
-    protected $SeoKeywords;
-    protected $SeoDescription;
+    protected $detailKeywords;
+    protected $detailDescription;
     protected $detailImg;
     protected $detailContent;
     protected $detailDate;
@@ -65,33 +65,33 @@ class Detail extends Database {
     /**
      * Set SEO keywords for a detail item
      * =========================
-     * @param string keywords
+     * @param string detailKeywords
      **/
-    public function setSeoKeywords($SeoKeywords) {
-        if (!empty($SeoKeywords)) {
-            $this->SeoKeywords = trim($SeoKeywords);
-            $this->SeoKeywords = strip_tags($SeoKeywords);
+    public function setDetailKeywords($detailKeywords) {
+        if (!empty($detailKeywords)) {
+            $this->detailKeywords = trim($detailKeywords);
+            $this->detailKeywords = strip_tags($detailKeywords);
         }
     }
 
     /**
-     * Get SEO title of a detail item
+     * Get SEO Keywords of a detail item
      * ========================
      * @return string
      **/
-    public function getSeoKeywords() {
-        return $this->SeoKeywords;
+    public function getDetailKeywords() {
+        return $this->detailKeywords;
     }
 
     /**
      * Set SEO description for a detail item
      * =========================
-     * @param string SeoDescription
+     * @param string detailDescription
      **/
-    public function setSeoDescription($SeoDescription) {
-        if (!empty($SeoDescription)) {
-            $this->SeoDescription = trim($SeoDescription);
-            $this->SeoDescription = strip_tags($SeoDescription);
+    public function setDetailDescription($detailDescription) {
+        if (!empty($detailDescription)) {
+            $this->detailDescription = trim($detailDescription);
+            $this->detailDescription = strip_tags($detailDescription);
         }
     }
 
@@ -100,8 +100,8 @@ class Detail extends Database {
      * ========================
      * @return string
      **/
-    public function getSeoDescription() {
-        return $this->SeoDescription;
+    public function getDetailDescription() {
+        return $this->detailDescription;
     }
 
     /**
@@ -320,8 +320,8 @@ class Detail extends Database {
         global $siteURL;
         $name = addslashes($this->detailName);
         $intro = addslashes($this->detailIntro);
-        $keywords = addslashes($this->SeoKeywords);
-        $description = addslashes($this->SeoDescription);
+        $keywords = addslashes($this->detailKeywords);
+        $description = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', 2, 1)';
         $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  '.$this->detailLabel. ')';
@@ -380,8 +380,8 @@ class Detail extends Database {
         global $siteURL;
         $name = addslashes($this->detailName);
         $intro = addslashes($this->detailIntro);
-        $keywords = addslashes($this->SeoKeywords);
-        $descritption = addslashes($this->SeoDescription);
+        $keywords = addslashes($this->detailKeywords);
+        $descritption = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
         //$this->query($sql);

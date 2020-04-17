@@ -39,7 +39,7 @@ if (isset($_POST["btnDetailAdd"])) {
         $detail = new Detail();
         $detail->setDetailName($_POST["txtName"]);
         $detail->setDetailIntro($_POST["txtIntro"]);
-        $detail->setSeoKeywords($_POST["taKeywords"]);
+        $detail->setDetailKeywords($_POST["taKeywords"]);
         $detail->setSeoDescription($_POST["taDescription"]);
         $detail->setDetailImg($_FILES["fImg"]["name"]);
         $detail->setDetailContent($_POST["taContent"]);
