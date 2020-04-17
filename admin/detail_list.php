@@ -58,7 +58,7 @@ require('templates/header_default.php');
                     </div>
                     <div class="bread-btn">
                         <div class="btn-down"><a href=""><i class="fa fa-download"></i> Tải xuống</a></div>
-                        <div class="btn-add"><a href="=/../admin/detail_add.php">+</a></div>
+                        <div class="btn-add"><a href="=/../detail_add.php">+</a></div>
                     </div>
                 </div>
 
@@ -198,7 +198,7 @@ require('templates/header_default.php');
                         </div>
                         <div class="bread-btn">
                             <div class="btn-down"><a href=""><i class="fa fa-download"></i> Tải xuống</a></div>
-                            <div class="btn-add"><a href="=/../admin/detail_add.php">+</a></div>
+                            <div class="btn-add"><a href="=/../detail_add.php">+</a></div>
                         </div>
                     </div>
                     <?php }?>

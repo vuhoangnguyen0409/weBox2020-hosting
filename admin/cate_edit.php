@@ -35,43 +35,52 @@ if (isset($_POST["btnCateEdit"])) {
     }
 }
 
-$admin_function = 'Sửa Danh Mục';
-$custon_menu = array(
-    'cate_list.php' => 'Quản lý danh mục'
-);
-require('templates/header_default.php');
-echo '
-<div class="module">
-    <h3>Thông Tin Danh Mục</h3>
-    <div class="content">
-        <form action="' .$_SERVER["PHP_SELF"]. '?id=' .$id. '" method="post">';
-            if (ErrorHandler::hasError()) {
-                echo '<div class="input-group">
-                    <div class="error_msg">' .ErrorHandler::getError(). '</div>
-                </div>';
-            }
-            echo '
-            <div class="input-group">
-                <label>Tên danh mục:</label>
-                <div class="input-item">
-                    <input type="text" name="txtCate"';
-                    if (isset($_POST["txtCate"])) {
-                        echo ' value="' .htmlspecialchars($_POST["txtCate"]). '"';
-                    } else {
-                        echo ' value="' .htmlspecialchars($cate->getCateName()). '"';
-                    }
-                    echo ' />
-                </div>
-            </div>
-            <div class="input-group">
-                <label></label>
-                <div class="input-item">
-                    <input type="submit" name="btnCateEdit" value="Sửa danh mục" />
-                </div>
-            </div>
-        </form>
+require('templates/header_default.php');?>
+<body id="admin-page">
+    <div class="left-admin-header">
+        <?php include('templates/admin-left-menu.php')?>
     </div>
-</div>';
-require('templates/footer_default.php');
 
-?>
+    <div class="right-admin-header">
+        <?php include('templates/admin-top-menu.php')?>
+        <!-- Start Right Content Wrap-->
+        <div class="ct-wrap">
+            <div class="ct-wrap-inner">
+                <div class="breadcrumb">
+                    <div class="bread-tit">
+                        <h3 class="h3-line">Chỉnh Sửa Chuyên Mục</h3>
+                        <p class="num-count">Nhập thông tin cần cập nhật vào mục bên dưới</p>
+                    </div>
+
+                </div>
+
+                <!-- Start Right Content-->
+                <div class="content cate-page">
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post">
+                        <?if (ErrorHandler::hasError()) {?>
+                            <div class="input-group">
+                                <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
+                            </div>
+                        <?}?>
+                        <div class="input-group">
+                            <label>Tên danh mục:</label>
+                            <div class="input-item">
+                                <input type="text" name="txtCate"
+                                <?if (isset($_POST["txtCate"])) {?>
+                                    value="<?php echo htmlspecialchars($_POST["txtCate"])?>"
+                                <?} else {?>
+                                    value="<?php echo htmlspecialchars($cate->getCateName())?>"
+                                <?}?>/>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label></label>
+                            <div class="input-item">
+                                <input type="submit" name="btnCateEdit" value="Cập Nhật" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+<?require('templates/footer_default.php')?>

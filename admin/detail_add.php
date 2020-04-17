@@ -29,30 +29,30 @@ if (isset($_POST["btnDetailAdd"])) {
         ErrorHandler::setError('Vui lòng nhập SEO keywords');
     } elseif (empty($_POST["taDescription"])) {
         ErrorHandler::setError('Vui lòng nhập SEO description');
-    } elseif (!News::acceptUpload($_FILES["fImg"]["name"])) {
+    } elseif (!Detail::acceptUpload($_FILES["fImg"]["name"])) {
         ErrorHandler::setError('Bạn không được phép upload loại file này');
     } elseif (empty($_POST["taContent"])) {
         ErrorHandler::setError('Vui lòng nhập nội dung');
     } elseif (empty($_FILES["fImg"]["name"])) {
         ErrorHandler::setError('Vui lòng chọn hình tin');
     } else {
-        $news = new Detail();
-        $news->setDetailName($_POST["txtName"]);
-        $news->setDetailIntro($_POST["txtIntro"]);
-        $news->setSeoKeywords($_POST["taKeywords"]);
-        $news->setSeoDescription($_POST["taDescription"]);
-        $news->setDetailImg($_FILES["fImg"]["name"]);
-        $news->setDetailContent($_POST["taContent"]);
-        $news->setDetailDate(time());
-        $news->setDetailStatus($_POST["rdoPublic"]);
-        $news->setDetailPoster($_SESSION[$prefix."userid"]);
-        $news->setDetailCate($_POST["sltCate"]);
-        $news->setDetailLabel($_POST["sltLabel"]);
+        $detail = new Detail();
+        $detail->setDetailName($_POST["txtName"]);
+        $detail->setDetailIntro($_POST["txtIntro"]);
+        $detail->setSeoKeywords($_POST["taKeywords"]);
+        $detail->setSeoDescription($_POST["taDescription"]);
+        $detail->setDetailImg($_FILES["fImg"]["name"]);
+        $detail->setDetailContent($_POST["taContent"]);
+        $detail->setDetailDate(time());
+        $detail->setDetailStatus($_POST["rdoPublic"]);
+        $detail->setDetailPoster($_SESSION[$prefix."userid"]);
+        $detail->setDetailCate($_POST["sltCate"]);
+        $detail->setDetailLabel($_POST["sltLabel"]);
         // Kiểm tra lỗi upload
-        if (!$news->uploadDetailImg('fImg', '../data/detail_img')) {
+        if (!$detail->uploadDetailImg('fImg', '../data/detail_img')) {
             ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
         } else {
-            $news->addDetail();
+            $detail->addDetail();
             header("location: detail_list.php");
             exit();
         }
@@ -79,7 +79,7 @@ require('templates/header_default.php');
             <div class="ct-wrap-inner">
                 <div class="breadcrumb">
                     <div class="bread-tit">
-                        <h3 class="h3-line">Thêm Post</h3>
+                        <h3 class="h3-line">Thêm Bài Viết</h3>
                         <p class="num-count">Nhập thông tin đầy đủ vào các mục trống</p>
                     </div>
 
@@ -107,39 +107,19 @@ require('templates/header_default.php');
                             </div>
 
                             <div class="input-group">
-                                <label>Giới thiệu</label>
+                                <label>Tóm tắt Nội Dung</label>
                                 <div class="input-item">
-                                    <textarea name="txtIntro" rows="10">
-                                    <?php if (isset($_POST["txtIntro"])) {
+                                    <textarea name="txtIntro" rows="2"><?php if (isset($_POST["txtIntro"])) {
                                         echo $_POST["txtIntro"];
                                     }?></textarea>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label>SEO keywords</label>
-                                <div class="input-item">
-                                    <textarea name="taKeywords" rows="10">
-                                    <?php if (isset($_POST["taKeywords"])) {
-                                        echo $_POST["taKeywords"];
-                                    }?></textarea>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <label>SEO Description</label>
-                                <div class="input-item">
-                                    <textarea name="taDescription" rows="10">
-                                    <?php if (isset($_POST["taDescription"])) {
-                                        echo $_POST["taDescription"];
-                                    }?></textarea>
+                                    <p class="note">Phần nội dung này sẽ hiện thị tóm tắt trong các trang hiển thị theo dạng Danh Sách bản tin</p>
                                 </div>
                             </div>
 
                             <div class="input-group">
                                 <label>Nội dung</label>
                                 <div class="input-item fixright">
-                                    <textarea name="taContent" rows="10">
+                                    <textarea name="taContent" rows="15">
                                     <?php if (isset($_POST["taContent"])) {
                                         echo $_POST["taContent"];
                                     }?></textarea>
@@ -160,12 +140,18 @@ require('templates/header_default.php');
 
                         <div class="ct-right">
 
+                            <div class="input-group">
+                                <label></label>
+                                <div class="input-item">
+                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
+                                </div>
+                            </div>
 
                             <div class="input-group">
                                 <label>Ảnh Đại Diện</label>
                                 <div class="input-item">
-                                    <p class="upload-photo"><input type="file" name="fImg" /></p>
-                                    <p class="note">Nhấp vào để sửa hoặc cập nhật</p>
+                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                                 </div>
                             </div>
                             <div class="input-group">
@@ -197,7 +183,7 @@ require('templates/header_default.php');
                             <div class="input-group">
                                 <label>Thẻ</label>
                                 <div class="input-item fixright">
-                                    <select name="sltlabel">
+                                    <select name="sltLabel">
                                         <option value="none">Chọn Thẻ</option>
                                         <?php foreach ($labelList as $label_item) {?>
 
@@ -211,12 +197,27 @@ require('templates/header_default.php');
                                 </div>
                             </div>
 
-                            <div class="input-group">
-                                <label></label>
+                             <div class="input-group">
+                                <label>SEO Keywords</label>
                                 <div class="input-item">
-                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
+                                    <input type="text" name="taKeywords"
+                                    <?php if (isset($_POST["taKeywords"])) {?>
+                                        value="<?php echo htmlspecialchars($_POST["taKeywords"])?>"
+                                    <?php }?>/>
                                 </div>
                             </div>
+
+                            <div class="input-group">
+                                <label>SEO Description</label>
+                                <div class="input-item">
+                                    <textarea name="taDescription" rows="10">
+                                    <?php if (isset($_POST["taDescription"])) {
+                                        echo $_POST["taDescription"];
+                                    }?></textarea>
+                                </div>
+                            </div>
+
+
 
                         </div>
 

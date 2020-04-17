@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @author Jackie Do
  * @copyright 2014
  */
-
 require('../phpnc75_platform.php');
 loadLibs(array("check_admin.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 
@@ -16,6 +14,8 @@ $id = $_GET["id"];
 // Lấy thông tin bản tin để vào form
 $detail = new Detail();
 $detail->getDetailInfoById($id);
+var_dump($detail);
+//die();
 // Lấy thông tin danh mục đổ vào listbox
 $cate = new Cate();
 $catelist = $cate->listAllCate();
@@ -43,7 +43,6 @@ if (isset($_POST["btnDetailEdit"])) {
     } elseif (empty($_FILES["fImg"]["name"])) {
         ErrorHandler::setError('Vui lòng chọn hình tin');
     } else {
-        $detail = new Detail();
         $detail->setDetailName($_POST["txtName"]);
         $detail->setDetailIntro($_POST["txtIntro"]);
         $detail->setSeoKeywords($_POST["taKeywords"]);
@@ -77,14 +76,11 @@ if (isset($_POST["btnDetailEdit"])) {
     }
 }
 
-$admin_function = 'Sửa Tin';
-$custon_menu = array(
-    'detail_list.php' => 'Quản lý tin'
-);
 $custom_js_file = array(
     '../scripts/ckeditor/ckeditor.js'
 );
 require('templates/header_default.php');?>
+
 <body id="admin-page">
     <div class="left-admin-header">
         <?php include('templates/admin-left-menu.php')?>
@@ -97,7 +93,7 @@ require('templates/header_default.php');?>
             <div class="ct-wrap-inner">
                 <div class="breadcrumb">
                     <div class="bread-tit">
-                        <h3 class="h3-line">Thêm Bài Viết</h3>
+                        <h3 class="h3-line">Sửa Bài Viết</h3>
                         <p class="num-count">Nhập thông tin đầy đủ vào các mục trống</p>
                     </div>
 
@@ -105,164 +101,145 @@ require('templates/header_default.php');?>
 
                 <!-- Start Right Content-->
                 <div class="content news-page">
-<?php
-echo '
-        <form action="' .$_SERVER["PHP_SELF"]. '?id=' .$id. '" method="post" enctype="multipart/form-data">';
-            if (ErrorHandler::hasError()) {
-                echo '<div class="input-group">
-                    <div class="error_msg">' .ErrorHandler::getError(). '</div>
-                </div>';
-            }
-            echo '
-            <div class="input-group">
-                <label>Tiêu đề:</label>
-                <div class="input-item">
-                    <input type="text" name="txtName"';
-                    if (isset($_POST["txtName"])) {
-                        echo ' value="' .htmlspecialchars($_POST["txtName"]). '"';
-                    } else {
-                        echo ' value="' .htmlspecialchars($detail->getDetailName()). '"';
-                    }
-                    echo ' />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Giới Thiệu:</label>
-                <div class="input-item">
-                    <input type="text" name="txtIntro"';
-                    if (isset($_POST["txtIntro"])) {
-                        echo ' value="' .htmlspecialchars($_POST["txtIntro"]). '"';
-                    } else {
-                        echo ' value="' .htmlspecialchars($detail->getDetailIntro()). '"';
-                    }
-                    echo ' />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>SEO keywords</label>
-                <div class="input-item">
-                    <textarea name="taKeywords" rows="5">';
-                    if (isset($_POST["taKeywords"])) {
-                        echo $_POST["taKeywords"];
-                    } else {
-                        echo $detail->getSeoKeywords();
-                    }
-                    echo '</textarea>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>SEO Description</label>
-                <div class="input-item">
-                    <textarea name="taDescription" rows="5">';
-                    if (isset($_POST["taDescription"])) {
-                        echo $_POST["taDescription"];
-                    } else {
-                        echo $detail->getSeoDescription();
-                    }
-                    echo '</textarea>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Hình tin hiện tại:</label>
-                <div class="input-item">
-                    <img src="../data/detail_img/' .$detail->getDetailImg(). '" class="thumbs" />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Thay hình tin:</label>
-                <div class="input-item">
-                    Chỉ chấp nhận những phần mở rộng:<b> ' .implode(", ", $accept_upload_ext). '</b>.<br />
-                    <input type="file" name="fImg" />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Nội dung:</label>
-                <div class="input-item fixright">
-                    <textarea name="taContent" rows="10">';
-                    if (isset($_POST["taContent"])) {
-                        echo $_POST["taContent"];
-                    } else {
-                        echo str_replace('{$siteURL}', $siteURL, $detail->getDetailContent());
-                    }
-                    echo '</textarea>
-                    <script type="text/javascript">
-                        CKEDITOR.replace("txtFull", {
-                            filebrowserBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=files",
-                            filebrowserImageBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=images",
-                            filebrowserFlashBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=flash",
-                            filebrowserUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=files",
-                            filebrowserImageUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=images",
-                            filebrowserFlashUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=flash",
-                        });
-                    </script>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Công bố:</label>
-                <div class="input-item">
-                    <label><input type="radio" name="rdoPublic" value="Y"';
-                    if ($detail->getDetailStatus() == 'Y') {
-                        echo ' checked="checked"';
-                    }
-                    echo ' /> Có</label>
-                    <label><input type="radio" name="rdoPublic" value="N"';
-                    if ($detail->getDetailStatus() == 'N') {
-                        echo ' checked="checked"';
-                    }
-                    echo ' /> Không</label>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Danh mục:</label>
-                <div class="input-item fixright">
-                    <select name="sltCate">
-                        <option value="none">Chọn danh mục</option>';
-                        foreach ($catelist as $cate_item) {
-                            echo '
-                            <option value="' .$cate_item["cateid"]. '"';
-                            if (isset($_POST["sltCate"]) && $_POST["sltCate"] == $cate_item["cateid"]) {
-                                echo ' selected="selected"';
-                            } else {
-                                if ($detail->getDetailCate() == $cate_item["cateid"]) {
-                                    echo ' selected="selected"';
-                                }
-                            }
-                            echo '>' .$cate_item["cate_name"]. '</option>';
-                        }
-                        echo '
-                    </select>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Thẻ:</label>
-                <div class="input-item fixright">
-                    <select name="sltLabel">
-                        <option value="none">Chọn Thẻ</option>';
-                        foreach ($labellist as $label_item) {
-                            echo '
-                            <option value="' .$label_item["labelid"]. '"';
-                            if (isset($_POST["sltLabel"]) && $_POST["sltLabel"] == $label_item["labelid"]) {
-                                echo ' selected="selected"';
-                            } else {
-                                if ($detail->getDetailLabel() == $label_item["labelid"]) {
-                                    echo ' selected="selected"';
-                                }
-                            }
-                            echo '>' .$label_item["label_name"]. '</option>';
-                        }
-                        echo '
-                    </select>
-                </div>
-            </div>
-            <div class="input-group">
-                <label></label>
-                <div class="input-item">
-                    <input type="submit" name="btnDetailEdit" value="Sửa tin" />
-                </div>
-            </div>
-        </form>
-    </div>
-</div>';
-require('templates/footer_default.php');
 
-?>
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
+                        <?php if (ErrorHandler::hasError()) {?>
+                            <div class="input-group">
+                                <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
+                            </div>
+                        <?php }?>
+
+                        <div class="ct-left">
+                            <div class="input-group">
+                                <label>Tiêu Đề</label>
+                                <div class="input-item">
+                                    <input type="text" name="txtName"
+                                    <?php if (isset($_POST["txtName"])) {?>
+                                        value="<?php echo htmlspecialchars($_POST["txtName"])?>"
+                                    <?php } else {?>
+                                        value="<?php echo htmlspecialchars($detail->getDetailName())?>"
+                                    <?php }?>/>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Tóm tắt Nội Dung</label>
+                                <div class="input-item">
+                                    <textarea name="txtIntro" rows="2"><?php if (isset($_POST["txtIntro"])) {
+                                        echo $_POST["txtIntro"];
+                                    }else {
+                                        echo $detail->getDetailIntro();
+                                    }?></textarea>
+                                    <p class="note">Phần nội dung này sẽ hiện thị tóm tắt trong các trang hiển thị theo dạng Danh Sách bản tin</p>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Nội Dung</label>
+                                <div class="input-item fixright">
+                                    <textarea name="taContent" rows="10"><?php if (isset($_POST["taContent"])) {
+                                        echo $_POST["taContent"];
+                                    } else {
+                                        echo str_replace('{$siteURL}', $siteURL, $detail->getDetailContent());
+                                    }?></textarea>
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace("txtFull", {
+                                            filebrowserBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=files",
+                                            filebrowserImageBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=images",
+                                            filebrowserFlashBrowseUrl : "../libs/kcfinder/browse.php?opener=ckeditor&type=flash",
+                                            filebrowserUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=files",
+                                            filebrowserImageUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=images",
+                                            filebrowserFlashUploadUrl : "../libs/kcfinder/upload.php?opener=ckeditor&type=flash",
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ct-right">
+                            <div class="input-group">
+                                <label></label>
+                                <div class="input-item">
+                                    <input type="submit" name="btnDetailEdit" value="Sửa tin" />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Công bố:</label>
+                                <div class="input-item">
+                                    <select name="rdoPublic">
+                                        <option value="Y" <?php if ($detail->getDetailStatus() == 'Y') {?> selected=""<?php }?>> Công Khai</option>
+                                        <option value="N" <?php if ($detail->getDetailStatus() == 'N') {?> selected=""<?php }?>> Bản Nháp</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Chuyên Mục</label>
+                                <div class="input-item fixright">
+                                    <select name="sltCate">
+                                        <option value="none">Chọn danh mục</option>
+                                        <?php foreach ($catelist as $cate_item) {?>
+                                            <option value="<?php echo $cate_item["cateid"]?>"
+                                            <?php if (isset($_POST["sltCate"]) && $_POST["sltCate"] == $cate_item["cateid"]) {?>
+                                                selected="selected"
+                                            <?php } else {
+                                                if ($detail->getDetailCate() == $cate_item["cateid"]) {?>
+                                                    selected="selected"
+                                            <?php }
+                                            }?>><?php echo $cate_item["cate_name"]?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Thẻ Tag</label>
+                                <div class="input-item fixright">
+                                    <select name="sltLabel">
+                                        <option value="none">Chọn Thẻ</option>
+                                        <?php foreach ($labeLlist as $label_item) {?>
+                                            <option value="<?php echo $label_item["labelid"]?>"
+                                            <?php if (isset($_POST["sltLabel"]) && $_POST["sltLabel"] == $label_item["labelid"]) {?>
+                                                selected="selected"
+                                            <?php } else {
+                                                if ($detail->getDetailLabel() == $label_item["labelid"]) {?>
+                                                    selected="selected"
+                                                <?php }
+                                            }?>><?php echo $label_item["label_name"]?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>Ảnh Đại Diện</label>
+                                <div class="input-item">
+                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="../data/news_img/<?php echo $detail->getDetailImg()?>" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php echo implode(", ", $accept_upload_ext)?>.</p>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>SEO keywords</label>
+                                <div class="input-item">
+                                    <textarea name="taKeywords" rows="5">
+                                    <?php if (isset($_POST["taKeywords"])) {
+                                        echo $_POST["taKeywords"];
+                                    } else {
+                                        echo $detail->getSeoKeywords();
+                                    }?>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>SEO Description</label>
+                                <div class="input-item">
+                                    <textarea name="taDescription" rows="5">
+                                    <?php if (isset($_POST["taDescription"])) {
+                                        echo $_POST["taDescription"];
+                                    } else {
+                                        echo $detail->getSeoDescription();
+                                    }?>
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+<?php require('templates/footer_default.php');?>
