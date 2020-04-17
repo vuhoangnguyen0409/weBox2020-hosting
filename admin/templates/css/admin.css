@@ -7,6 +7,26 @@
 ::placeholder {
   color: #b6caea;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
 input:focus::placeholder {
   color: transparent;
 }
@@ -575,10 +595,23 @@ select:focus {
 }
 .form .input-item > input {
     border-radius: 5px;
-    padding: 6px 5px;
+    padding: 6px 10px;
     border: 1px solid #dbdfea;
     margin: 0;
     width: 100%;
+}
+.form .input-item input[type=submit] {
+    background: #6576ff;
+    border: 1px solid #6576ff;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.form .input-item input[type=submit]:hover {
+    background-color: #3f54ff;
+    border-color: #3249ff;
 }
 .form .input-item .checkbox {
     float: left;
@@ -643,7 +676,11 @@ select:focus {
     max-width: 460px;
 }
 .cate-page .form .input-item > input {
-    padding: 9px 5px;
+    padding: 9px 10px;
+    color: #b9b9b9;
+}
+.cate-page .form .input-item > input:focus {
+    color: #000;
 }
 #admin-page .news-page {
     background: transparent;
@@ -674,14 +711,16 @@ select:focus {
     display: block;
     text-transform: uppercase;
 }
-.news-page textarea {
-    height: 89px;
+.news-page textarea, .form .ct-right textarea {
     width: 100%;
     border: 1px solid #dbdfea;
     border-radius: 5px;
-    min-height: 90px;
     margin-bottom: 0;
     resize: vertical; 
+    padding: 6px 10px;
+}
+.form .ct-right textarea {
+    min-height: 150px;
 }
 .news-page select {
     width: 100%;

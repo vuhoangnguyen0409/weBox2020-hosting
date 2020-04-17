@@ -218,6 +218,7 @@ input:focus {
     box-sizing: border-box;
     font-size: 15px;
     letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
 #login-box input.login-button {

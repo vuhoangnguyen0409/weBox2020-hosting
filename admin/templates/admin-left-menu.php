@@ -13,10 +13,10 @@
         </li>
         <li><a ><i class="fa fa-pencil"></i> Bài Viết<i class="fa fa-chevron-down"></i></a>
             <ul class="dropdown">
-                <li><a href="/../admin/news_list.php">Tất cả bài viết</a></li>
-                <li><a href="/../admin/news_add.php">Thêm bài viết</a></li>
+                <li><a href="/../admin/detail_list.php">Tất cả bài viết</a></li>
+                <li><a href="/../admin/detail_add.php">Thêm bài viết</a></li>
                 <li><a href="/../admin/cate_list.php">Chuyên mục</a></li>
-                <li><a href="/../admin/tag_list.php">Thẻ Tag</a></li>
+                <li><a href="/../admin/label_list.php">Thẻ Tag</a></li>
             </ul>
         </li>
     </ul>

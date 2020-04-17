@@ -11,8 +11,8 @@ $total_user = $user->totalUser();
 $cate = new Cate();
 $total_cate = $cate->totalCate();
 
-$news = new News();
-$total_news = $news->totalNews();
+$detail = new Detail();
+$total_detail = $detail->totalDetail();
 
 $comment = new Comment();
 $total_comments = $comment->totalComment();
