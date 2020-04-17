@@ -36,8 +36,6 @@ $id = $_GET["id"];
 
 <html>
 
-
-
 <head>
 
 
@@ -108,39 +106,39 @@ $id = $_GET["id"];
     						require("libs/connect_db.php");
 
     						// Lấy tất cả các danh mục tin tạo thành các liên kết
-    						$sql = 'SELECT * FROM category where category.level=2 AND category.parent_id="' .$id. '" ORDER BY cateid DESC';
+    						$sql = 'SELECT * FROM label ORDER BY labelid DESC';
     						$query = $mysqli->query($sql);;
     						$menu = array();
     						while ($data = $query -> fetch_assoc()) {
     							$menu[] = $data;
     						}
     						foreach ($menu as $item) {
-                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$item["cate_name"]. '" href="' .$item["cateid"]. '-' .noneUniAlias($item["cate_name"], true). '/index.html"><span>' .$item["cate_name"]. '</span></a></h3>';
+                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$item["labelid"]. '"><span>' .$item["label_name"]. '</span></a></h3>';
     						}
     				?>
                 </div>
                 <!-- End Filter Isotope -->
 
                 <!-- Start Filter Grip -->
-                <div class="isotope_grip_wrap clearfix">
-                    <div class="isotope_grip">
-                        <!-- Start Travel Item -->
-                        <?php include('inc/html_travel.php');?>
-                        <!-- End Travel Item -->
+                <?php
+                $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.status="Y" AND d.cateid="' .$id. '" ORDER BY detailid DESC';
+    		    $query = $mysqli->query($sql);
+    			$menu = array();
+				while ($data = $query -> fetch_assoc()) {
+					$menu[] = $data;
+				}
+				foreach ($menu as $item) {
+                    echo '<div class="isotope_item '.$item["labelid"].'">
+                        <div class="isotope_img">
+                            <a href="#"><img src="img/travel/travel_demo_bg_1.jpg" alt="#" /></a>
+                        </div>
+                        <div class="isotope_txt">
+                            <a href="#" class="isotope_link">Mirana<span class="code">'.$item["detail_name"].'</span></a>
+                        </div>
+                    </div>';
+                }
+                ?>
 
-                        <!-- Start Shop Item -->
-                        <?php include('inc/html_shop.php');?>
-                        <!-- End Shop Item -->
-
-                        <!-- Start Food Item -->
-                        <?php include('inc/html_food.php');?>
-                        <!-- End Food Item -->
-
-                        <!-- Start Other Item -->
-                        <?php include('inc/html_other.php');?>
-                        <!-- End Other Item -->
-                    </div>
-                </div>
                 <!-- End Filter Grip -->
             </div>
             <!-- End Main -->
@@ -156,11 +154,5 @@ $id = $_GET["id"];
 
 
     <!-- End Content Wrap -->
-
-
-
-
-
-
 
 <?php include('inc/footer.php');?>
