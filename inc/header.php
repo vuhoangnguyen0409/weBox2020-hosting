@@ -44,7 +44,7 @@ loadLibs(array("none_uni_alias.php"));
 						}
 						foreach ($menu as $item) {
 							echo '
-							<li><a href="' .$item["cateid"]. '-' .noneUniAlias($item["cate_name"], true). '/index.html">' .$item["cate_name"]. '</a></li>';
+							<li><a href="/' .$item["cateid"]. '-'.noneUniAlias($item["cate_name"], true). '/index.html">' .$item["cate_name"]. '</a></li>';
 						}
 						?>
                         <li> <a href="<?php echo MYDOMAIN;?>bo-thuong-hieu-web-phu-quoc.html">Bộ Thương Hiệu</a> </li>
