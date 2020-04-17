@@ -81,7 +81,6 @@ class Detail extends Database {
      **/
     public function getSeoKeywords() {
         return $this->SeoKeywords;
-        die();
     }
 
     /**
@@ -324,9 +323,8 @@ class Detail extends Database {
         $keywords = addslashes($this->SeoKeywords);
         $description = addslashes($this->SeoDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
-        //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "d", "e", "f", 20, "Y", 1, 2, 2)';
-
-        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '","' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ', ' .$this->detaillabel. ')';
+        //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', 2, 1)';
+        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  '.$this->detailLabel. ')';
         $this->query($sql);
     }
 
@@ -385,8 +383,8 @@ class Detail extends Database {
         $keywords = addslashes($this->SeoKeywords);
         $descritption = addslashes($this->SeoDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
-        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
-        $this->query($sql);
+        //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
+        //$this->query($sql);
     }
 
 }
