@@ -126,19 +126,18 @@ $id = $_GET["id"];
     			$menu = array();
 				while ($data = $query -> fetch_assoc()) {
 					$menu[] = $data;
-				}
-				foreach ($menu as $item) {
-                    echo '<div class="isotope_item '.$item["labelid"].'">
+                    $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
+
+                    echo '<div class="isotope_item '.$data["labelid"].'">
                         <div class="isotope_img">
                             <a href="#"><img src="img/travel/travel_demo_bg_1.jpg" alt="#" /></a>
                         </div>
                         <div class="isotope_txt">
-                            <a href="#" class="isotope_link">Mirana<span class="code">'.$item["detail_name"].'</span></a>
+                            <a href="'.$link.'" class="isotope_link">Mirana<span class="code">'.$data["detail_name"].'</span></a>
                         </div>
                     </div>';
-                }
+				}
                 ?>
-
                 <!-- End Filter Grip -->
             </div>
             <!-- End Main -->
