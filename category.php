@@ -130,7 +130,7 @@ $id = $_GET["id"];
 
                     echo '<div class="isotope_item '.$data["labelid"].'">
                         <div class="isotope_img">
-                            <a href="#"><img src="img/travel/travel_demo_bg_1.jpg" alt="#" /></a>
+                            <a href="#"><img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" /></a>
                         </div>
                         <div class="isotope_txt">
                             <a href="'.$link.'" class="isotope_link">Mirana<span class="code">'.$data["detail_name"].'</span></a>

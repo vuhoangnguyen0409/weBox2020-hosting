@@ -12,6 +12,7 @@ class Detail extends Database {
     protected $detailIntro;
     protected $detailKeywords;
     protected $detailDescription;
+    protected $detailFeature;
     protected $detailImg;
     protected $detailContent;
     protected $detailDate;
@@ -102,6 +103,30 @@ class Detail extends Database {
      **/
     public function getDetailDescription() {
         return $this->detailDescription;
+    }
+
+    /**
+     * Set detail img for a detail item
+     * ===============================
+     * @param string detailFeature
+     **/
+    public function setDetailFeature($detailFeature) {
+        if (!empty($detailFeature)) {
+            if (function_exists('stripUni') && function_exists('fixUploadname')) {
+                $this->detailFeature = stripUni(fixUploadname($detailFeature));
+            } else {
+                $this->detailFeature = $detailFeature;
+            }
+        }
+    }
+
+    /**
+     * Get detail Feature of a detail item
+     * ==============================
+     * @return string
+     **/
+    public function getDetailFeature() {
+        return $this->detailFeature;
     }
 
     /**
@@ -303,6 +328,15 @@ class Detail extends Database {
     * =====================================
     * @param string formElementName
     **/
+    public function uploadFeatureImg($formElementName) {
+        if ($_FILES[$formElementName]["error"] != 0 || empty($this->detailFeature)) {
+            return false;
+        } else {
+            move_uploaded_file($_FILES[$formElementName]["tmp_name"], '../data/detail_img/'.$this->detailFeature);
+            return true;
+        }
+    }
+
     public function uploadDetailImg($formElementName) {
         if ($_FILES[$formElementName]["error"] != 0 || empty($this->detailImg)) {
             return false;
@@ -324,7 +358,7 @@ class Detail extends Database {
         $description = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', 2, 1)';
-        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  '.$this->detailLabel. ')';
+        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_feature, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailFeature. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  '.$this->detailLabel. ')';
         $this->query($sql);
     }
 
@@ -341,6 +375,7 @@ class Detail extends Database {
         $this->detailIntro = $data["detail_intro"];
         $this->detailKeywords = $data["SEO_keywords"];
         $this->detailDescription = $data["SEO_description"];
+        $this->detailFeature = $data["detail_feature"];
         $this->detailImg = $data["detail_img"];
         $this->detailContent = $data["detail_content"];
         $this->detailDate = $data["detail_date"];
@@ -384,7 +419,7 @@ class Detail extends Database {
         $descritption = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
-        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', labelid=' .$this->detailLabel. ' where detailid='.$id;
+        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_feature="' .$this->detailFeature. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', labelid=' .$this->detailLabel. ' where detailid='.$id;
         $this->query($sql);
     }
 

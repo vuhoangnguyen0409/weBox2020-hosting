@@ -33,6 +33,8 @@ if (isset($_POST["btnDetailAdd"])) {
         ErrorHandler::setError('Bạn không được phép upload loại file này');
     } elseif (empty($_POST["taContent"])) {
         ErrorHandler::setError('Vui lòng nhập nội dung');
+    } elseif (empty($_FILES["fFeature"]["name"])) {
+        ErrorHandler::setError('Vui lòng chọn hình đại diện');
     } elseif (empty($_FILES["fImg"]["name"])) {
         ErrorHandler::setError('Vui lòng chọn hình tin');
     } else {
@@ -41,6 +43,7 @@ if (isset($_POST["btnDetailAdd"])) {
         $detail->setDetailIntro($_POST["txtIntro"]);
         $detail->setDetailKeywords($_POST["taKeywords"]);
         $detail->setDetailDescription($_POST["taDescription"]);
+        $detail->setDetailFeature($_FILES["fFeature"]["name"]);
         $detail->setDetailImg($_FILES["fImg"]["name"]);
         $detail->setDetailContent($_POST["taContent"]);
         $detail->setDetailDate(time());
@@ -49,7 +52,7 @@ if (isset($_POST["btnDetailAdd"])) {
         $detail->setDetailCate($_POST["sltCate"]);
         $detail->setDetailLabel($_POST["sltLabel"]);
         // Kiểm tra lỗi upload
-        if (!$detail->uploadDetailImg('fImg', '../data/detail_img')) {
+        if (!$detail->uploadFeatureImg('fFeature', '../data/detail_img') || !$detail->uploadDetailImg('fImg', '../data/detail_img')) {
             ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
         } else {
             $detail->addDetail();
@@ -141,19 +144,21 @@ require('templates/header_default.php');
                         <div class="ct-right">
 
                             <div class="input-group">
-                                <label></label>
+                                <label>Ảnh Đại Diện</label>
                                 <div class="input-item">
-                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
+                                    <p class="upload-photo"><input id="post-feature" type="file" name="fFeature" /><img id="preview-feature" src="#" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                                 </div>
                             </div>
 
                             <div class="input-group">
-                                <label>Ảnh Đại Diện</label>
+                                <label>Ảnh Chi tiết</label>
                                 <div class="input-item">
                                     <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
                                     <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                                 </div>
                             </div>
+
                             <div class="input-group">
                                 <label>Công bố:</label>
                                 <div class="input-item">
@@ -217,8 +222,12 @@ require('templates/header_default.php');
                                 </div>
                             </div>
 
-
-
+                            <div class="input-group">
+                                <label></label>
+                                <div class="input-item">
+                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
+                                </div>
+                            </div>
                         </div>
 
                     </form>

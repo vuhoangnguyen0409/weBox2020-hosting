@@ -51,68 +51,65 @@ if (isset($_POST["btnUserEdit"])) {
     }
 }
 
-$admin_function = 'Sửa User';
-$custon_menu = array(
-    'user_list.php' => 'Quản lý user'
-);
-require('templates/header_default.php');
-echo '
-<div class="module">
-    <h3>Thông Tin User</h3>
-    <div class="content">
-        <form action="' .$_SERVER["PHP_SELF"]. '?id=' .$id. '" method="post">';
-            if (ErrorHandler::hasError()) {
-                echo '<div class="input-group">
-                    <div class="error_msg">' .ErrorHandler::getError(). '</div>
-                </div>';
-            }
-            echo '
-            <div class="input-group">
-                <label>Username:</label>
-                <div class="input-item">
-                    <b>' .$user->getUsername(). '</b>
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Password:</label>
-                <div class="input-item">
-                    <input type="password" name="txtPass" />
-                </div>
-            </div>
-            <div class="input-group">
-                <label>Confirm password:</label>
-                <div class="input-item">
-                    <input type="password" name="txtRePass" />
-                </div>
-            </div>';
-            if (!$user->editMyself($id)) {
-                echo '
-                <div class="input-group">
-                    <label>Level:</label>
-                    <div class="input-item">
-                        <label><input type="radio" name="rdoLevel" value="1"';
-                        if ($user->getLevel() == 1) {
-                            echo ' checked="checked"';
-                        }
-                        echo ' /> Quản trị</label>
-                        <label><input type="radio" name="rdoLevel" value="2"';
-                        if ($user->getLevel() == 2) {
-                            echo ' checked="checked"';
-                        }
-                        echo ' /> Thành viên</label>
-                    </div>
-                </div>';
-            }
-            echo '
-            <div class="input-group">
-                <label></label>
-                <div class="input-item">
-                    <input type="submit" name="btnUserEdit" value="Sửa user" />
-                </div>
-            </div>
-        </form>
+require('templates/header_default.php');?>
+<body id="admin-page">
+    <div class="left-admin-header">
+        <?php include('templates/admin-left-menu.php')?>
     </div>
-</div>';
-require('templates/footer_default.php');
 
-?>
+    <div class="right-admin-header">
+        <?php include('templates/admin-top-menu.php')?>
+        <!-- Start Right Content Wrap-->
+        <div class="ct-wrap">
+            <div class="ct-wrap-inner">
+                <div class="breadcrumb">
+                    <div class="bread-tit">
+                        <h3 class="h3-line">Chỉnh Sửa Tài Khoản</h3>
+                        <p class="num-count">Nhập thông tin cần cập nhật vào các bên dưới</p>
+                    </div>
+
+                </div>
+
+                <!-- Start Right Content-->
+                <div class="content cate-page">
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post">
+                        <?if (ErrorHandler::hasError()) {?>
+                            <div class="input-group">
+                                <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
+                            </div>
+                        <?}?>
+                        <div class="input-group">
+                            <label>Tên Tài Khoản</label>
+                            <div class="input-item"><?php echo  $user->getUsername()?></div>
+                        </div>
+                        <div class="input-group">
+                            <label>Password:</label>
+                            <div class="input-item">
+                                <input type="password" name="txtPass" />
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Confirm password:</label>
+                            <div class="input-item">
+                                <input type="password" name="txtRePass" />
+                            </div>
+                        </div>
+                        <?if (!$user->editMyself($id)) {?>
+                            <div class="input-group">
+                                <label>Vai Trò</label>
+                                <div class="input-item">
+                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="2" <?php if ($user->getLevel() == 2) {?>checked="checked"<?php}?>/> <span class="checkmask">Thành viên</span></div>
+                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="1" <?php if ($user->getLevel() == 1) {?>checked="checked"<?php }?>/> <span class="checkmask">Quản trị</span></div>
+                                </div>
+                            </div>
+                        <?php }?>
+                        <div class="input-group">
+                            <label></label>
+                            <div class="input-item">
+                                <input type="submit" name="btnUserEdit" value="Cập Nhật" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+<?php require('templates/footer_default.php')?>

@@ -45,8 +45,8 @@ if (isset($_POST["btnDetailEdit"])) {
     } else {
         $detail->setDetailName($_POST["txtName"]);
         $detail->setDetailIntro($_POST["txtIntro"]);
-        $detail->setSeoKeywords($_POST["taKeywords"]);
-        $detail->setSeoDescription($_POST["taDescription"]);
+        $detail->setDetailKeywords($_POST["taKeywords"]);
+        $detail->setDetailDescription($_POST["taDescription"]);
         $detail->setDetailImg($_FILES["fImg"]["name"]);
         $detail->setDetailContent($_POST["taContent"]);
         $detail->setDetailDate(time());
