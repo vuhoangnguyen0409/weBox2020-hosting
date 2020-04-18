@@ -384,7 +384,8 @@ class Detail extends Database {
         $descritption = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
-        //$this->query($sql);
+        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', labelid=' .$this->detailLabel. ' where detailid='.$id;
+        $this->query($sql);
     }
 
 }
