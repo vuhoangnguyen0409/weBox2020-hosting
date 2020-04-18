@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2020 at 11:46 AM
+-- Generation Time: Apr 18, 2020 at 04:04 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -79,6 +79,7 @@ CREATE TABLE `detail` (
   `detail_intro` varchar(255) NOT NULL,
   `SEO_keywords` varchar(255) NOT NULL,
   `SEO_description` varchar(255) NOT NULL,
+  `detail_feature` varchar(255) NOT NULL,
   `detail_img` varchar(255) NOT NULL,
   `detail_content` longtext NOT NULL,
   `detail_date` int(50) NOT NULL,
@@ -92,14 +93,15 @@ CREATE TABLE `detail` (
 -- Dumping data for table `detail`
 --
 
-INSERT INTO `detail` (`detailid`, `detail_name`, `detail_intro`, `SEO_keywords`, `SEO_description`, `detail_img`, `detail_content`, `detail_date`, `status`, `userid`, `cateid`, `labelid`) VALUES
-(1, 'Web onepage 01', 'Web onepage 01', 'Web onepage 01', 'Web onepage 01', '1586868453_img_5670.jpg', 'Web onepage 01', 1586787967, 'Y', 1, 1, 1),
-(2, 'Web onepage 02', 'Web onepage 02', '                                    Web onepage 02                                    ', '                                    Web onepage 02                                    ', 'abc.jpg', 'Web onepage 02', 1586787967, 'Y', 1, 1, 2),
-(3, 'Web doanh nghiep 01', 'Web doanh nghiep 01', 'Web doanh nghiep 01', 'Web doanh nghiep 01', '', 'Web doanh nghiep 01', 0, 'Y', 1, 3, 1),
-(4, 'Web doanh nghiep 02', 'Web doanh nghiep 02', '                                                                        Web doanh nghiep 02                                                                        ', '                                                                        Web doanh nghiep 02                                                                        ', '1587202342_sample-detail.jpg', 'Web doanh nghiep 02', 0, 'Y', 2, 3, 5),
-(5, 'We bán hàng 01', 'We bán hàng 01', '                                                                                                                                                We bán hàng 01                                                                                                 ', '                                                                                                                                                We bán hàng 01                                                                                                 ', '1587201976_sample-detail.jpg', 'We bán hàng 01', 0, 'Y', 1, 2, 1),
-(6, 'We bán hàng 02', 'We bán hàng 02', '                                    We bán hàng 02                                    ', '                                    We bán hàng 02                                    ', '1587201806_sample-detail.jpg', 'We bán hàng 02', 0, 'Y', 1, 2, 2),
-(8, 'bán hàng 03', 'bán hàng 03', 'bán hàng 03', '  bán hàng 03                                  ', '1587202856_sample-detail.jpg', '<p>bán hàng 03</p>', 1587202856, 'Y', 1, 2, 4);
+INSERT INTO `detail` (`detailid`, `detail_name`, `detail_intro`, `SEO_keywords`, `SEO_description`, `detail_feature`, `detail_img`, `detail_content`, `detail_date`, `status`, `userid`, `cateid`, `labelid`) VALUES
+(1, 'Web onepage 01', 'Web onepage 01', 'Web onepage 01', 'Web onepage 01', '', '1586868453_img_5670.jpg', 'Web onepage 01', 1586787967, 'Y', 1, 1, 1),
+(2, 'Web onepage 02', 'Web onepage 02', '                                    Web onepage 02                                    ', '                                    Web onepage 02                                    ', '', 'abc.jpg', 'Web onepage 02', 1586787967, 'Y', 1, 1, 2),
+(3, 'Web doanh nghiep 01', 'Web doanh nghiep 01', 'Web doanh nghiep 01', 'Web doanh nghiep 01', '', '', 'Web doanh nghiep 01', 0, 'Y', 1, 3, 1),
+(4, 'Web doanh nghiep 02', 'Web doanh nghiep 02', '                                                                        Web doanh nghiep 02                                                                        ', '                                                                        Web doanh nghiep 02                                                                        ', '', '1587202342_sample-detail.jpg', 'Web doanh nghiep 02', 0, 'Y', 2, 3, 5),
+(5, 'We bán hàng 01', 'We bán hàng 01', '                                                                                                                                                We bán hàng 01                                                                                                 ', '                                                                                                                                                We bán hàng 01                                                                                                 ', '', '1587201976_sample-detail.jpg', 'We bán hàng 01', 0, 'Y', 1, 2, 1),
+(6, 'We bán hàng 02', 'We bán hàng 02', '                                    We bán hàng 02                                    ', '                                    We bán hàng 02                                    ', '', '1587201806_sample-detail.jpg', 'We bán hàng 02', 0, 'Y', 1, 2, 2),
+(8, 'bán hàng 03', 'bán hàng 03', 'bán hàng 03', '  bán hàng 03                                  ', '', '1587202856_sample-detail.jpg', '<p>bán hàng 03</p>', 1587202856, 'Y', 1, 2, 4),
+(18, 'aaa', 'aaa', 'aaa', 'aaa', '1587218529_travel_demo_bg_1.jpg', '1587218529_detail01.jpg', '<p>aaa</p>', 1587218529, 'Y', 1, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `detailid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `detailid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `label`
