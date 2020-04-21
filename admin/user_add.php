@@ -12,10 +12,11 @@ loadLibs(array("check_admin.php", "valid_user.php"));
 if (isset($_POST["btnUserAdd"])) {
     // Kiểm ra dữ liệu đầu vào
     if (empty($_POST["txtUser"])) {
-        ErrorHandler::setError('Mục này không được bỏ trống');
-    } elseif (!validUsername($_POST["txtUser"])) {
-        ErrorHandler::setError('Username không hợp lệ. Chỉ chấp nhận ký tự chữ cái, số và tối thiểu ' .$username_min_len. ' ký tự');
-    } elseif (empty($_POST["txtPass"])) {
+        ErrorHandler::setError('Vui lòng nhập tên');
+    } //elseif (!validUsername($_POST["txtUser"])) {
+        //ErrorHandler::setError('Username không hợp lệ. Chỉ chấp nhận ký tự chữ cái, số và tối thiểu ' .$username_min_len. ' ký tự');
+    //}
+    elseif (empty($_POST["txtPass"])) {
         ErrorHandler::setError('Vui lòng nhập password');
     } elseif ($_POST["txtRePass"] != $_POST["txtPass"]) {
         ErrorHandler::setError('hai ô mật khẩu không trùng nhau');
@@ -23,16 +24,24 @@ if (isset($_POST["btnUserAdd"])) {
         ErrorHandler::setError('Vui lòng nhập Email');
     } elseif (empty($_POST["tel"])) {
         ErrorHandler::setError('Vui lòng nhập SDT');
+    }  elseif (empty($_POST["birthday"])) {
+        ErrorHandler::setError('Vui lòng nhập ngày tháng năm sinh');
+    }  elseif (empty($_POST["address"])) {
+        ErrorHandler::setError('Vui lòng nhập địa chỉ');
     } else {
-        $user = new User($_POST["txtUser"], $_POST["txtPass"],  $_POST["txtBirth"], $_POST["txtAddress"], $_POST["rdoLevel"], $_POST["email"], $_POST["tel"]);
-        //var_dump($user);
+        $user = new User($_POST["txtUser"], $_POST["txtPass"], $_POST["rdoLevel"], $_POST["rdoGender"], $_POST["email"], $_POST["tel"], $_POST["birthday"], $_POST["address"]);
+        //print "<pre>";
+        //print_r($user);
+        //print "</pre>";
         //die();
-        if ($user->existsUsername()) {
-            ErrorHandler::setError('<i>Username này đã tồn tại. Vui lòng chọn username khác</i>');
+        if ($user->existsUser()) {
+            ErrorHandler::setError('<i>SĐT này đã tồn tại. Vui lòng chọn số điện thoại khác</i>');
         }
         elseif ($user->existsEmail()) {
-            ErrorHandler::setError('<i>Email này đã tồn tại. Vui lòng chọn username khác</i>');
+            ErrorHandler::setError('<i>Email này đã tồn tại. Vui lòng chọn email khác</i>');
         } else {
+            var_dump($_POST["email"]);
+            //die();
             $user->addUser();
             header("location: user_list.php");
             exit();
@@ -115,28 +124,28 @@ require('templates/header_default.php');?>
                         <div class="input-group">
                             <label>Ngày Sinh</label>
                             <div class="input-item">
-                                <input type="txt" name="txtBirth" />
+                                <input type="txt" name="birthday" />
                             </div>
                         </div>
                         <div class="input-group">
                             <label>Địa Chỉ</label>
                             <div class="input-item">
-                                <input type="txt" name="txtAddress" />
+                                <input type="txt" name="address" />
                             </div>
                         </div>
                         <div class="input-group">
                             <div class="input-group-inner">
                                 <label>Vai trò</label>
                                 <div class="input-item">
-                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="2" checked="checked" /> <span class="checkmask">Thành viên</span></div>
                                     <div class="checkbox"><input type="radio" name="rdoLevel" value="1" /> <span class="checkmask">Quản trị</span></div>
+                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="2" checked="checked" /> <span class="checkmask">Thành viên</span></div>
                                 </div>
                             </div>
                             <div class="input-group-inner">
                                 <label>Giới Tính</label>
                                 <div class="input-item">
-                                    <div class="checkbox"><input type="radio" name="txtGender" value="2" checked="checked" /> <span class="checkmask">Nam</span></div>
-                                    <div class="checkbox"><input type="radio" name="txtGender" value="1" /> <span class="checkmask">Nữ</span></div>
+                                    <div class="checkbox"><input type="radio" name="rdoGender" value="1" checked="checked" /> <span class="checkmask">Nam</span></div>
+                                    <div class="checkbox"><input type="radio" name="rdoGender" value="2" /> <span class="checkmask">Nữ</span></div>
                                 </div>
                             </div>
                         </div>

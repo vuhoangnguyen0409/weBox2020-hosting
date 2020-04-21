@@ -5,12 +5,16 @@ require('../phpnc75_platform.php');
 // Sau khi submit
 if (isset($_POST["btnLogin"])) {
     // Kiểm tra xem người dùng có nhập liệu đầy đủ chưa
-    if (empty($_POST["txtUser"])) {
-        ErrorHandler::setError('Vui lòng nhập username');
+    if (empty($_POST["txtTel"])) {
+        ErrorHandler::setError('Vui lòng nhập SĐT');
     } elseif (empty($_POST["txtPass"])) {
         ErrorHandler::setError('Vui lòng nhập password');
     } else {
-        $login = new User($_POST["txtUser"], $_POST["txtPass"]);
+        $login = new User(null, $_POST["txtPass"], null, null, null, $_POST["txtTel"], null, null);
+        //print "<pre>";
+        //print_r($login);
+        //print "</pre>";
+        //die();
         if (!$login->checkLogin()) {
             ErrorHandler::setError('Sai thông tin đăng nhập');
         } else {
@@ -25,7 +29,7 @@ if (isset($_POST["btnLogin"])) {
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Jackie Do" />
+    <meta name="author" content="NguyeN" />
     <link rel="stylesheet" href="templates/css/login.css" />
     <link rel="stylesheet" href="/../css/font-awesome.css" />
     <title>Đăng Nhập Tài Khoản Quản Trị</title>
@@ -50,11 +54,11 @@ if (isset($_POST["btnLogin"])) {
                         ?>
                     </div>
                     <div class="input-group">
-                        <h4 class="username">Tên Tài Khoản</h4>
+                        <h4 class="username">Số điện thoại</h4>
                         <div class="input-item">
-                            <input type="text" name="txtUser" placeholder="Tên tài khoản" class="user-info"<?php
-                            if (isset($_POST["txtUser"])) {
-                                echo ' value="' .$_POST["txtUser"]. '"';
+                            <input type="text" name="txtTel" placeholder="Số điện thoại" class="user-info"<?php
+                            if (isset($_POST["txtTel"])) {
+                                echo ' value="' .$_POST["txtTel"]. '"';
                             }
                             ?> />
                         </div>

@@ -11,14 +11,20 @@ class User extends Database {
     protected $level;
     protected $email;
     protected $tel;
+    protected $birthday;
+    protected $address;
+    protected $gender;
 
-    public function __construct($username=null, $password=null, $level=null, $email=null, $tel=null) {
+    public function __construct($username=null, $password=null, $level=null, $gender=null, $email=null, $tel=null, $birthday=null, $address=null) {
         parent::__construct();
         $this->setUsername($username);
         $this->setPassword($password);
         $this->setLevel($level);
+        $this->setGender($level);
         $this->setEmail($email);
         $this->setTel($tel);
+        $this->setBirthday($birthday);
+        $this->setAddress($address);
     }
 
     public function setUsername($username) {
@@ -51,6 +57,16 @@ class User extends Database {
         return $this->level;
     }
 
+    public function setGender($gender) {
+        if (!empty($gender)) {
+            $this->gender = (int)$gender;
+        }
+    }
+
+    public function getGender() {
+        return $this->gender;
+    }
+
     public function setEmail($email) {
         if (!empty($email)) {
             $this->email = $email;
@@ -71,15 +87,36 @@ class User extends Database {
         return $this->tel;
     }
 
+    public function setBirthday($birthday) {
+        if (!empty($birthday)) {
+            $this->birthday = $birthday;
+        }
+    }
+
+    public function getBirthday() {
+        return $this->birthday;
+    }
+
+    public function setAddress($address) {
+        if (!empty($address)) {
+            $this->address = $address;
+        }
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
     public function checkLogin() {
         global $prefix;
-        $sql = 'select * from user where username="' .$this->username. '" and password="' .$this->password. '"';
+        $sql = 'select * from user where tel="'.$this->tel.'" and password="' .$this->password. '"';
         $this->query($sql);
         if ($this->numrows() == 0) {
             return false;
         } else {
             $data = $this->fetch();
             $_SESSION[$prefix."username"] = $data["username"];
+            $_SESSION[$prefix."tel"] = $data["tel"];
             $_SESSION[$prefix."level"] = $data["level"];
             $_SESSION[$prefix."userid"] = $data["userid"];
             return true;
@@ -123,8 +160,8 @@ class User extends Database {
         return $data;
     }
 
-    public function existsUsername() {
-        $sql = 'select userid from user where username="' .$this->username. '"';
+    public function existsUser() {
+        $sql = 'select userid from user where tel="' .$this->tel. '"';
         $this->query($sql);
         if ($this->numrows() == 0) {
             return false;
@@ -144,10 +181,9 @@ class User extends Database {
     }
 
     public function addUser() {
-        if (!empty($this->username) && !empty($this->password) && !empty($this->level) && !empty($this->email) && !empty($this->tel) && !$this->existsUsername() && !$this->existsEmail()) {
-            $sql = 'insert into user(username, password, level, email, tel) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', "' .$this->email. '", "' .$this->tel. '")';
+            //$sql = 'insert into user(username, password, level, gender, email, tel, birthday, address) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', ' .$this->gender. ', "' .$this->email. '", "' .$this->tel. '", "' .$this->birthday. '", "' .$this->address. '")';
+            $sql = 'insert into user(username, password, level, gender, email, tel, birthday, address) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', ' .$this->gender. ', "' .$this->email. '", "' .$this->tel. '", "' .$this->birthday. '", "' .$this->address. '")';
             $this->query($sql);
-        }
     }
 
     public function getUserInfoById($id) {
@@ -157,8 +193,11 @@ class User extends Database {
         $this->username = $data["username"];
         $this->password = $data["password"];
         $this->level = $data["level"];
+        $this->gender = $data["gender"];
         $this->email = $data["email"];
         $this->tel = $data["tel"];
+        $this->birthday = $data["birthday"];
+        $this->address = $data["address"];
     }
 
     public function checkDelPermission($id) {
@@ -205,7 +244,7 @@ class User extends Database {
     }
 
     public function editUser($id) {
-        $sql = 'update user set password="' .$this->password. '", level=' .$this->level. ', email="' .$this->email. '", tel="' .$this->tel. '"  where userid='.$id;
+        $sql = 'update user set password="' .$this->password. '", level=' .$this->level. ', gender=' .$this->gender. ', email="' .$this->email. '", tel="' .$this->tel. '", birthday="' .$this->birthday. '", address="' .$this->address. '"  where userid='.$id;
         $this->query($sql);
     }
 

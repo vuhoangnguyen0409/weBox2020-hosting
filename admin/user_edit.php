@@ -73,11 +73,11 @@ require('templates/header_default.php');?>
                 <!-- Start Right Content-->
                 <div class="content cate-page">
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post">
-                        <?if (ErrorHandler::hasError()) {?>
+                        <?php if (ErrorHandler::hasError()) {?>
                             <div class="input-group">
                                 <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
                             </div>
-                        <?}?>
+                        <?php }?>
                         <div class="input-group">
                             <label>Tên Tài Khoản</label>
                             <div class="input-item"><?php echo  $user->getUsername()?></div>
@@ -94,11 +94,11 @@ require('templates/header_default.php');?>
                                 <input type="password" name="txtRePass" />
                             </div>
                         </div>
-                        <?if (!$user->editMyself($id)) {?>
+                        <?php if (!$user->editMyself($id)) {?>
                             <div class="input-group">
                                 <label>Vai Trò</label>
                                 <div class="input-item">
-                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="2" <?php if ($user->getLevel() == 2) {?>checked="checked"<?php}?>/> <span class="checkmask">Thành viên</span></div>
+                                    <div class="checkbox"><input type="radio" name="rdoLevel" value="2" <?php if ($user->getLevel() == 2) {?>checked="checked"<?php }?>/> <span class="checkmask">Thành viên</span></div>
                                     <div class="checkbox"><input type="radio" name="rdoLevel" value="1" <?php if ($user->getLevel() == 1) {?>checked="checked"<?php }?>/> <span class="checkmask">Quản trị</span></div>
                                 </div>
                             </div>
