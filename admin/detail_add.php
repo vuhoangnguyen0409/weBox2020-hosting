@@ -138,36 +138,46 @@ require('templates/header_default.php');
                                     </script>
                                 </div>
                             </div>
-
+                            
+                            <div class="SEO-wrap">
+                                <div class="input-group">
+                                    <label>SEO Keywords</label>
+                                    <div class="input-item">
+                                        <input type="text" name="taKeywords"
+                                        <?php if (isset($_POST["taKeywords"])) {?>
+                                            value="<?php echo htmlspecialchars($_POST["taKeywords"])?>"
+                                        <?php }?>/>
+                                    </div>
+                                </div>
+    
+                                <div class="input-group">
+                                    <label>SEO Description</label>
+                                    <div class="input-item">
+                                        <textarea name="taDescription" rows="3"><?php if (isset($_POST["taDescription"])) {
+                                            echo $_POST["taDescription"];
+                                        }?></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="ct-right">
-
+                        
                             <div class="input-group">
-                                <label>Ảnh Đại Diện</label>
+                                <label></label>
                                 <div class="input-item">
-                                    <p class="upload-photo"><input id="post-feature" type="file" name="fFeature" /><img id="preview-feature" src="#" alt=""/></p>
-                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
+                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
                                 </div>
                             </div>
-
+                            
                             <div class="input-group">
-                                <label>Ảnh Chi tiết</label>
+                                <label>Tình Trạng</label>
                                 <div class="input-item">
-                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
-                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
+                                    <label><input type="radio" name="rdoPublic" value="Y" checked="checked" /> Công Khai</label>
+                                    <label><input type="radio" name="rdoPublic" value="N" /> Bản Nháp</label>
                                 </div>
                             </div>
-
-                            <div class="input-group">
-                                <label>Công bố:</label>
-                                <div class="input-item">
-                                    <label><input type="radio" name="rdoPublic" value="Y" checked="checked" /> Có</label>
-                                    <label><input type="radio" name="rdoPublic" value="N" /> Không</label>
-                                </div>
-                            </div>
-
-
+                            
                             <div class="input-group">
                                 <label>Chuyên Mục</label>
                                 <div class="input-item fixright">
@@ -201,33 +211,27 @@ require('templates/header_default.php');
                                     </select>
                                 </div>
                             </div>
-
-                             <div class="input-group">
-                                <label>SEO Keywords</label>
+                            
+                            <div class="input-group">
+                                <label>Ảnh Đại Diện</label>
                                 <div class="input-item">
-                                    <input type="text" name="taKeywords"
-                                    <?php if (isset($_POST["taKeywords"])) {?>
-                                        value="<?php echo htmlspecialchars($_POST["taKeywords"])?>"
-                                    <?php }?>/>
+                                    <p class="upload-photo"><input id="post-feature" type="file" name="fFeature" /><img id="preview-feature" src="#" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                                 </div>
                             </div>
 
                             <div class="input-group">
-                                <label>SEO Description</label>
+                                <label>Ảnh Chi tiết</label>
                                 <div class="input-item">
-                                    <textarea name="taDescription" rows="10">
-                                    <?php if (isset($_POST["taDescription"])) {
-                                        echo $_POST["taDescription"];
-                                    }?></textarea>
+                                    <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
+                                    <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                                 </div>
                             </div>
 
-                            <div class="input-group">
-                                <label></label>
-                                <div class="input-item">
-                                    <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
-                                </div>
-                            </div>
+
+                             
+
+
                         </div>
 
                     </form>
