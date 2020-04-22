@@ -113,41 +113,41 @@ $id = $_GET["id"];
     							$menu[] = $data;
     						}
     						foreach ($menu as $item) {
-                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$item["labelid"]. '"><span>' .$item["label_name"]. '</span></a></h3>';
+                                $label = str_replace(' ', '', noneUniAlias($item["label_name"]));
+                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$label. '"><span>' .$item["label_name"]. '</span></a></h3>';
     						}
     				?>
                 </div>
                 <!-- End Filter Isotope -->
 
                 <!-- Start Filter Grip -->
-                <?php
-                $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.status="Y" AND d.cateid="' .$id. '" ORDER BY detailid DESC';
-    		    $query = $mysqli->query($sql);
-    			$menu = array();
-				while ($data = $query -> fetch_assoc()) {
-					$menu[] = $data;
-                    $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
+                <div class="isotope_grid">
+                    <?php
+                    $sql = 'SELECT * FROM detail as d, category as c, label as l WHERE d.cateid=c.cateid AND d.labelid=l.labelid AND d.status="Y" AND d.cateid="' .$id. '" ORDER BY detailid DESC';
+        		    $query = $mysqli->query($sql);
+        			$menu = array();
+    				while ($data = $query -> fetch_assoc()) {
+    					$menu[] = $data;
+                        $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
+                        $label = str_replace(' ', '', noneUniAlias($data["label_name"]));
 
-                    echo '<div class="isotope_item '.$data["labelid"].'">
-                        <div class="isotope_img">
-                            <a href="#"><img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" /></a>
-                        </div>
-                        <div class="isotope_txt">
-                            <a href="'.$link.'" class="isotope_link">'.$data["detail_name"].'<span class="code">'.$data["detail_intro"].'</span></a>
-                        </div>
-                    </div>';
-				}
-                ?>
+                        echo '<div class="isotope_item '.$label.'">
+                        <div class="isotope_inner">
+                            <div class="isotope_img">
+                                <a href="'.$link.'"><img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" /></a>
+                            </div>
+                            <div class="isotope_txt">
+                                <a href="'.$link.'" class="isotope_link"><h4 class="title">'.$data["detail_name"].'</h4><span class="code">'.substr($data["detail_intro"],0,160).'. . .</span></a>
+                            </div>
+                            </div>
+                        </div>';
+    				}
+                    ?>
+                </div>
                 <!-- End Filter Grip -->
             </div>
             <!-- End Main -->
-
-
-
         </div>
-
-
-
     </div>
 
 
