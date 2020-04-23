@@ -162,9 +162,7 @@ require('templates/header_default.php');
                         </div>
 
                         <div class="ct-right">
-                        
                             <div class="input-group">
-                                <label></label>
                                 <div class="input-item">
                                     <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
                                 </div>

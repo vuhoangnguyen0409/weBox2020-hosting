@@ -837,6 +837,7 @@ textarea:focus:-ms-input-placeholder {
 .isotope_wrap {
 	text-align: left;
 	margin: 0 -5px;
+    padding: 0 10px 10px;
 }
 
 .isotope_wrap h3 {
@@ -853,6 +854,13 @@ textarea:focus:-ms-input-placeholder {
 	margin-right: 10px;
 }
 
+.isotope_inner {
+    border-radius: 4px;
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    overflow: hidden;
+    background-color: hsl(0, 0%, 100%);
+}
+
 .isotope_button {
 	color: #fff;
 	cursor: pointer;
@@ -861,7 +869,7 @@ textarea:focus:-ms-input-placeholder {
 	/*font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 	font-weight: 600;
 	text-decoration: none;
-	padding: 24px 5px;
+	padding: 20px 5px;
 	position: relative;
 	border: 1px solid #a2a2a2;
 	border-radius: 8px;
@@ -963,7 +971,7 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .s-all a:before {
-	background: url(../img/common/bg-tat-ca.jpg) no-repeat center center / cover;
+	background: url(../img/common/bg-tat-ca.jpg) no-repeat center center / cover ;
 }
 
 .s-food a:before {
@@ -986,15 +994,20 @@ textarea:focus:-ms-input-placeholder {
 	background: url(../img/common/bg-noi-that.jpg) no-repeat center center / cover;
 }
 
+.isotope_grid {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
 .isotope_grip_wrap {
 	margin: 0 -10px;
 }
 
 .isotope_item {
 	box-sizing: border-box;
-	float: left;
-	padding: 10px;
-	width: 25%;
+	padding: 15px;
+	width: 33.33%;
 	position: relative;
 }
 
@@ -1031,7 +1044,7 @@ textarea:focus:-ms-input-placeholder {
 	color: #0e1318;
 	text-decoration: none;
 	display: block;
-	padding: 10px 10px;
+	padding: 10px 15px;
 	border-top: 1px solid #ddd;
 	font-weight: 500;
 }
@@ -1041,6 +1054,12 @@ textarea:focus:-ms-input-placeholder {
 	color: #888;
 	font-size: 12px;
 	font-weight: normal;
+}
+
+.isotope_txt .title {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 0;
 }
 
 .isotope_txt i {
@@ -2046,6 +2065,7 @@ legend {
 
 .ct_info_wrap {
 	padding: 0 40px;
+    display: inline-block;
 }
 
 .ct_info,
@@ -2163,24 +2183,26 @@ legend {
 	padding-top: 0;
 }
 
-.left-ct {
+.detail-img {
 	float: left;
-	width: 70%;
+	width:70%;
 	max-width: 840px;
+    margin-top: 20px;
 }
 
-.right-ct {
+.detail-info {
 	float: right;
 	width: 30%;
 	font-size: 14px;
 	position: fixed;
 	max-width: 320px;
-	right: 15px;
+	right: 20px;
+    top: 30px;
 	box-shadow: 0px 0px 4px 0px #ddd;
 	padding: 20px;
 }
 
-.right-ct .title {
+.detail-info .title {
 	font-size: 24px;
 	font-weight: bold;
 	font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
@@ -2188,17 +2210,20 @@ legend {
 	letter-spacing: -.03rem;
 }
 
-.right-ct .code {
+.detail-info .code {
 	font-size: 13px;
 }
 
-.right-ct .desc {
+.detail-info .desc {
 	margin: 20px 0 15px 0;
 	border-top: 1px solid #eeeeef;
 	padding: 16px 0 0 0;
+    white-space: pre-line;
 }
-
-.right-ct .view {
+.detail-info .view, .detail-info .divine span {
+    display: none;
+}
+.detail-info .view, .detail-info .download {
 	box-shadow: none;
 	background: #00c4cc;
 	color: #fff;
@@ -2206,7 +2231,6 @@ legend {
 	cursor: pointer;
 	font-size: 14px;
 	padding: 7px;
-	display: block;
 	width: 100%;
 	border-radius: 5px;
 	font-weight: 600;
@@ -2217,12 +2241,13 @@ legend {
 	transition-delay: 0s, 0s, 0s;
 }
 
-.right-ct .view:hover {
+.detail-info .view:hover, .detail-info .download:hover {
 	background: #00d9e1;
 }
 
-.right-ct .download {
-	border: 2px solid #dbdcdd;
+.detail-info .download {
+    margin-top: 15px;
+	/*border: 2px solid #dbdcdd;
 	box-shadow: none;
 	background: #fff;
 	color: rgba(14, 19, 24, .7);
@@ -2233,25 +2258,26 @@ legend {
 	width: 100%;
 	border-radius: 5px;
 	font-weight: 600;
-	transition: background-color .1s linear, border-color .1s linear, color .1s linear;
+	transition: background-color .1s linear, border-color .1s linear, color .1s linear;*/
 }
 
-.right-ct .download:hover {
-	border: 2px solid rgba(14, 19, 24, .45);
+.detail-info .download:hover {
+	/*border: 2px solid rgba(14, 19, 24, .45);*/
 }
 
-.right-ct .divine {
+.detail-info .divine {
 	color: rgba(14, 19, 24, .2);
 	margin: 4px 0;
 	text-align: center;
 	position: relative;
+    height: 1px;
 }
 
-.right-ct .divine:before {
+.detail-info .divine:before {
 	background: rgba(14, 19, 24, .1);
 	content: "";
 	height: 1px;
-	width: 90%;
+	width: 100%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -2259,18 +2285,19 @@ legend {
 	z-index: -1;
 }
 
-.right-ct .divine span {
+.detail-info .divine span {
 	background: #fff;
 	padding: 0 5px;
 	font-size: 12px;
 }
 
-.right-ct .unity {
+.detail-info .unity {
 	margin-top: 20px;
+    margin-bottom: 15px;
 	color: #0e1318;
 }
 
-.right-ct .unity .text {
+.detail-info .unity .text {
 	line-height: 30px;
 }
 
@@ -2299,7 +2326,6 @@ legend {
 .price-tab .tablinks, .pop-price .poptablinks {
 	display: block;
 	box-shadow: none;
-	border: none;
 	border: 1px solid #ddd;
 	background: #fff;
 	width: 100%;
@@ -2981,3 +3007,18 @@ legend {
     z-index: 9999;
     padding-right: 15px;
 }
+.SEO-wrap {
+    background: #fff;
+    border: 1px solid #dbdfea;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 40px 0;
+}
+.detail-info .code {
+    display: none;
+}
+.detail-info .desc {
+    margin: 0px 0 15px 0;
+    border-top: none;
+    padding: 10px 0 0 2px;
+}   

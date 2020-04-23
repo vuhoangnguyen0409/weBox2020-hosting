@@ -137,7 +137,7 @@ $id = $_GET["id"];
                                 <a href="'.$link.'"><img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" /></a>
                             </div>
                             <div class="isotope_txt">
-                                <a href="'.$link.'" class="isotope_link"><h4 class="title">'.$data["detail_name"].'</h4><span class="code">'.substr($data["detail_intro"],0,160).'. . .</span></a>
+                                <a href="'.$link.'" class="isotope_link"><h4 class="title">'.$data["detail_name"].'</h4><span class="code">'.substr($data["detail_intro"],0,143).'. . .</span></a>
                             </div>
                             </div>
                         </div>';
