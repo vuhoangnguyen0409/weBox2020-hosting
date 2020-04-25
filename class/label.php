@@ -10,16 +10,8 @@
 
 class Label extends Database {
     protected $labelName;
+    protected $labelImage;
 
-    /**
-     * Set name for a label
-     * =======================
-     * @param string labelName
-     **/
-    public function __construct($labelName=null) {
-        parent::__construct();
-        $this->setLabelName($labelName);
-    }
 
     /**
      * Set name for a label
@@ -40,6 +32,30 @@ class Label extends Database {
      **/
     public function getLabelName() {
         return $this->labelName;
+    }
+
+    /**
+     * Set label img for a label item
+     * ===============================
+     * @param string labelImg
+     **/
+    public function setLabelImg($labelImg) {
+        if (!empty($labelImg)) {
+            if (function_exists('stripUni') && function_exists('fixUploadname')) {
+                $this->labelImg = stripUni(fixUploadname($labelImg));
+            } else {
+                $this->labelImg = $labelImg;
+            }
+        }
+    }
+
+    /**
+     * Get label images of a label item
+     * ==============================
+     * @return string
+     **/
+    public function getLabelImg() {
+        return $this->labelImg;
     }
 
     /**
@@ -81,11 +97,39 @@ class Label extends Database {
      **/
     public function addLabel() {
         if (!is_null($this->labelName) && !$this->checkExistsLabel()) {
-            $sql = 'insert into label(label_name) values("' .addslashes($this->labelName). '")';
+            $sql = 'insert into label(label_name, label_img) values("' .addslashes($this->labelName). '", "' .$this->labelImg. '")';
             $this->query($sql);
             return true;
         } else {
             return false;
+        }
+    }
+
+    static public function acceptUpload($fileName) {
+        global $accept_upload_ext;
+        // Kiểm tra xem hàm lấy phần mở rộng của tập tin đã có chưa
+        if (function_exists('getExt')) {
+            if (!in_array(getExt($fileName), $accept_upload_ext)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+    * Upload an images to site through form
+    * =====================================
+    * @param string formElementName
+    **/
+    public function uploadLabelImg($formElementName) {
+        if ($_FILES[$formElementName]["error"] != 0 || empty($this->labelImg)) {
+            return false;
+        } else {
+            move_uploaded_file($_FILES[$formElementName]["tmp_name"], '../data/label_img/'.$this->labelImg);
+            return true;
         }
     }
 
@@ -99,6 +143,7 @@ class Label extends Database {
         $this->query($sql);
         $data = $this->fetch();
         $this->labelName = $data["label_name"];
+        $this->labelImg = $data["label_img"];
     }
 
     /**
@@ -119,11 +164,21 @@ class Label extends Database {
      **/
     public function editLabel($id) {
         if (!$this->checkExistsLabel()) {
-            $sql = 'update label set label_name="' .addslashes($this->labelName). '" where labelid='.$id;
+            $sql = 'update label set label_name="' .addslashes($this->labelName). '", label_img="' .$this->labelImg. '" where labelid='.$id;
             $this->query($sql);
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Delete detail image of a detail item
+     * ================================
+     **/
+    public function delLabelImage() {
+        if (file_exists('../data/label_img/'.$this->labelImg)) {
+            unlink('../data/label_img/'.$this->labelImg);
         }
     }
 
