@@ -6,7 +6,7 @@
  */
 
 require('../phpnc75_platform.php');
-loadLibs(array("check_admin.php"));
+loadLibs(array("check_admin.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 
 // Kiểm tra xem có nhận được thông tin khóa chính của danh mục cần sửa hay không
 if (!isset($_GET["id"])) {
@@ -29,16 +29,16 @@ if (isset($_POST["btnLabelEdit"])) {
             ErrorHandler::setError('Thẻ này đã tồn tại. Vui lòng chọn tên khác');
         }
         // Kiểm tra lỗi upload
-        else if (!empty($_FILES["fImg"]["name"])) {
+        elseif (!empty($_FILES["fImg"]["name"])) {
             $newLabel = clone $label;
             $newLabel->setLabelImg($_FILES["fImg"]["name"]);
-            //if (!Label::acceptUpload($_FILES["fImg"]["name"])) {
-                //ErrorHandler::setError('Bạn không được phép upload loại file này');
+            if (!Label::acceptUpload($_FILES["fImg"]["name"])) {
+                ErrorHandler::setError('Bạn không được phép upload loại file này');
                 //print "<pre>";
                 //print_r($_FILES["fImg"]["name"]);
                 //print "</pre>";
                 //die();
-            //} else {
+            } else {
                 if (!$newLabel->uploadLabelImg('fImg')) {
                     ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
                 } else {
@@ -47,7 +47,7 @@ if (isset($_POST["btnLabelEdit"])) {
                     header("location: label_list.php");
                     exit();
                 }
-            //}
+            }
         } else {
             $label->editLabel($id);
             header("location: label_list.php");
