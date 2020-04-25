@@ -351,6 +351,7 @@ select:focus {
 }
 #admin-page .list-table .list-data .category-data {
     font-size: 12px;
+    text-transform: capitalize;
 }
 #admin-page .list-table .list-data .action-data {
     text-align: center;
@@ -678,7 +679,7 @@ select:focus {
 }
 .cate-page .form .input-item > input {
     padding: 9px 10px;
-    color: #b9b9b9;
+    color: #fff;
 }
 .cate-page .form .input-item > input:focus {
     color: #000;
@@ -730,7 +731,7 @@ select:focus {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-.news-page .upload-photo {
+.news-page .upload-photo, .cate-page .upload-photo {
     background: url(/../img/icon/gallery.png) #fff no-repeat center center;
     background-size: 50px;
     width: 100%;
@@ -742,19 +743,19 @@ select:focus {
     overflow: hidden;
     border-radius: 5px;
 }
-.news-page .upload-photo:after {
+.news-page .upload-photo:after, .cate-page .upload-photo:after {
     content: "";
     display: none;
     padding-bottom: 100%;
 }
-.news-page .upload-photo input {
+.news-page .upload-photo input, .cate-page .upload-photo input {
     height: 100%;
     position: absolute;
     width: 100%;
     opacity: 0;
     z-index: 1;
 }
-.news-page .upload-photo img {
+.news-page .upload-photo img, .cate-page .upload-photo img {
     width: 100%;
     min-height: 100%;
     position: absolute;

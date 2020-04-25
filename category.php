@@ -114,7 +114,8 @@ $id = $_GET["id"];
     						}
     						foreach ($menu as $item) {
                                 $label = str_replace(' ', '', noneUniAlias($item["label_name"]));
-                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$label. '"><span>' .$item["label_name"]. '</span></a></h3>';
+                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$label. '"><span>' .$item["label_name"]. '</span></a></h3>
+                                <div class="label_img"><img src="../data/label_img/'.$item["label_img"].'" alt="' .$item["label_name"]. '"></div>';
     						}
     				?>
                 </div>

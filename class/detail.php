@@ -390,7 +390,7 @@ class Detail extends Database {
      * ================================
      **/
     public function delDetailImage() {
-        if (file_exists('../data/detail_img/'.$this->dettailImg)) {
+        if (file_exists('../data/detail_img/'.$this->detailImg)) {
             unlink('../data/detail_img/'.$this->detailImg);
         }
     }

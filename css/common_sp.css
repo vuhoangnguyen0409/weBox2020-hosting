@@ -144,8 +144,54 @@
         margin: 0;
     }
     /* End Header */
-
-    
+    .sp-filter {
+        padding: 0 10px;
+        margin: 10px 0px 15px;
+    }
+    .sp-filter p {
+        display: inline-block;
+        padding: 6px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        color: #313131;
+    }
+    .sp-filter i {
+        margin-right: 5px;
+    }
+    .isotope_wrap {
+        display: none;
+        position: fixed;
+        z-index: 99;
+        background: #fff;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+            padding: 20px 15px 20px 25px;
+    }
+    .filter {
+        position: fixed;
+        top: 0px;
+        background: #fff;
+        padding: 18px 20px;
+        font-size: 30px;
+        right: 17px;
+        z-index: 99999;
+    }
+    .isotope_wrap .label_wrap {
+        width: 25%;
+    }
+    .label_txt {
+        padding: 10px 5px;
+        font-size: 2.2vw;
+    }
+    .isotope_button {
+        padding: 15px 5px;
+    }
+    .sp-filter {
+        display: block;
+    }
 }
 @media screen and (max-width: 968px){
     
@@ -216,12 +262,7 @@
 .slider-ct .h1_line {
     font-size: 37px;
 }
-.isotope_button span {
-    font-size: 2.2vw;
-}
-.isotope_button {
-    padding: 15px 5px;
-}
+
 .isotope_item {
     width: 50%;
 }
@@ -249,6 +290,9 @@
 }
 .photo-wrap .photo-detail > a, .concept-photo .photo-detail .concept-size, .concept-photo .photo-detail .concept-item {
     width: 33.33%;
+}
+.isotope_wrap .label_wrap {
+    width: 25%;
 }
 /* End Content */
 
@@ -304,6 +348,13 @@
     .detail-info .unity .text {
         width: 100%;
     }
+    .isotope_wrap .label_wrap {
+        width: 33.33%;
+    }
+    .label_txt {
+        padding: 5px;
+        font-size: 17px;
+    }
 }
 
 @media screen and (max-width: 468px){ 
@@ -342,5 +393,11 @@
 }
 .isotope_item {
     width: 100%;
+}
+.label_txt {
+    padding: 0 5px;
+}
+.isotope_wrap .label_wrap {
+    width: 50%;
 }
 }

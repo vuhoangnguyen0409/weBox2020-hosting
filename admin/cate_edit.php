@@ -57,20 +57,20 @@ require('templates/header_default.php');?>
                 <!-- Start Right Content-->
                 <div class="content cate-page">
                     <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post">
-                        <?if (ErrorHandler::hasError()) {?>
+                        <?php if (ErrorHandler::hasError()) {?>
                             <div class="input-group">
                                 <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
                             </div>
-                        <?}?>
+                        <?php }?>
                         <div class="input-group">
                             <label>Tên danh mục:</label>
                             <div class="input-item">
                                 <input type="text" name="txtCate"
-                                <?if (isset($_POST["txtCate"])) {?>
+                                <?php if (isset($_POST["txtCate"])) {?>
                                     value="<?php echo htmlspecialchars($_POST["txtCate"])?>"
-                                <?} else {?>
+                                <?php } else {?>
                                     value="<?php echo htmlspecialchars($cate->getCateName())?>"
-                                <?}?>/>
+                                <?php }?>/>
                             </div>
                         </div>
                         <div class="input-group">
@@ -78,9 +78,12 @@ require('templates/header_default.php');?>
                             <div class="input-item">
                                 <input type="submit" name="btnCateEdit" value="Cập Nhật" />
                             </div>
+                            <div class="input-item">
+                                <a href="cate_list.php" />Huỷ</a>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
 
-<?require('templates/footer_default.php')?>
+<?php require('templates/footer_default.php')?>
