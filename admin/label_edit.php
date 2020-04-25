@@ -28,7 +28,7 @@ if (isset($_POST["btnLabelEdit"])) {
         if ($label->checkExistsLabel()) {
             ErrorHandler::setError('Thẻ này đã tồn tại. Vui lòng chọn tên khác');
         }
-        // Kiểm tra lỗi upload
+        // Có thay hình mới
         elseif (!empty($_FILES["fImg"]["name"])) {
             $newLabel = clone $label;
             $newLabel->setLabelImg($_FILES["fImg"]["name"]);
@@ -48,7 +48,9 @@ if (isset($_POST["btnLabelEdit"])) {
                     exit();
                 }
             }
-        } else {
+        }
+        // Không thay hình mới
+        else {
             $label->editLabel($id);
             header("location: label_list.php");
             exit();

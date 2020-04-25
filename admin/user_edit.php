@@ -6,7 +6,7 @@
  */
 
 require('../phpnc75_platform.php');
-require('../libs/check_admin.php');
+loadLibs(array("check_admin.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 
 // Kiểm tra xem có nhận được khóa chính cần xóa?
 if (!isset($_GET["id"])) {
@@ -36,18 +36,39 @@ if (isset($_POST["btnUserEdit"])) {
     } elseif ($_POST["txtRePass"] != $_POST["txtPass"]) {
         ErrorHandler::setError('Hai ô mật khẩu không trùng nhau, vui lòng xem lại');
     } else {
-        // Pass
-        if (!empty($_POST["txtPass"])) {
-            $user->setPassword($_POST["txtPass"]);
+        // Có thay hình mới
+        if (!empty($_FILES["fImg"]["name"])) {
+            $newUser = clone $user;
+            $newUser->setAvatar($_FILES["fImg"]["name"]);
+            if (!User::acceptUpload($_FILES["fImg"]["name"])) {
+                ErrorHandler::setError('Bạn không được phép upload loại file này');
+                //print "<pre>";
+                //print_r($_FILES["fImg"]["name"]);
+                //print "</pre>";
+                //die();
+            } else {
+                if (!$newUser->uploadAvatar('fImg')) {
+                    ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
+                } else {
+                    if (!$user->editMyself($id)) {
+                        $user->setLevel($_POST["rdoLevel"]);
+                    }
+                    $newUser->editUser($id);
+                    $user->delAvatar();
+                    header("location: user_list.php");
+                    exit();
+                }
+            }
         }
-        // Level
-        if (!$user->editMyself($id)) {
-            $user->setLevel($_POST["rdoLevel"]);
+        // Không thay hình mới
+        else {
+            if (!$user->editMyself($id)) {
+                $user->setLevel($_POST["rdoLevel"]);
+            }
+            $user->editUser($id);
+            header("location: user_list.php");
+            exit();
         }
-        // Sửa
-        $user->editUser($id);
-        header("location: user_list.php");
-        exit();
     }
 }
 
@@ -72,7 +93,7 @@ require('templates/header_default.php');?>
 
                 <!-- Start Right Content-->
                 <div class="content cate-page">
-                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post">
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
                         <?php if (ErrorHandler::hasError()) {?>
                             <div class="input-group">
                                 <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
@@ -104,9 +125,19 @@ require('templates/header_default.php');?>
                             </div>
                         <?php }?>
                         <div class="input-group">
+                            <label>Ảnh Đại Diện</label>
+                            <div class="input-item">
+                                <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="../data/user_img/<?php echo $user->getAvatar()?>" alt=""/></p>
+                                <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php echo implode(", ", $accept_upload_ext)?>.</p>
+                            </div>
+                        </div>
+                        <div class="input-group">
                             <label></label>
                             <div class="input-item">
                                 <input type="submit" name="btnUserEdit" value="Cập Nhật" />
+                            </div>
+                            <div class="input-item">
+                                <a href="user_list.php" />Huỷ</a>
                             </div>
                         </div>
                     </form>

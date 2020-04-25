@@ -14,8 +14,9 @@ class User extends Database {
     protected $birthday;
     protected $address;
     protected $gender;
+    protected $avatar;
 
-    public function __construct($username=null, $password=null, $level=null, $gender=null, $email=null, $tel=null, $birthday=null, $address=null) {
+    public function __construct($username=null, $password=null, $level=null, $gender=null, $email=null, $tel=null, $birthday=null, $address=null, $avatar=null) {
         parent::__construct();
         $this->setUsername($username);
         $this->setPassword($password);
@@ -25,6 +26,7 @@ class User extends Database {
         $this->setTel($tel);
         $this->setBirthday($birthday);
         $this->setAddress($address);
+        $this->setAvatar($avatar);
     }
 
     public function setUsername($username) {
@@ -107,6 +109,30 @@ class User extends Database {
         return $this->address;
     }
 
+    /**
+     * Set Avatar for a user
+     * ===============================
+     * @param string avatar
+     **/
+    public function setAvatar($avatar) {
+        if (!empty($avatar)) {
+            if (function_exists('stripUni') && function_exists('fixUploadname')) {
+                $this->avatar = stripUni(fixUploadname($avatar));
+            } else {
+                $this->avatar = $avatar;
+            }
+        }
+    }
+
+    /**
+     * Get Avatar of a user item
+     * ==============================
+     * @return string
+     **/
+    public function getAvatar() {
+        return $this->avatar;
+    }
+
     public function checkLogin() {
         global $prefix;
         $sql = 'select * from user where tel="'.$this->tel.'" and password="' .$this->password. '"';
@@ -182,8 +208,31 @@ class User extends Database {
 
     public function addUser() {
             //$sql = 'insert into user(username, password, level, gender, email, tel, birthday, address) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', ' .$this->gender. ', "' .$this->email. '", "' .$this->tel. '", "' .$this->birthday. '", "' .$this->address. '")';
-            $sql = 'insert into user(username, password, level, gender, email, tel, birthday, address) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', ' .$this->gender. ', "' .$this->email. '", "' .$this->tel. '", "' .$this->birthday. '", "' .$this->address. '")';
+            $sql = 'insert into user(username, password, level, gender, email, tel, birthday, address, avatar) values("' .$this->username. '", "' .$this->password. '", ' .$this->level. ', ' .$this->gender. ', "' .$this->email. '", "' .$this->tel. '", "' .$this->birthday. '", "' .$this->address. '", "' .$this->avatar. '")';
             $this->query($sql);
+    }
+
+    static public function acceptUpload($fileName) {
+        global $accept_upload_ext;
+        // Kiểm tra xem hàm lấy phần mở rộng của tập tin đã có chưa
+        if (function_exists('getExt')) {
+            if (!in_array(getExt($fileName), $accept_upload_ext)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function uploadAvatar($formElementName) {
+        if ($_FILES[$formElementName]["error"] != 0 || empty($this->avatar)) {
+            return false;
+        } else {
+            move_uploaded_file($_FILES[$formElementName]["tmp_name"], '../data/user_img/'.$this->avatar);
+            return true;
+        }
     }
 
     public function getUserInfoById($id) {
@@ -198,6 +247,7 @@ class User extends Database {
         $this->tel = $data["tel"];
         $this->birthday = $data["birthday"];
         $this->address = $data["address"];
+        $this->avatar = $data["avatar"];
     }
 
     public function checkDelPermission($id) {
@@ -243,8 +293,18 @@ class User extends Database {
         }
     }
 
+    /**
+     * Delete detail image of a detail item
+     * ================================
+     **/
+    public function delAvatar() {
+        if (file_exists('../data/user_img/'.$this->avatar)) {
+            unlink('../data/user_img/'.$this->avatar);
+        }
+    }
+
     public function editUser($id) {
-        $sql = 'update user set password="' .$this->password. '", level=' .$this->level. ', gender=' .$this->gender. ', email="' .$this->email. '", tel="' .$this->tel. '", birthday="' .$this->birthday. '", address="' .$this->address. '"  where userid='.$id;
+        $sql = 'update user set password="' .$this->password. '", level=' .$this->level. ', gender=' .$this->gender. ', email="' .$this->email. '", tel="' .$this->tel. '", birthday="' .$this->birthday. '", address="' .$this->address. '", avatar="' .$this->avatar. '"  where userid='.$id;
         $this->query($sql);
     }
 

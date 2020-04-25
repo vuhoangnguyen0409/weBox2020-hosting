@@ -6,7 +6,7 @@
  */
 
 require('../phpnc75_platform.php');
-loadLibs(array("check_admin.php", "valid_user.php"));
+loadLibs(array("check_admin.php", "valid_user.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 
 // Sau khi nhấn nút submit form
 if (isset($_POST["btnUserAdd"])) {
@@ -16,6 +16,12 @@ if (isset($_POST["btnUserAdd"])) {
     } //elseif (!validUsername($_POST["txtUser"])) {
         //ErrorHandler::setError('Username không hợp lệ. Chỉ chấp nhận ký tự chữ cái, số và tối thiểu ' .$username_min_len. ' ký tự');
     //}
+    elseif (empty($_FILES["fImg"]["name"])) {
+        ErrorHandler::setError('Vui lòng chọn Avatar');
+    }
+    elseif (!User::acceptUpload($_FILES["fImg"]["name"])) {
+        ErrorHandler::setError('Bạn không được phép upload loại file này');
+    }
     elseif (empty($_POST["txtPass"])) {
         ErrorHandler::setError('Vui lòng nhập password');
     } elseif ($_POST["txtRePass"] != $_POST["txtPass"]) {
@@ -29,7 +35,7 @@ if (isset($_POST["btnUserAdd"])) {
     }  elseif (empty($_POST["address"])) {
         ErrorHandler::setError('Vui lòng nhập địa chỉ');
     } else {
-        $user = new User($_POST["txtUser"], $_POST["txtPass"], $_POST["rdoLevel"], $_POST["rdoGender"], $_POST["email"], $_POST["tel"], $_POST["birthday"], $_POST["address"]);
+        $user = new User($_POST["txtUser"], $_POST["txtPass"], $_POST["rdoLevel"], $_POST["rdoGender"], $_POST["email"], $_POST["tel"], $_POST["birthday"], $_POST["address"], $_FILES["fImg"]["name"]);
         //print "<pre>";
         //print_r($user);
         //print "</pre>";
@@ -39,8 +45,11 @@ if (isset($_POST["btnUserAdd"])) {
         }
         elseif ($user->existsEmail()) {
             ErrorHandler::setError('<i>Email này đã tồn tại. Vui lòng chọn email khác</i>');
+        }
+        elseif (!$user->uploadAvatar('fImg', '../data/user_img')) {
+            ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
         } else {
-            var_dump($_POST["email"]);
+            //var_dump($_POST["email"]);
             //die();
             $user->addUser();
             header("location: user_list.php");
@@ -84,7 +93,7 @@ require('templates/header_default.php');?>
 
                 <!-- Start Right Content-->
                 <div class="content">
-                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+                    <form class="form" action="<?php echo $_SERVER["PHP_SELF"]?>" method="post" enctype="multipart/form-data">
                         <?php if (ErrorHandler::hasError()) {?>
                                 <div class="error_msg"><?php echo ErrorHandler::getError()?></div>
                         <?php }?>
@@ -147,6 +156,13 @@ require('templates/header_default.php');?>
                                     <div class="checkbox"><input type="radio" name="rdoGender" value="1" checked="checked" /> <span class="checkmask">Nam</span></div>
                                     <div class="checkbox"><input type="radio" name="rdoGender" value="2" /> <span class="checkmask">Nữ</span></div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Avatar</label>
+                            <div class="input-item">
+                                <p class="upload-photo"><input id="post-img" type="file" name="fImg" /><img id="preview-img" src="#" alt=""/></p>
+                                <p class="note">Nhấp vào để sửa hoặc cập nhật<br /><?php implode(", ", $accept_upload_ext)?>.</p>
                             </div>
                         </div>
                         <div class="input-group btn-submit">
