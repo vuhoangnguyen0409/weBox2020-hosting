@@ -41,29 +41,17 @@ $id = $_GET["id"];
 
 
     <meta charset="utf-8"/>
-
 	<meta http-equiv="content-type" content="text/html" />
-
     <title>Kho Giao diện Website | WebBox</title>
-
 	<meta name="author" content="Nguyễn Đại Hà | Vũ Hoàng Nguyên" />
-
     <meta name="description" content="Kho giao diện thiết kế Website đa dạng và đẳng cấp tại Phú Quốc. Webbox cung cấp Website chuẩn SEO, tích hợp nhiều tính năng hiện đại nhất với các giao điện bắt mắt người dùng và đặc biệt tốc độ load nhanh."/>
-
     <meta name="keywords" content="Kho Giao Diện Thiết Kế Web Phú Quốc, Kho Giao Dien Thiet Ke Web Phu Quoc, Phú Quốc kho giao diện thiết kế web, Kho Giao Diện Thiết Kế Web Tại Phú Quốc"/>
-
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes"/>
-
     <meta property="og:url"                content="http://www.thietkewebphuquoc.com/kho-giao-dien-web-phu-quoc.html" />
-
     <meta property="og:type"               content="article" />
-
     <meta property="og:title"              content="Kho Giao Diện Website | Thiết Kế Web Phú Quốc" />
-
     <meta property="og:description"        content="Kho giao diện thiết kế Website đa dạng và đẳng cấp tại Phú Quốc. Webbox cung cấp Website chuẩn SEO, tích hợp nhiều tính năng hiện đại nhất với các giao điện bắt mắt người dùng và đặc biệt tốc độ load nhanh." />
-
     <meta property="og:image"              content="http://www.thietkewebphuquoc.com/img/common/bg-branding.jpg" />
-
 	<?php include('inc/head.php');?>
 
 
@@ -98,8 +86,14 @@ $id = $_GET["id"];
 
 
                 <!-- Start Filter Isotope -->
+                <div class="sp-filter open-close"><p><i class="fa fa-filter"></i> Lọc Theo</p></div>
                 <div class="isotope_wrap clearfix">
-                    <h3 class="s-all"><a class="isotope_button isotope_all" data-filter="*"><span>Tất Cả</span></a></h3>
+                    <div class="label_wrap">
+                        <a class="isotope_button isotope_all" data-filter="*">
+                            <p class="label_img"><img src="../img/common/bg-tat-ca.jpg" alt="Tất Cả"/></p>
+                            <p class="label_txt">Tất Cả</p>
+                        </a>
+                    </div>
                     <?php
 
     						//Kết nối CSDL
@@ -114,8 +108,7 @@ $id = $_GET["id"];
     						}
     						foreach ($menu as $item) {
                                 $label = str_replace(' ', '', noneUniAlias($item["label_name"]));
-                                echo '<h3 class="s-food"><a class="isotope_button" data-filter=".' .$label. '"><span>' .$item["label_name"]. '</span></a></h3>
-                                <div class="label_img"><img src="../data/label_img/'.$item["label_img"].'" alt="' .$item["label_name"]. '"></div>';
+                                echo '<div class="label_wrap"><a class="isotope_button" data-filter=".' .$label. '"><p class="label_img"><img src="../data/label_img/'.$item["label_img"].'" alt="' .$item["label_name"]. '"></p><p class="label_txt">'.$item["label_name"].'</p></a></div>';
     						}
     				?>
                 </div>
@@ -126,9 +119,7 @@ $id = $_GET["id"];
                     <?php
                     $sql = 'SELECT * FROM detail as d, category as c, label as l WHERE d.cateid=c.cateid AND d.labelid=l.labelid AND d.status="Y" AND d.cateid="' .$id. '" ORDER BY detailid DESC';
         		    $query = $mysqli->query($sql);
-        			$menu = array();
     				while ($data = $query -> fetch_assoc()) {
-    					$menu[] = $data;
                         $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
                         $label = str_replace(' ', '', noneUniAlias($data["label_name"]));
 
