@@ -21,25 +21,26 @@ $label->getLabelInfoById($id);
 
 // Sau khi submit
 if (isset($_POST["btnLabelEdit"])) {
+
     if (empty($_POST["txtLabel"])) {
         ErrorHandler::setError('Vui lòng nhập tên thẻ');
     }  else {
         $label->setLabelName($_POST["txtLabel"]);
-        if ($label->checkExistsLabel()) {
+        if ($label->checkEditCurrentLabel($id)) {
             ErrorHandler::setError('Thẻ này đã tồn tại. Vui lòng chọn tên khác');
         }
         // Có thay hình mới
         elseif (!empty($_FILES["fImg"]["name"])) {
             $newLabel = clone $label;
             $newLabel->setLabelImg($_FILES["fImg"]["name"]);
+            //print "<pre>";
+            //print_r($newLabel);
+            //print "</pre>";
+            //die();
             if (!Label::acceptUpload($_FILES["fImg"]["name"])) {
                 ErrorHandler::setError('Bạn không được phép upload loại file này');
-                //print "<pre>";
-                //print_r($_FILES["fImg"]["name"]);
-                //print "</pre>";
-                //die();
             } else {
-                if (!$newLabel->uploadLabelImg('fImg')) {
+                if (!$newLabel->uploadLabelImg('fImg', '../data/label_img')) {
                     ErrorHandler::setError('Quy trình upload xảy ra lỗi. Vui lòng thử lại');
                 } else {
                     $newLabel->editLabel($id);

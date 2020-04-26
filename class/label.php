@@ -10,7 +10,7 @@
 
 class Label extends Database {
     protected $labelName;
-    protected $labelImage;
+    protected $labelImg;
 
 
     /**
@@ -90,6 +90,26 @@ class Label extends Database {
         return true;
     }
 
+    public function checkEditCurrentLabel($id) {
+        $sql = 'select * from label where label_name="' .addslashes($this->labelName). '"';
+        $this->query($sql);
+        // không trùng database
+        if ($this->numrows() == 0) {
+            return false;
+        }
+        // trùng database
+        else {
+            $data = $this->fetch();
+            $labelId = $data["labelid"];
+            // nếu sửa cùng tên và cùng id
+            if( $labelId == $id) {
+                //die();
+                return false;
+            }
+            return true;
+        }
+    }
+
     /**
      * Insert label information into DBMS
      * =====================================
@@ -163,13 +183,8 @@ class Label extends Database {
      * @return boolean
      **/
     public function editLabel($id) {
-        if (!$this->checkExistsLabel()) {
-            $sql = 'update label set label_name="' .addslashes($this->labelName). '", label_img="' .$this->labelImg. '" where labelid='.$id;
-            $this->query($sql);
-            return true;
-        } else {
-            return false;
-        }
+        $sql = 'update label set label_name="' .addslashes($this->labelName). '", label_img="' .$this->labelImg. '" where labelid='.$id;
+        $this->query($sql);
     }
 
     /**
