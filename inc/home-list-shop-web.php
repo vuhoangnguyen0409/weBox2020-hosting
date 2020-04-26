@@ -12,72 +12,26 @@
 
                             <div class="home-slider">
 
+                                <?php
+                                    $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.cateid=2 AND d.status="Y" ORDER BY detailid DESC';
+                                    $query = $mysqli->query($sql);
+                                    while ($data = $query -> fetch_assoc()) {
+                                        $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
+                                        echo '<div class="home-slider-item">
 
+                                            <a class="home-slider-item-link" href="'.$link.'">
 
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
+                                                <img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" />
 
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
+                                                <span class="catalog">'.$data["detail_intro"].'</span>
 
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="home-slider-item">
-                                    <a class="home-slider-item-link" href="#">
-                                        <img src="img/common/web-sample-1.jpg" alt="#" />
-                                        <span class="catalog">Doanh Nghiệp</span>
-                                        <span class="code">MS#001</span>
-                                    </a>
-                                </div>
+                                                <span class="code">'.$data["detail_name"].'</span>
 
+                                            </a>
+
+                                        </div>';
+                                    }
+                                ?>
 
                             </div>
 

@@ -6,141 +6,26 @@
 
                             <div class="home-slider">
 
-                                <div class="home-slider-item">
+                                <?php
+                                    $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.cateid=3 AND d.status="Y" ORDER BY detailid DESC';
+                                    $query = $mysqli->query($sql);
+                                    while ($data = $query -> fetch_assoc()) {
+                                        $link = '/' .$data["cateid"]. '-' .noneUniAlias($data["cate_name"], true). '/' .$data["detailid"]. '-' .noneUniAlias($data["detail_name"], true). '.html';
+                                        echo '<div class="home-slider-item">
 
-                                    <a class="home-slider-item-link" href="#">
+                                            <a class="home-slider-item-link" href="'.$link.'">
 
-                                        <img src="img/common/web-sample.jpg" alt="#" />
+                                                <img src="/data/detail_img/'.$data["detail_feature"].'" alt="#" />
 
-                                        <span class="catalog">Doanh Nghiệp</span>
+                                                <span class="catalog">'.$data["detail_intro"].'</span>
 
-                                        <span class="code">MS#001</span>
+                                                <span class="code">'.$data["detail_name"].'</span>
 
+                                            </a>
 
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-
-
-                                    </a>
-
-                                </div>
-
-                                
-
-                                <div class="home-slider-item">
-
-                                    <a class="home-slider-item-link" href="#">
-
-                                        <img src="img/common/web-sample.jpg" alt="#" />
-
-                                        <span class="catalog">Doanh Nghiệp</span>
-
-                                        <span class="code">MS#001</span>
-
-                                    </a>
-
-                                </div>
-
-                                
+                                        </div>';
+                                    }
+                                ?>
 
                             </div>
 
