@@ -679,10 +679,13 @@ select:focus {
 }
 .cate-page .form .input-item > input {
     padding: 9px 10px;
-    color: #fff;
 }
 .cate-page .form .input-item > input:focus {
     color: #000;
+}
+.cate-page .form .input-item .note {
+    font-size: 12px;
+    margin-top: 5px;
 }
 #admin-page .news-page {
     background: transparent;
