@@ -61,7 +61,7 @@ loadLibs(array("none_uni_alias.php"));
                         <!--<li> <a href="<?php echo MYDOMAIN;?>tiep-thi-marketing-web-phu-quoc.html">Marketing</a> </li>-->
                         <li> <a href="<?php echo MYDOMAIN;?>bang-gia.html">Bảng Giá</a> </li>
                         <!--<li> <a href="<?php echo MYDOMAIN;?>gioi-thieu-web-phu-quoc.html">Giới Thiệu</a> </li>-->
-                        <li> <a href="<?php echo MYDOMAIN;?>lien-he.html">Liên Hệ</a> </li>
+                        <li> <a href="<?php echo $siteURL;?>lien-he.php">Liên Hệ</a> </li>
                     </ul>
 
                 </nav>

@@ -30,6 +30,7 @@
 
 
     <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/ajax-script.js"></script>
     <!-- Add bxslider files -->
     <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/bxslider/bxslider.min.js"></script>
     <link href="<?php echo MYDOMAIN;?>/js/bxslider/bxslider.css" rel="stylesheet" type="text/css" media="all"/>
