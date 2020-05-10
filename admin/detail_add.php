@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @author Jackie Do
- * @copyright 2014
- */
-
 require('../phpnc75_platform.php');
 loadLibs(array("check_admin.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 
@@ -138,7 +133,7 @@ require('templates/header_default.php');
                                     </script>
                                 </div>
                             </div>
-                            
+
                             <div class="SEO-wrap">
                                 <div class="input-group">
                                     <label>SEO Keywords</label>
@@ -149,7 +144,7 @@ require('templates/header_default.php');
                                         <?php }?>/>
                                     </div>
                                 </div>
-    
+
                                 <div class="input-group">
                                     <label>SEO Description</label>
                                     <div class="input-item">
@@ -167,7 +162,7 @@ require('templates/header_default.php');
                                     <input class="submit" type="submit" name="btnDetailAdd" value="Thêm tin" />
                                 </div>
                             </div>
-                            
+
                             <div class="input-group">
                                 <label>Tình Trạng</label>
                                 <div class="input-item">
@@ -175,7 +170,7 @@ require('templates/header_default.php');
                                     <label><input type="radio" name="rdoPublic" value="N" /> Bản Nháp</label>
                                 </div>
                             </div>
-                            
+
                             <div class="input-group">
                                 <label>Chuyên Mục</label>
                                 <div class="input-item fixright">
@@ -209,7 +204,7 @@ require('templates/header_default.php');
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="input-group">
                                 <label>Ảnh Đại Diện</label>
                                 <div class="input-item">
@@ -227,7 +222,7 @@ require('templates/header_default.php');
                             </div>
 
 
-                             
+
 
 
                         </div>

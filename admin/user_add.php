@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @author Jackie Do
- * @copyright 2014
- */
-
 require('../phpnc75_platform.php');
 loadLibs(array("check_admin.php", "valid_user.php", "strip_uni.php", "fix_upload_name.php", "get_ext.php"));
 

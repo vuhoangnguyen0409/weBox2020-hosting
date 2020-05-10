@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @author Jackie Do
- * @copyright 2014
- */
-
 require('../phpnc75_platform.php');
 require('../libs/check_admin.php');
 

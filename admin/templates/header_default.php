@@ -8,6 +8,7 @@
     <meta name="keywords" content="Thiết Kế Website Tại Phú Quốc"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes"/>
 	<link rel="stylesheet" href="templates/css/default.css" />
+	<link rel="stylesheet" href="templates/css/layout.css" />
 	<link rel="stylesheet" href="templates/css/admin.css" />
     <?php
     if (isset($custom_js_file)) {
@@ -26,9 +27,9 @@
             return true;
         }
     </script>
-    
-    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../js/admin.js"></script>
+
+    <script type="text/javascript" src="templates/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="templates/js/admin.js"></script>
 </head>
 
 <body>
