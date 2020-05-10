@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @author Jackie Do
- * @copyright 2014
- */
-
 /** Giải thuật xây dựng đường dẫn tương tối động (Dynamic Relative Path) **/
 $backFolder = '';
 while (!file_exists($backFolder.'phpnc75_platform.php')) {

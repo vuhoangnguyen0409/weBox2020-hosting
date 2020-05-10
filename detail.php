@@ -10,11 +10,6 @@
 
 <?php
 
-/**
- * @author Jackie Do
- * @copyright 2013
- */
-
 // Chuẩn bị các giá trị
 if (!isset($_GET["id"])) {
     header("location: index.php");
@@ -84,7 +79,7 @@ $id = $_GET["id"];
                                     <label><input type="text" class="form-control" name="tel" id="tel" placeholder="Điện Thoại"></label>
                                     <label><input type="text" class="form-control" name="email" id="email" placeholder="Email"></label>
                                     <label><textarea style="display:none;" class="form-control" name="message" id="message" rows="5" placeholder="Nội dung....">Yêu cầu giao diện</textarea></label>
-                                    <label><input style="display:none;" type="text" class="form-control" name="code" id="code" value="'.$id.'"></label>
+                                    <label><input style="display:none;" type="text" class="form-control" name="detail_id" id="detail_id" value="'.$id.'"></label>
                                     <label><input type="submit" class="free-call submit-ajax" value="Gọi Miễn Phí" /></label>
                                   </div>
                                </div>
