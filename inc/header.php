@@ -1,9 +1,5 @@
 
-<?php
-// Lấy cấu hình site
-require("phpnc75_platform.php");
-loadLibs(array("none_uni_alias.php"));
-?>
+
 
 <header id="global_header">
 
@@ -14,8 +10,8 @@ loadLibs(array("none_uni_alias.php"));
         <div class="clearfix h_tab">
 
             <div class="h_logo ">
-                <a class="h_logo_favi" href="<?php echo MYDOMAIN;?>index.html">W</a>
-                <a class="h_logo_txt" href="<?php echo MYDOMAIN;?>index.html">WebBox</a>
+                <a class="h_logo_favi" href="<?php echo $siteURL;?>index.html">W</a>
+                <a class="h_logo_txt" href="<?php echo $siteURL;?>index.html">WebBox</a>
 
             </div>
 
@@ -29,7 +25,7 @@ loadLibs(array("none_uni_alias.php"));
 
                     <ul>
 
-                        <li> <a href="<?php echo MYDOMAIN;?>index.html">Trang Chủ</a> </li>
+                        <li> <a href="<?php echo $siteURL;?>index.html">Trang Chủ</a> </li>
 						<?php
 
 						//Kết nối CSDL
@@ -47,20 +43,20 @@ loadLibs(array("none_uni_alias.php"));
 							<li><a href="/' .$item["cateid"]. '-'.noneUniAlias($item["cate_name"], true). '/index.html">' .$item["cate_name"]. '</a></li>';
 						}
 						?>
-                        <li> <a href="<?php echo MYDOMAIN;?>bo-thuong-hieu-web-phu-quoc.html">Bộ Thương Hiệu</a> </li>
+                        <li> <a href="<?php echo $siteURL;?>bo-thuong-hieu-web-phu-quoc.html">Bộ Thương Hiệu</a> </li>
                         <li id="sub-menu"> <a onclick="return false;">Dịch Vụ Chụp Hình</a>
                             <ul>
-                                <li><a href="<?php echo MYDOMAIN;?>chup-hinh-nen-trang.html">Chụp Hình Nền Trắng</a></li>
-                                <li><a href="<?php echo MYDOMAIN;?>chup-hinh-thoi-trang.html">Chụp Hình Thời Trang</a></li>
-                                <li><a href="<?php echo MYDOMAIN;?>chup-hinh-concept.html">Chụp Hình Concept</a></li>
-                                <li><a href="<?php echo MYDOMAIN;?>chup-hinh-kien-truc.html">Chụp Hình Kiến Trúc</a></li>
-                                <li><a href="<?php echo MYDOMAIN;?>chup-hinh-su-kien.html">Chụp Hình Sự Kiện</a></li>
+                                <li><a href="<?php echo $siteURL;?>chup-hinh-nen-trang.html">Chụp Hình Nền Trắng</a></li>
+                                <li><a href="<?php echo $siteURL;?>chup-hinh-thoi-trang.html">Chụp Hình Thời Trang</a></li>
+                                <li><a href="<?php echo $siteURL;?>chup-hinh-concept.html">Chụp Hình Concept</a></li>
+                                <li><a href="<?php echo $siteURL;?>chup-hinh-kien-truc.html">Chụp Hình Kiến Trúc</a></li>
+                                <li><a href="<?php echo $siteURL;?>chup-hinh-su-kien.html">Chụp Hình Sự Kiện</a></li>
                             </ul>
                         </li>
-                        <li> <a href="<?php echo MYDOMAIN;?>tai-lieu-web-phu-quoc.html">Tài Liệu</a> </li>
-                        <!--<li> <a href="<?php echo MYDOMAIN;?>tiep-thi-marketing-web-phu-quoc.html">Marketing</a> </li>-->
-                        <li> <a href="<?php echo MYDOMAIN;?>bang-gia.html">Bảng Giá</a> </li>
-                        <!--<li> <a href="<?php echo MYDOMAIN;?>gioi-thieu-web-phu-quoc.html">Giới Thiệu</a> </li>-->
+                        <li> <a href="<?php echo $siteURL;?>tai-lieu-web-phu-quoc.html">Tài Liệu</a> </li>
+                        <!--<li> <a href="<?php echo $siteURL;?>tiep-thi-marketing-web-phu-quoc.html">Marketing</a> </li>-->
+                        <li> <a href="<?php echo $siteURL;?>bang-gia.html">Bảng Giá</a> </li>
+                        <!--<li> <a href="<?php echo $siteURL;?>gioi-thieu-web-phu-quoc.html">Giới Thiệu</a> </li>-->
                         <li> <a href="<?php echo $siteURL;?>lien-he.php">Liên Hệ</a> </li>
                     </ul>
 

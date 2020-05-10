@@ -87,6 +87,6 @@
 	
 	
     
-    define('MYDOMAIN', 'http://www.thietkewebphuquoc.com/');
+    define('$siteURL', 'http://www.thietkewebphuquoc.com/');
     $rootPath = $_SERVER['DOCUMENT_ROOT'];
 ?>

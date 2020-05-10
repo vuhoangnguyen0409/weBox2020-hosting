@@ -1,6 +1,6 @@
 
 <div class="admin-logo">
-    <a class="logo" href="<?php echo MYDOMAIN;?>admin/index.php"><span>W</span>Web<em>Box</em></a>
+    <a class="logo" href="<?php echo $siteURL;?>admin/index.php"><span>W</span>Web<em>Box</em></a>
 </div>
 <div class="admin-nav-menu">
     <ul>

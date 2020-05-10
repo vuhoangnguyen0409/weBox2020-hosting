@@ -185,7 +185,7 @@ textarea:focus:-ms-input-placeholder {
 	text-decoration: none;
 	font-size: 33px;
 	font-family: 'Montserrat';
-	padding: 17px 11px;
+	padding: 5px 11px;
 	margin: 0 auto 25px;
 }
 
@@ -840,6 +840,9 @@ textarea:focus:-ms-input-placeholder {
     padding: 0 10px 10px;
     display: flex;
     flex-wrap: wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .isotope_wrap .label_wrap {
@@ -1046,7 +1049,7 @@ textarea:focus:-ms-input-placeholder {
 	color: #0e1318;
 	text-decoration: none;
 	display: block;
-	padding: 10px 15px;
+	padding: 10px 20px 15px;
 	border-top: 1px solid #ddd;
 	font-weight: 500;
 }
@@ -1054,7 +1057,7 @@ textarea:focus:-ms-input-placeholder {
 .isotope_txt .isotope_link .code {
 	display: block;
 	color: #888;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: normal;
 }
 
@@ -1062,6 +1065,7 @@ textarea:focus:-ms-input-placeholder {
     font-size: 16px;
     font-weight: 500;
     padding: 5px 0;
+    margin: 0;
 }
 
 .isotope_txt i {
@@ -1163,7 +1167,7 @@ textarea:focus:-ms-input-placeholder {
 	border-radius: 5px;
 	color: #fff;
 	text-decoration: none;
-	padding: 7px 11px 7px 12px;
+	padding: 0 10px 0 11px;
 	font-size: 26px;
 	font-family: SimSun;
 	transform: rotate(-90deg);
@@ -1407,7 +1411,7 @@ legend {
 .home-slider-item {
 	float: left;
 	text-align: center;
-	padding: 10px;
+	padding: 15px;
 	position: relative;
 }
 
@@ -1416,7 +1420,7 @@ legend {
 }
 
 .home-slider-item:hover:before {
-	content: "";
+	
 	border: 1px solid #ddd;
 	position: absolute;
 	top: 0px;
@@ -1441,24 +1445,31 @@ legend {
 .home-slider-item-link {
 	text-decoration: none;
 	text-align: left;
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
 }
 
 .home-slider-item-link span {
 	display: block;
 	color: #0e1318;
 	font-weight: 500;
+    padding: 5px 15px;
 }
 
 .home-slider-item-link span.catalog {
-	color: #000;
-	font-size: 15px;
-	margin-top: 10px;
+    color: #151515;
+    font-size: 18px;
+    margin-top: 10px;
+    padding-bottom: 0;
 }
 
 .home-slider-item-link span.code {
 	color: #888;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 400;
+    padding-bottom: 15px;
 }
 
 .home-sev-wrap {
@@ -2068,6 +2079,7 @@ legend {
 .ct_info_wrap {
 	padding: 0 40px;
     display: inline-block;
+    width: 100%;
 }
 
 .ct_info,
@@ -2190,6 +2202,10 @@ legend {
 	width:70%;
 	max-width: 840px;
     margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
 }
 
 .detail-info {
@@ -2198,9 +2214,10 @@ legend {
 	font-size: 14px;
 	position: fixed;
 	max-width: 320px;
-	right: 20px;
-    top: 30px;
-	box-shadow: 0px 0px 4px 0px #ddd;
+	right: 15px;
+    top: 35px;
+    border-radius: 5px;
+	box-shadow: hsl(0, 0%, 80%) 0 0 16px;
 	padding: 20px;
 }
 

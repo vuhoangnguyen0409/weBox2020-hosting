@@ -1,4 +1,4 @@
-<?php define('MYDOMAIN', 'http://www.thietkewebphuquoc.com/');?>
+<?php define('$siteURL', 'http://www.thietkewebphuquoc.com/');?>
 
 
 
@@ -20,7 +20,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -34,7 +34,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -48,7 +48,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -62,7 +62,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -76,7 +76,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -90,7 +90,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -104,7 +104,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -118,7 +118,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 
@@ -132,7 +132,7 @@
 
         <div class="popular_item">
 
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/shop/shop_demo_bg_2.jpg" alt="Mẫu Thiết Kế Web Cửa Hàng Chuyên Nghiệp" /></p>
 
             <h4 class="h4_line">Title</h4>
 

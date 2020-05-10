@@ -10,7 +10,7 @@
             <div id="backgroundaudio">
                 <i class="icon-volume-up"></i>
                 <audio autoplay="" controls="" loop="" preload="auto">
-                    <source src="<?php echo MYDOMAIN;?>/music/Inspiring.mp3" type="audio/mpeg"></source>
+                    <source src="<?php echo $siteURL;?>/music/Inspiring.mp3" type="audio/mpeg"></source>
                 </audio>
             </div>
         </div>
@@ -28,51 +28,51 @@
 <!-- /#wrapper -->
 
 
-
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/ajax-script.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/ajax-script.js"></script>
     <!-- Add bxslider files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/bxslider/bxslider.min.js"></script>
-    <link href="<?php echo MYDOMAIN;?>/js/bxslider/bxslider.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/bxslider/bxslider.min.js"></script>
+    <link href="<?php echo $siteURL;?>/js/bxslider/bxslider.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Add masonry files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/masonry/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/masonry/masonry.pkgd.min.js"></script>
     <!-- Add matchHeight files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/matchHeigh/jquery.matchHeight.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/matchHeigh/jquery.matchHeight.js"></script>
     <!-- Add meanmenu files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/meanmenu/jquery.meanmenu.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/meanmenu/jquery.meanmenu.min.js"></script>
     <!-- Add Number Animate files -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/animatenumber/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/animatenumber/jquery.animateNumber.min.js"></script>
     <!-- Add Menu SP files -->
-    <link href="<?php echo MYDOMAIN;?>js/meanmenu/meanmenu.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo $siteURL;?>js/meanmenu/meanmenu.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Add Images Loader -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/imgloader.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/imgloader.js"></script>
     <!-- Add Slick Loader -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/slick/slick.min.js"></script>
-    <link href="<?php echo MYDOMAIN;?>js/slick/slick.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="<?php echo MYDOMAIN;?>js/slick/slick-theme.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/slick/slick.min.js"></script>
+    <link href="<?php echo $siteURL;?>js/slick/slick.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo $siteURL;?>js/slick/slick-theme.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Add Isotope Loader -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/isotope.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/isotope.js"></script>
     <!-- Add Particles -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/particles.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/particles.min.js"></script>
     <!-- Add Tab Content -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/tabcontent.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/tabcontent.js"></script>
     <!-- Add Popup Modal -->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/jquery.modal.min.js"></script>
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/lightbox/lightbox.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/jquery.modal.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/lightbox/lightbox.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/detail.js"></script>
 
 
     <!-- Add bPopup files -->
-    <!--<script type="text/javascript" src="<?php echo MYDOMAIN;?>js/popup/popup.js"> </script>-->
+    <!--<script type="text/javascript" src="<?php echo $siteURL;?>js/popup/popup.js"> </script>-->
     <!-- Add PopUp Modaly files -->
-    <!--<script type="text/javascript" src="<?php echo MYDOMAIN;?>js/popupModaly/jquery.modaly.js"></script>
-    <link href="<?php echo MYDOMAIN;?>js/popupModaly/jquery.modaly.css" rel="stylesheet" type="text/css" media="all"/>-->
+    <!--<script type="text/javascript" src="<?php echo $siteURL;?>js/popupModaly/jquery.modaly.js"></script>
+    <link href="<?php echo $siteURL;?>js/popupModaly/jquery.modaly.css" rel="stylesheet" type="text/css" media="all"/>-->
     <!-- Add Auto Load -->
-    <!--<script type="text/javascript" src="<?php echo MYDOMAIN;?>js/scroll/jquery.jscroll.js"></script>-->
+    <!--<script type="text/javascript" src="<?php echo $siteURL;?>js/scroll/jquery.jscroll.js"></script>-->
 
 
     <!-- Add Load Logo-->
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/loadgo.min.js"></script>
-    <script type="text/javascript" src="<?php echo MYDOMAIN;?>js/function.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/loadgo.min.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/function.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 
@@ -93,8 +93,8 @@
 
 
     </script>
-<script type="text/javascript" src="<?php echo MYDOMAIN;?>js/greensock/TweenMax.min.js"></script>
-<script src="<?php echo MYDOMAIN;?>js/jquery.superscrollorama.js"></script>
+<script type="text/javascript" src="<?php echo $siteURL;?>js/greensock/TweenMax.min.js"></script>
+<script src="<?php echo $siteURL;?>js/jquery.superscrollorama.js"></script>
 <script>
 	$(document).ready(function() {
 			var controller = $.superscrollorama({

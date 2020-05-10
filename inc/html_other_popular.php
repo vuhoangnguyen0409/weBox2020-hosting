@@ -1,5 +1,5 @@
 
-<?php define('MYDOMAIN', 'http://www.thietkewebphuquoc.com/');?>
+<?php define('$siteURL', 'http://www.thietkewebphuquoc.com/');?>
 
 <div class="popular_wrap">
     <?php /*?>
@@ -10,63 +10,63 @@
     
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->
         
         <!-- Start Other Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/free_theme/detail/detail_web.jpg" alt="Mẫu Thiết Kế Web Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Other Item -->

@@ -1,4 +1,4 @@
-<?php define('MYDOMAIN', 'http://www.thietkewebphuquoc.com/');?>
+<?php define('$siteURL', 'http://www.thietkewebphuquoc.com/');?>
 
 <div class="popular_wrap">
 
@@ -9,63 +9,63 @@
     
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->
         
         <!-- Start Travel Item -->
         <div class="popular_item">
-            <p class="popular_item_img"><img src="<?php echo MYDOMAIN?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
+            <p class="popular_item_img"><img src="<?php echo $siteURL?>img/" alt="Mẫu Thiết Kế Web Du Lịch Chuyên Nghiệp" /></p>
             <h4 class="h4_line">Title</h4>
         </div>
         <!-- End Travel Item -->

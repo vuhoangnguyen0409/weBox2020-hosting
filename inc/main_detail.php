@@ -1,4 +1,4 @@
-<?php define('MYDOMAIN', 'http://www.thietkewebphuquoc.com/');?>
+<?php define('$siteURL', 'http://www.thietkewebphuquoc.com/');?>
 <!--<div id="slider">
 
     <div class="h_intro_detail">
@@ -11,7 +11,7 @@
 
     <div class="main_show">
 
-        <p><img src="<?php echo MYDOMAIN;?>/img/main_detail.jpg" alt="All Free Website In Here"/></p>
+        <p><img src="<?php echo $siteURL;?>/img/main_detail.jpg" alt="All Free Website In Here"/></p>
 
     </div>
 
