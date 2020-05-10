@@ -1,14 +1,16 @@
 $(document).ready(function() {
 
     // Sự kiện comment
-    $(".contact_submit").click(function() {
-        $("#comment_msg").html('<img src="images/loading.gif" />');
+    $(".submit-ajax").click(function() {
+        //return false;
+        $("#comment_msg").html('<img src="../images/loading.gif" />');
         var name = $("#name").val();
         var tel = $("#tel").val();
         var email = $("#email").val();
         var content = $("#message").val();
+        var code = $("#code").val();
         $.ajax({
-            "url": "contact.php",
+            "url": "../contact.php",
             "type": "post",
             "async": true,
             "data": "name="+name+"&tel="+tel+"&email="+email+"&content="+content,

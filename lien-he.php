@@ -136,7 +136,7 @@
                               </label>
                             </li>
                             <li class="col-sm-12">
-                              <input type="submit" value="submit" class="btn btn-1 contact_submit" id="btn_submit" >Gửi <i class="fa fa-long-arrow-right"></i></button>
+                              <input type="submit" value="submit" class="btn btn-1 contact_submit submit-ajax" id="btn_submit" >Gửi <i class="fa fa-long-arrow-right"></i></button>
                             </li>
                           </ul>
                         </form>

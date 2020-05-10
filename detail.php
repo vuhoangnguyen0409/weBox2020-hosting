@@ -39,7 +39,9 @@ $id = $_GET["id"];
     <meta property="og:title"              content="Thiết Kế Web Chuyên Nghiệp Tại Phú Quốc | Trang Chủ" />
     <meta property="og:description"        content="WebBox chuyên thiết kế website chuyên nghiệp đẳng cấp tại Phú Quốc đa đạng các lĩnh vực nhà hàng, khách sạn, ẩm thuật, du lịch, bán hàng.... với đội ngũ nhân viên chuyên nghiệp sẵn sàng hỗ trợ 24/7 mọi lúc." />
     <meta property="og:image"              content="http://www.thietkewebphuquoc.com/img/common/bg-branding.jpg" />
+
 	<?php include('inc/head.php');?>
+
 </head>
 
 
@@ -58,16 +60,12 @@ $id = $_GET["id"];
                     $query = $mysqli->query($sql);
                     $data = $query -> fetch_assoc();
                     echo '
-                    <div class="left-ct">
-                        <div class="img"><img src="/data/detail_img/'.$data["detail_img"].'" alt="#" /></div>
-                    </div>
-                    <div class="right-ct">
+                    <div class="detail-info">
                         <div class="title">'.$data["detail_name"].'</div>
                         <div class="code">'.$data["detail_intro"].'</div>
                         <div class="desc">'.$data["detail_content"].'</div>
                         <button class="view" title="Xem Thực Tế"><span>Xem Thực Tế</span></button>
-                        <div class="divine"><span>hoặc</span></div>
-                        <button class="download" title="Download"><span>Đăng Ký</span></button>
+                        <div class="divine"><span></span></div>
                         <div class="unity">
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Giao diện Mobile</p>
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Hỗ trợ nhập liệu</p>
@@ -75,6 +73,26 @@ $id = $_GET["id"];
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Miễn phí Hosting 1 năm</p>
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Website hoạt động ổn định</p>
                         </div>
+                        <div class="divine"><span></span></div>
+                        <button class="register"><span>Đăng Ký</span></button>
+                        <div id="form--popup">
+                            <div id="comment_msg"></div>
+                            <form role="form" id="contact_form" method="post">
+                               <div class="w3-modal-content">
+                                  <div class="w3-container">
+                                    <label><input type="text" class="form-control" name="name" id="name" placeholder="Họ Tên"></label>
+                                    <label><input type="text" class="form-control" name="tel" id="tel" placeholder="Điện Thoại"></label>
+                                    <label><input type="text" class="form-control" name="email" id="email" placeholder="Email"></label>
+                                    <label><textarea style="display:none;" class="form-control" name="message" id="message" rows="5" placeholder="Nội dung....">Yêu cầu giao diện</textarea></label>
+                                    <label><input style="display:none;" type="text" class="form-control" name="code" id="code" value="'.$id.'"></label>
+                                    <label><input type="submit" class="free-call submit-ajax" value="Gọi Miễn Phí" /></label>
+                                  </div>
+                               </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="detail-img">
+                        <div class="img"><img src="/data/detail_img/'.$data["detail_img"].'" alt="#" /></div>
                     </div>';
                 ?>
                 </div>
