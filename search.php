@@ -1,5 +1,6 @@
 <?php
 require("phpnc75_platform.php");
+loadLibs(array("none_uni_alias.php"));
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 //$conn = mysqli_connect($hostname, $hostuser, $hostpass);
@@ -12,7 +13,7 @@ if($link === false){
 
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM detail WHERE detail_name LIKE ?";
+    $sql = "SELECT * FROM detail as d, category as c WHERE detail_name LIKE ?";
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -29,7 +30,8 @@ if(isset($_REQUEST["term"])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo '<p><a href="#">' . $row["detail_name"] . '</a></p>';
+                    $link = '/' .$row["cateid"]. '-' .noneUniAlias($row["cate_name"], true). '/' .$row["detailid"]. '-' .noneUniAlias($row["detail_name"], true). '.html';
+                    echo '<p><a href="'.$link.'">' . $row["detail_name"] . '</a></p>';
                 }
             } else{
                 echo "<p>No matches found</p>";
@@ -44,5 +46,5 @@ if(isset($_REQUEST["term"])){
 }
 
 // close connection
-mysqli_close($link);
+//mysqli_close($link);
 ?>
