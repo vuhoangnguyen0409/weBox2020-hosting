@@ -129,9 +129,9 @@ $list = $userlist->listAllUser($limit);
                                         Thành viên
                                     <?php }?>
                                 </td>
-                                <td class="text-center">
-                                    <a href="user_edit.php?id=<?php echo $user_item["userid"]?>"><img src="images/edit.png" /></a>&nbsp;&nbsp;
-                                    <a href="user_del.php?id=<?php echo $user_item["userid"]?>" onclick="return xacnhan('Bạn có chắc muốn xóa user có ID là: <?php  echo $user_item["userid"]?>');"><img src="images/delete.png" /></a>
+                                <td class="action-data">
+                                    <a href="user_edit.php?id=<?php echo $user_item["userid"]?>"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                                    <a href="user_del.php?id=<?php echo $user_item["userid"]?>" onclick="return xacnhan('Bạn có chắc muốn xóa user có ID là: <?php  echo $user_item["userid"]?>');"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                     <?php     }

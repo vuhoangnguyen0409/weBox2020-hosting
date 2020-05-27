@@ -1,7 +1,7 @@
 
 
 <footer id="global_footer">
-    <a class="f-price" href="pop-bang-gia.html" id="manual-ajax"><i class="fa fa-tags" aria-hidden="true"></i> Bảng Giá</a>
+    <a class="f-price" href="pop-bang-gia.html" id="manual-ajax"><i class="fa fa-tags" aria-hidden="true"></i> <span>Bảng Giá</span></a>
     <a href="#" class="f-top"> > </a>
     <!--<div class="f_box">
 
@@ -23,6 +23,7 @@
 
     </div>-->
 
+    <?php include('pop-bang-gia.php')?>
 </footer>
 
 <!-- /#wrapper -->
@@ -56,10 +57,11 @@
     <script type="text/javascript" src="<?php echo $siteURL;?>js/particles.min.js"></script>
     <!-- Add Tab Content -->
     <script type="text/javascript" src="<?php echo $siteURL;?>js/tabcontent.js"></script>
-    <!-- Add Popup Modal -->
-    <script type="text/javascript" src="<?php echo $siteURL;?>js/jquery.modal.min.js"></script>
+    <!-- Add Popup Modal
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/jquery.modal.min.js"></script>-->
     <script type="text/javascript" src="<?php echo $siteURL;?>js/lightbox/lightbox.js"></script>
     <script type="text/javascript" src="<?php echo $siteURL;?>js/detail.js"></script>
+    <script type="text/javascript" src="<?php echo $siteURL;?>js/owlcarousel/owl.carousel.min.js"></script>
 
 
     <!-- Add bPopup files -->

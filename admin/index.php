@@ -28,7 +28,9 @@ $total_comments = $comment->totalComment();
     <meta name="keywords" content="Thiết Kế Website Tại Phú Quốc"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes"/>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="http://www.chuphinhphuquoc.com/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="templates/css/admin-index.css" />
+    <link rel="stylesheet" href="templates/css/admin.css" />
     <?php
     if (isset($custom_js_file)) {
         foreach ($custom_js_file as $js_file) {
@@ -46,35 +48,41 @@ $total_comments = $comment->totalComment();
             return true;
         }
     </script>
-
-	<title>Admin Panel</title>
+    <script type="text/javascript" src="templates/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="templates/js/admin.js"></script>
 </head>
 
-<body>
-            <div class="admin-wrap">
+<? require('templates/header_default.php')?>
+<body id="admin-page">
+    <div class="left-admin-header">
+        <?php include('templates/admin-left-menu.php')?>
+    </div>
+
+     <div class="right-admin-header">
+        <?php include('templates/admin-top-menu.php')?>
+
+        <!-- Start Right Content Wrap-->
+        <div class="ct-wrap">
+            <div class="ct-wrap-inner">
+            <div id="admin-home" class="admin-wrap">
                 <div class="row flex justify--space-between">
-                    <div class="logo">
-                        WEBBOX
-                    </div>
-                    <div class="info">
-                        <?php
-                        echo 'Xin chào <a href="user_edit.php?id=' .$_SESSION[$prefix."userid"]. '">'.$_SESSION[$prefix."username"].'</a> | <a href="logout.php">Logout</a>';
-                        ?>
+                    <div class="breadcrumb">
+                        <div class="bread-tit">
+                            <h3 class="h3-line"><?php echo '<p>Xin chào, <a href="user_edit.php?id=' .$_SESSION[$prefix."userid"]. '">'.$_SESSION[$prefix."username"].'</a></p>';?></h3>
+                            <p class="num-count">Hôm nay : <span><?php setlocale(LC_ALL, 'vi_VN'); echo strftime("%A - %e/%m/%Y");?></span></p>
+
+                        </div>
                     </div>
                 </div>
                 <div class="row listing">
-                    <dic class="inner flex justify--center">
-                        <a href="#"><p><i class="fas fa-radiation"></i>Cài đặt chung</p></a>
-                        <a href="user_list.php"><p><i class="fas fa-user-friends"></i>Thành Viên <span>(10)</span></p></a>
-                        <a href="cate_list.php"><p><i class="fas fa-chart-pie"></i>Danh mục <span>(2)</span></p></a>
-                        <a href="news_list.php"><p><i class="fas fa-file-alt"></i>Tin tức <span>(100)</span></p></a>
-                        <a href="comment_list.php"><p><i class="fas fa-pen-fancy"></i>Bình luận <span>(22)</span></p></a>
-                        <a href="#"><p><i class="fas fa-envelope-open"></i>Liên hệ <span>(1)</span></p></a>
-                        <a href="#"><p><i class="fas fa-cart-arrow-down"></i>Mua hàng <span>(14)</span></p></a>
-                        <a href="#"><p><i class="fas fa-people-carry"></i>Comming soon</p></a>
+                    <div class="inner flex justify--center">
+                        <div class="item-box"><a href="detail_list.php"><p class="number"><?php echo $total_detail?><span>Giao Diện Web</span></p><p class="bg-yellow icon"><i class="far fa-file-word"></i></p></a></div>
+                        <div class="item-box"><a href="user_list.php"><p class="number"><?php echo $total_user?><span>Thành Viên</span></p><p class="bg-blue icon"><i class="fas fa-user-friends"></i></p></a></div>
+                        <div class="item-box"><a href="comment_list.php"><p class="number"><?php echo $total_comments?><span>Bình Luận</span></p><p class="bg-green icon"><i class="fa fa-comment"></i></p></a></div>
+                        <div class="item-box"><a href="cate_list.php"><p class="number"><?php echo $total_cate?><span>Chuyên Mục</span></p><p class="bg-pink icon"><i class="far fa-file-alt"></i></p></a></div>
                     </div>
                 </div>
-            </div>
+
 
             <table class="function-table" style="display: none;">
                 <tr>
@@ -116,9 +124,6 @@ $total_comments = $comment->totalComment();
                     </td>
                 </tr>
             </table>
-
-<div class="admin-footer">
-    <p>Copyright webbox.com</p>
-    <p class="tel">Mr.Nguyên: 0974-487-944, Mr.Hà: 0964-602940</p>
-    <p class="mail">vuhoangnguyen49@gmail.com</p>
+        </div>
+    </div>
 </div>

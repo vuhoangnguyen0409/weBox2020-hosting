@@ -8,6 +8,9 @@ Style admin/index
 .col-3 {
     width: 33.33%;
 }
+.flex {
+    display: flex;
+}
 .bg-blue {
     background: #1676fb !important;
 }
@@ -20,10 +23,6 @@ Style admin/index
 .bg-green {
     background: #1ee0ac !important;
 }
-.flex {
-    display: flex;
-}
-
 .justify--space-between {
     justify-content: space-between;
 }
@@ -32,6 +31,9 @@ Style admin/index
     justify-content: center;
 }
 
+.listing {
+    margin: 20px -15px 0 -15px;
+}
 .listing .inner {
     flex-wrap: wrap;
     width: 100%;
@@ -39,33 +41,46 @@ Style admin/index
 }
 
 .listing .inner a {
+    display: -webkit-flex;
+    -webkit-align-items: center;
     display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    text-align: center;
-    justify-content: center;
-    background: #fff5b1;
+    align-items: center;
     color: #fff;
     border: 2px solid #fff;
     text-decoration: none;
     font-size: 22px;
     position: relative;
+    background: #fff;
+    padding: 30px;
 }
 
-.listing .inner p { 
+.listing .inner .number { 
     margin: 0;
-    width: 100%;
+    font-size: 38px;
+    font-weight: 600;
 }
-
+.listing .inner .icon {
+    height: 80px;
+    min-width: 80px;
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: auto;
+}
 .listing .inner a i {
-    display: block;
-    width: 100%;
-    padding: 10px;
+    color: #fff;
     font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .listing .inner a span {
-    padding-left: 10px;
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px;
 }
 
 .listing .inner a:first-child {
@@ -231,8 +246,24 @@ Style admin/index
 #admin-home {
     background: transparent;
 }
-@media only screen and (min-width: 769px) {
-
+#admin-home .listing .item-box {
+    padding: 15px;
+    width: 25%;
+}
+.h3-line a {
+    text-decoration: none;
+}
+.ct-wrap-inner .num-count span {
+    text-transform: capitalize;
+    letter-spacing: 1px;   
+}
+@media only screen and (max-width: 1350px) {
+    #admin-home .listing .item-box {
+        padding: 15px;
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 769px) {
     .listing .inner {
         max-width: 600px;
         margin: auto;

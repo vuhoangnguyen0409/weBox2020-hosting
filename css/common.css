@@ -6,7 +6,9 @@
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+html {
+    overflow-x: inherit !important;
+}
 body {
 	background: #fff;
 	color: #333;
@@ -16,13 +18,28 @@ body {
 	line-height: 24px;
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	overflow-x: hidden !important;
 }
 
 p {
 	white-space: pre-line;
 }
-
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ababab;
+  font-size: 13px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ababab;
+  font-size: 13px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #ababab;
+  font-size: 13px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ababab;
+  font-size: 13px;
+}
 img {
 	max-width: 100%;
 	height: auto;
@@ -185,7 +202,7 @@ textarea:focus:-ms-input-placeholder {
 	text-decoration: none;
 	font-size: 33px;
 	font-family: 'Montserrat';
-	padding: 5px 11px;
+	padding: 17px 11px;
 	margin: 0 auto 25px;
 }
 
@@ -263,7 +280,7 @@ textarea:focus:-ms-input-placeholder {
     margin: 0 20px 20px 40px;
 }
 #nav_header>ul>li> ul > li {
-    
+
 }
 #nav_header>ul>li> ul > li:hover {
     background: #eeeeef;
@@ -278,13 +295,13 @@ textarea:focus:-ms-input-placeholder {
 }
 #nav_header > ul > li.active > ul {
     display: block;
-} 
+}
 #nav_header > ul > li.active:before {
     transform: rotate(90deg);
 }
 #nav_header > ul > li > ul > li.active > a {
     background: #eeeeef;
-    border-radius: 5px;    
+    border-radius: 5px;
 }
 #sub-menu {
     position: relative;
@@ -835,6 +852,8 @@ textarea:focus:-ms-input-placeholder {
 /* Start Isotope Content */
 
 .isotope_wrap {
+    background: #fff;
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
 	text-align: left;
 	margin: 0 -5px;
     padding: 0 10px 10px;
@@ -843,11 +862,12 @@ textarea:focus:-ms-input-placeholder {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    z-index: 999;
 }
 
 .isotope_wrap .label_wrap {
 	float: left;
-	width: 16.65%;
+	width: auto;
 	padding: 5px 5px 10px 5px;
 	text-align: center;
 	position: relative;
@@ -1167,7 +1187,7 @@ textarea:focus:-ms-input-placeholder {
 	border-radius: 5px;
 	color: #fff;
 	text-decoration: none;
-	padding: 0 10px 0 11px;
+	padding: 6px 11px 6px 12px;
 	font-size: 26px;
 	font-family: SimSun;
 	transform: rotate(-90deg);
@@ -1420,7 +1440,7 @@ legend {
 }
 
 .home-slider-item:hover:before {
-	
+
 	border: 1px solid #ddd;
 	position: absolute;
 	top: 0px;
@@ -2127,7 +2147,7 @@ legend {
     border-radius: 15px;
 }
 
-#contact_form li .form-control {
+#contact_form li .form-control, #contact_form .form-control {
 	height: 40px;
 	border: none;
 	box-shadow: none;
@@ -2138,7 +2158,7 @@ legend {
     border-radius: 5px;
 }
 
-#contact_form li input {
+#contact_form li input, #contact_form .form-control {
 	display: inline-block;
 	width: 100%;
 	height: 40px;
@@ -2159,7 +2179,7 @@ legend {
 	padding: 10px 20px;
 }
 
-#contact_form li .btn {
+#contact_form li .btn, #contact_form .free-call {
 	text-transform: uppercase;
 }
 
@@ -2173,8 +2193,33 @@ legend {
 	position: relative;
 	z-index: 2;
 }
-
-.btn {
+#contact_form .form-control {
+    margin-bottom: 5px;
+}
+#form--popup .txt {
+    font-size: 12px;
+    text-align: center;
+    margin: 7px 0 0 0;
+}
+#form--popup .txt em {
+    color: #ff4242;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.free-call {
+    background: #91669c;
+	color: #fff;
+    display: inline-block;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 14px;
+    padding: 8px 0;
+    border-radius: 4px;
+}
+.btn     {
 	background: #333333;
 	color: #fff;
 	border: 2px solid #333333;
@@ -2242,7 +2287,14 @@ legend {
 .detail-info .view, .detail-info .divine span {
     display: none;
 }
-.detail-info .view, .detail-info .download {
+.detail-info .register {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.detail-info .view, .detail-info .download, .detail-info .register {
 	box-shadow: none;
 	background: #00c4cc;
 	color: #fff;
@@ -2260,11 +2312,11 @@ legend {
 	transition-delay: 0s, 0s, 0s;
 }
 
-.detail-info .view:hover, .detail-info .download:hover {
+.detail-info .view:hover, .detail-info .download:hover, .detail-info .register {
 	background: #00d9e1;
 }
 
-.detail-info .download {
+.detail-info .download, .detail-info .register {
     margin-top: 15px;
 	/*border: 2px solid #dbdcdd;
 	box-shadow: none;
@@ -2723,6 +2775,10 @@ legend {
 .jquery-modal .pop-price {
     width: 100%;
     max-width: 1280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .jquery-modal .pop-price .price-wrap {
     margin-top: 10px;
@@ -2779,7 +2835,7 @@ legend {
 
 
 .pop-agency-wrap {
- height: 80px ;	
+ height: 80px ;
  overflow: hidden;
  position: relative;
 }
@@ -2791,7 +2847,7 @@ legend {
  text-align: center;
 
  -moz-transform:translateX(100%);
- -webkit-transform:translateX(100%);	
+ -webkit-transform:translateX(100%);
  transform:translateX(100%);
 
  -moz-animation: pop-agency-wrap 30s linear infinite;
@@ -2808,15 +2864,15 @@ legend {
  100% { -webkit-transform: translateX(-100%); }
 }
 @keyframes pop-agency-wrap {
- 0%   { 
- -moz-transform: translateX(30%); 
- -webkit-transform: translateX(30%); 
- transform: translateX(30%); 		
+ 0%   {
+ -moz-transform: translateX(30%);
+ -webkit-transform: translateX(30%);
+ transform: translateX(30%);
  }
- 100% { 
- -moz-transform: translateX(-100%); 
+ 100% {
+ -moz-transform: translateX(-100%);
  -webkit-transform: translateX(-100%);
- transform: translateX(-100%); 
+ transform: translateX(-100%);
  }
 }
 #pop-agency {
@@ -2880,7 +2936,7 @@ legend {
 .photo-wrap .photo-detail > a:hover:after {
     content: "";
     border: 1px solid #ddd;
-    position: absolute;   
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -2918,7 +2974,7 @@ legend {
 .concept-item > a:hover:after {
     content: "";
     border: 1px solid #ddd;
-    position: absolute;   
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -3040,7 +3096,14 @@ legend {
     margin: 0px 0 15px 0;
     border-top: none;
     padding: 10px 0 0 2px;
-}   
+    white-space: normal;
+}
+.detail-info .desc p {
+    margin-bottom: 15px;
+}
+.detail-info .desc p:last-child {
+    margin-bottom: 0;
+}
 .label_img {
     position: absolute;
     z-index: -1;
@@ -3071,10 +3134,10 @@ legend {
     color: #fff;
     cursor: pointer;
     display: block;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    padding: 20px 5px;
+    padding: 10px 5px;
     position: relative;
     z-index: 3;
     text-transform: capitalize;

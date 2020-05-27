@@ -1,4 +1,4 @@
-﻿/* ================================================================= 
+﻿/* =================================================================
 
  License : e-TRUST Inc.
 
@@ -23,49 +23,95 @@ imgReplace();
 spAutoTel(".tel","044-866-1285"); //telをwrapしている要素にclassをつける
 meanmenu("#nav_header"); //
 
-
-
 /* ##### START JQUERY ############################################## */
 
-$(window).bind("load resize scroll", function() {  
+$(window).bind("load resize scroll", function() {
     $('.mean-push').html('<span></span><span></span><span></span>');
 });
 
 $('.mean-push').click(function(){
-   $('#nav_header').toggle(); 
+   $('#nav_header').toggle();
 });
 
-$(".home-slider").each(function(){
-    $(this).slick({
-      infinite: true,
-      speed: 300,
-      slidesToShow: 6,
-      slidesToScroll: 6,
-      dots: false,
-      centerMode: true,
-      responsive: [
-        {
-          breakpoint: 1450,
-          settings: {
-            slidesToShow: 5,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 1000,
-          slidesToShow: 4,
-          slidesToScroll: 1
-        },
-        {
-          breakpoint: 640,
-          slidesToShow: 3,
-          slidesToScroll: 1
+$('.open-close, .toogle-close-filter').click(function(){
+    //$('.isotope_wrap').slideToggle();
+    $('.isotope_wrap').toggleClass('isotope_wrap_open');
+    $('.toogle-close-filter').toggleClass('toogle-close-filter-active');
+
+})
+
+
+$(document).ready(function(){
+    $('.onepage').owlCarousel({
+        loop:true,
+        center:false,
+        items:1,
+        margin:10,
+        nav:true,
+        responsiveClass:true,
+        responsive:{
+            468:{
+                items:2,
+                center: true
+            },
+            968:{
+                items:3,
+                center: true
+            },
+            1500:{
+                items:4,
+                center: true
+            }
         }
-      ]
-      });
+    })
+    $('.banhang').owlCarousel({
+        loop:true,
+        center:true,
+        items:1,
+        margin:10,
+        nav:true,
+        responsiveClass:true,
+        responsive:{
+            468:{
+                items:2,
+                center: true
+            },
+            968:{
+                items:3,
+                center: true
+            },
+            1500:{
+                items:4,
+                center: true
+            }
+        }
+    })
+    $('.doanhnghiep').owlCarousel({
+        loop:true,
+        center:true,
+        items:1,
+        margin:10,
+        nav:true,
+        responsiveClass:true,
+        responsive:{
+            468:{
+                items:2,
+                center: true
+            },
+            968:{
+                items:3,
+                center: true
+            },
+            1500:{
+                items:4,
+                center: true
+            }
+        }
+    })
 });
 
-$('.agency-slider').slick({
+
+$('.agency-wrap .agency-slider').slick({
   infinite: true,
   speed: 600,
   slidesToShow: 10,
@@ -73,29 +119,31 @@ $('.agency-slider').slick({
   dots: false,
   autoplay: true,
   arrows: false,
-  autoplaySpeed: 2000,
-  responsive: [
-    {
-      breakpoint: 1450,
-      settings: {
-        slidesToShow: 10
-      }
-    },
+  autoplaySpeed: 3000,
+    responsive: [
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 8
+        slidesToShow: 7,
+        slidesToScroll: 1,
       }
     },
     {
       breakpoint: 768,
-      slidesToShow: 6
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+      }
     },
     {
       breakpoint: 480,
-      slidesToShow: 5
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1
+      }
     }
   ]
+
 });
 
 $('.fs-slider').each(function() {
@@ -110,26 +158,37 @@ $('.fs-slider').each(function() {
 });
 
 $(document).ready(function() {
-    
-    $('#manual-ajax').click(function(event) {
+    $('#manual-ajax').click(function() {
+      //this.blur(); // Manually remove focus from clicked link.
+      //$.get(this.href, function(html) {
+      //    $(html).appendTo('body').modal();
+      //});
+      $('.jquery-modal').fadeToggle();
+      return false;
+    });
+    $('.close-pop-up').click(function() {
+        $('.jquery-modal').fadeOut();
+        return false;
+    });
+
+    lightbox.option({
+      'fitImagesInViewport': true,
+      'wrapAround': true
+    })
+
+    $('#regist-ajax').click(function(event) {
       event.preventDefault();
       this.blur(); // Manually remove focus from clicked link.
       $.get(this.href, function(html) {
         $(html).appendTo('body').modal();
       });
-        
+
     });
-    
-    $(".link").modal({
-        fadeDuration: 1000,
-        fadeDelay: 0.50
-    });
-    
+
     lightbox.option({
       'fitImagesInViewport': true,
       'wrapAround': true
     })
-        
 });
 
 
@@ -139,7 +198,7 @@ function FixHeightContent(){
     if($('#contents_wrap').length > 0) {
         $('#contents_wrap').css('min-height',hWindow);
     }else {
-        
+
     }
 }
 
@@ -154,20 +213,20 @@ function numberWithCommas(x) {
 }
 
 
-// Total Price Detail Page 
+// Total Price Detail Page
 //$('.detail_box_free .detail_box_btn_reg').hide();
 $('.td_tit input').click(function(){
 	//var current_total = Number($('.real_value_total').text());
 	var current_total = Number($('.real_value_total').val());
 	console.log(current_total);
-	
+
 	var this_price = $(this).parent().next().find('.real_value').text();
 	var this_price = Number(this_price);
-	
+
 	//console.log(typeof(this_price));
 	//console.log(typeof(current_total));
 	//console.log(this_price);
-	
+
 	if ( $(this).is(':checked') ) {
 		var total = current_total + this_price;
 		//console.log(total);
@@ -179,7 +238,7 @@ $('.td_tit input').click(function(){
 		var realValue = $('.real_value_total').val(total);
 		$('.td_total_price b').text(numberWithCommas(total));
 	}
-    
+
 });
 
 // Action for Form Basic and Professional
@@ -219,7 +278,7 @@ $('#sub-menu > a').click(function(){
 });
 
 
-// Silde Toogle Detail Page 
+// Silde Toogle Detail Page
 $(document).ready(function(){
     $('.detail_box_toggle').click(function(){
         $(this).next('.detail_box_target').stop().slideToggle("slow");
@@ -234,31 +293,31 @@ $(document).ready(function(){
 $('.mobile-btn a').click(function(){
     $('.detail_main_phone').toggleClass('detail_main_phone_active');
     //$('.detail_main_web').toggleClass('detail_main_web_nonactive');
-});   
+});
 
 $('.desktop-btn a').click(function(){
     $('.detail_main_phone').toggleClass('detail_main_phone_nonactive');
-});  
+});
 
 // Change Images to Background Main Img
 
 
 
-    
 
-/*$(window).bind("load", function() {   
+
+/*$(window).bind("load", function() {
    if ( $(window).width() < 768) {
         $('.detail_title').insertAfter($('.detail_btn_demo'));
         //console.log('add');
     } else {
         if($('.detail_title').lengh > 1){
             $('.detail_title').insertBefore($('.detail_box'));
-            //console.log('remove'); 
+            //console.log('remove');
         }
     }
 });*/
 
-// Scroll Top Change Color Header 
+// Scroll Top Change Color Header
 /*$(window).load(function() {
     var HSlider = $('#slider').height();
     //var HWindow = $(window).height();
@@ -287,7 +346,7 @@ $(document).ready(function(){
         itemSelector: '.masorny_item',
         columnWidth: '.masorny_sizer',
         percentPosition: true
-    });    
+    });
 
     var $grid_brand = $('.brand_grid').masonry({
         itemSelector: '.brand_item',
@@ -302,7 +361,7 @@ $(document).ready(function(){
       $grid_brand.masonry('layout');
     });
 
-    
+
 
 })
 
@@ -312,7 +371,8 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     var $grid = $('.isotope_grid').isotope({
-      sortBy : 'random'
+      sortBy : 'random',
+      filter: ':nth-child(-n+12)'
     });
 
     // filter items on button click
@@ -321,39 +381,39 @@ $(document).ready(function(){
       $grid.isotope({ filter: filterValue });
     });
 
-    
 
     $grid.imagesLoaded().progress( function() {
         $grid.isotope('layout');
     });
-    
+
+
+
+
+
+
+
+
     // with jQuery
-    var $photogrid = $('.concept-photo').isotope({
+    var $photogrid = $('.photo-detail').isotope({
         percentPosition: true,
-        layoutMode: 'fitRows',
+        layoutMode: 'masonry',
         itemSelector: '.concept-item',
         masonry: {
         columnWidth: '.concept-size'
         }
     });
-    
+
     $photogrid.imagesLoaded().progress( function() {
         $photogrid.isotope('layout');
     });
-        
-       
-   /* var $fgrid = $('.photo-wrap').isotope({ 
-        itemSelector: '.fs-wrap',
-        masonry: {
-            columnWidth: '.fs-wrap'
-        }
-    })*/
+
+
 })
 
 
 
 /* fixed menu */
-
+/*
 $(function() {
     if($('.isotope_wrap').length > 0) {
         var hIsotopeWrap   = $('.isotope_wrap').height();
@@ -366,11 +426,11 @@ $(function() {
                 //$(".isotope_grip_wrap").addClass("isotope_grid_wrap_fixed");
             } else {
                 $(".isotope_wrap").removeClass("isotope_fixed");
-                $(".isotope_grid").removeAttr("style");
+                $(".isotope_grid").css("margin-top",'0');
                 //$(".isotope_grip_wrap").removeClass("isotope_grid_wrap_fixed");
             }
         });
-        
+
     }
 });
 
@@ -402,7 +462,7 @@ $('.isotope_wrap > h3').each(function(){
 
 		$(this).text(alt);
 
-	});	
+	});
 
 });
 
@@ -412,7 +472,7 @@ $(window).resize(function(e) {
 
 	var w = $(window).width();
 
-	
+
 
 	if(w <=640){
 
@@ -424,15 +484,15 @@ $(window).resize(function(e) {
 
 				$(this).text(alt);
 
-			});	
+			});
 
-		});		
+		});
 
 	}
 
 	else {
 
-		return ;	
+		return ;
 
 	}
 
@@ -618,7 +678,6 @@ $(".box1 div:empty").remove();
 
 
 
-$('.tb_index').matchHeight();
 
 
 
@@ -907,4 +966,3 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-

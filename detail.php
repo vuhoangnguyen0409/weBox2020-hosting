@@ -58,22 +58,24 @@ $id = $_GET["id"];
                     <div class="detail-info">
                         <div class="title">'.$data["detail_name"].'</div>
                         <div class="code">'.$data["detail_intro"].'</div>
-                        <div class="desc">'.$data["detail_content"].'</div>
+                        <div class="desc">'.substr($data["detail_content"],0,480).'...</div>
                         <button class="view" title="Xem Thực Tế"><span>Xem Thực Tế</span></button>
                         <div class="divine"><span></span></div>
                         <div class="unity">
+                            <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Website chuẩn SEO</p>
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Giao diện Mobile</p>
+                            <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Miễn phí Hosting 1 năm</p>
+                            <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Hỗ trợ QC Google, Facebook</p>
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Hỗ trợ nhập liệu</p>
                             <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Hỗ trợ kỹ thuật 24/7</p>
-                            <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Miễn phí Hosting 1 năm</p>
-                            <p class="text"><i class="fa fa-check" aria-hidden="true"></i> Website hoạt động ổn định</p>
                         </div>
                         <div class="divine"><span></span></div>
                         <button class="register"><span>Đăng Ký</span></button>
                         <div id="form--popup">
-                            <div id="comment_msg"></div>
+                            <div class="close-popup"></div>
                             <form role="form" id="contact_form" method="post">
                                <div class="w3-modal-content">
+                                  <h2 class="h2-line"><span>Đăng Ký Giao Diện</span> '.$data["detail_name"].'</h2>
                                   <div class="w3-container">
                                     <label><input type="text" class="form-control" name="name" id="name" placeholder="Họ Tên"></label>
                                     <label><input type="text" class="form-control" name="tel" id="tel" placeholder="Điện Thoại"></label>
@@ -82,6 +84,7 @@ $id = $_GET["id"];
                                     <label><input style="display:none;" type="text" class="form-control" name="detail_id" id="detail_id" value="'.$id.'"></label>
                                     <label><input type="submit" class="free-call submit-ajax" value="Gọi Miễn Phí" /></label>
                                   </div>
+                                  <div id="comment_msg"></div>
                                </div>
                             </form>
                         </div>

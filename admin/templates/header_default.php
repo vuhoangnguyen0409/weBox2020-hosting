@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="templates/css/default.css" />
 	<link rel="stylesheet" href="templates/css/layout.css" />
 	<link rel="stylesheet" href="templates/css/admin.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="<?php echo $siteURL;?>css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
     <?php
     if (isset($custom_js_file)) {
         foreach ($custom_js_file as $js_file) {

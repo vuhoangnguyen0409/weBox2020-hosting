@@ -29,6 +29,7 @@ if (isset($_POST["btnLabelEdit"])) {
             $newLabel = clone $label;
             $newLabel->setLabelImg($_FILES["fImg"]["name"]);
             //print "<pre>";
+            //print_r($label);
             //print_r($newLabel);
             //print "</pre>";
             //die();
