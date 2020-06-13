@@ -13,7 +13,7 @@ if($link === false){
 
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM detail as d, category as c WHERE detail_name LIKE ?";
+    $sql = "SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND detail_name LIKE ?";
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
