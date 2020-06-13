@@ -193,29 +193,18 @@
 .slick-dots li
 {
     position: relative;
-
     display: inline-block;
-
-    width: 20px;
-    height: 20px;
     margin: 0 5px;
     padding: 0;
-
     cursor: pointer;
 }
 .slick-dots li button
 {
     font-size: 0;
     line-height: 0;
-
     display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-
+    padding: 0 10px;
     cursor: pointer;
-
     color: transparent;
     border: 0;
     outline: none;
@@ -232,27 +221,22 @@
     opacity: 1;
 }
 .fs-slider .slick-dots li button:before {
-    font-size: 18px;
+    font-size: 15px;
 }
 .slick-dots li button:before
 {
     font-family: 'slick';
     font-size: 30px;
     line-height: 20px;
-
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 0;
-
     width: 20px;
     height: 20px;
-
     content: '•';
     text-align: center;
-
     opacity: .25;
     color: #c0c0c0;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

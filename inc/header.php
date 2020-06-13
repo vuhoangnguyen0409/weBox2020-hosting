@@ -43,7 +43,7 @@
 							<li><a href="/' .$item["cateid"]. '-'.noneUniAlias($item["cate_name"], true). '/index.html">' .$item["cate_name"]. '</a></li>';
 						}
 						?>
-                        <li> <a href="<?php echo $siteURL;?>bo-thuong-hieu-web-phu-quoc.html">Bộ Thương Hiệu</a> </li>
+                        <!--<li> <a href="<?php echo $siteURL;?>bo-thuong-hieu-web-phu-quoc.html">Bộ Thương Hiệu</a> </li>-->
                         <li id="sub-menu"> <a onclick="return false;">Dịch Vụ Chụp Hình</a>
                             <ul>
                                 <li><a href="<?php echo $siteURL;?>chup-hinh-nen-trang.html">Chụp Hình Nền Trắng</a></li>
@@ -53,9 +53,10 @@
                                 <li><a href="<?php echo $siteURL;?>chup-hinh-su-kien.html">Chụp Hình Sự Kiện</a></li>
                             </ul>
                         </li>
-                        <li> <a href="<?php echo $siteURL;?>tai-lieu-web-phu-quoc.html">Tài Liệu</a> </li>
+                        <!--<li> <a href="<?php echo $siteURL;?>tai-lieu-web-phu-quoc.html">Tài Liệu</a> </li>-->
                         <!--<li> <a href="<?php echo $siteURL;?>tiep-thi-marketing-web-phu-quoc.html">Marketing</a> </li>-->
-                        <li> <a href="<?php echo $siteURL;?>bang-gia.html">Bảng Giá</a> </li>
+                        <li> <a href="<?php echo $siteURL;?>bang-gia.html">Bảng Giá Website</a> </li>
+                        <li><a href="<?php echo $siteURL;?>bang-gia-chup-hinh.html">Bảng Giá Chụp Hình</a></li>
                         <!--<li> <a href="<?php echo $siteURL;?>gioi-thieu-web-phu-quoc.html">Giới Thiệu</a> </li>-->
                         <li> <a href="<?php echo $siteURL;?>lien-he.php">Liên Hệ</a> </li>
                     </ul>

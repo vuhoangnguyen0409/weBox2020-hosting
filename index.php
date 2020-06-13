@@ -82,7 +82,7 @@
                     <!-- Start Home List Business Web -->
                     <div id="home-list" class="home-list-wrap">
                         <div class="home-list-ct">
-                            <h2 class="h2_line">Website One Page<a class="link" href="<?php echo $siteURL?>/1-web-onepage/index.html">Xem chi tiết ></a></h2>
+                            <h2 class="h2_line">Website One Page<a class="link" href="<?php echo $siteURL?>1-web-onepage/index.html">Xem thêm ></a></h2>
                             <div class="home-slider onepage owl-carousel">
                                 <?php
                                     $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.cateid=1 AND d.status="Y" ORDER BY detailid DESC LIMIT 6';
@@ -105,6 +105,7 @@
                                     }
                                 ?>
                             </div>
+                            <a class="link btn" href="<?php echo $siteURL?>1-web-onepage/index.html">Xem thêm</a>
                         </div>
                     </div>
 
@@ -113,7 +114,7 @@
                     <!-- Start Home List Shop Web -->
                     <div id="home-list" class="home-list-wrap">
                         <div class="home-list-ct">
-                            <h2 class="h2_line">Website Bán Hàng<a class="link" href="<?php echo $siteURL?>/2-web-ban-hang/index.html">Xem chi tiết ></a></h2>
+                            <h2 class="h2_line">Website Bán Hàng<a class="link" href="<?php echo $siteURL?>2-web-ban-hang/index.html">Xem thêm ></a></h2>
                             <div class="home-slider banhang owl-carousel">
                                 <?php
                                     $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.cateid=2 AND d.status="Y" ORDER BY detailid DESC LIMIT 6';
@@ -130,6 +131,7 @@
                                     }
                                 ?>
                             </div>
+                            <a class="link btn" href="<?php echo $siteURL?>2-web-ban-hang/index.html">Xem thêm</a>
                         </div>
                     </div>
                     <!-- End Home List Shop Web -->
@@ -137,7 +139,7 @@
                     <!-- Start Home List Business Web -->
                     <div id="home-list" class="home-list-wrap">
                         <div class="home-list-ct">
-                            <h2 class="h2_line">Website Doanh Nghiệp<a class="link" href="<?php echo $siteURL?>/3-web-doanh-nghiep/index.html">Xem chi tiết ></a></h2>
+                            <h2 class="h2_line">Website Doanh Nghiệp<a class="link" href="<?php echo $siteURL?>3-web-doanh-nghiep/index.html">Xem thêm ></a></h2>
                             <div class="home-slider doanhnghiep owl-carousel">
                                 <?php
                                     $sql = 'SELECT * FROM detail as d, category as c WHERE d.cateid=c.cateid AND d.cateid=3 AND d.status="Y" ORDER BY detailid DESC LIMIT 6';
@@ -154,6 +156,7 @@
                                     }
                                 ?>
                             </div>
+                            <a class="link btn" href="<?php echo $siteURL?>3-web-doanh-nghiep/index.html">Xem thêm</a>
                         </div>
                     </div>
                     <!-- End Home List Business Web -->

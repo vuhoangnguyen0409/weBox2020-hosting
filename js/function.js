@@ -42,6 +42,9 @@ $('.open-close, .toogle-close-filter').click(function(){
 
 
 $(document).ready(function(){
+    //
+        
+    //
     $('.onepage').owlCarousel({
         loop:true,
         center:false,
