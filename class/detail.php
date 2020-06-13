@@ -20,6 +20,7 @@ class Detail extends Database {
     protected $detailCate;
 	protected $detailPoster;
     protected $detailLabel;
+    protected $labelArray;
 
     /**
      * Set name for a detail item
@@ -229,7 +230,7 @@ class Detail extends Database {
      * ==============================
      * @return int
      **/
-    public function getdetailCate() {
+    public function getDetailCate() {
         return $this->detailCate;
     }
 
@@ -249,18 +250,18 @@ class Detail extends Database {
      * ============================
      * @return string
      **/
-    public function getdetailPoster() {
+    public function getDetailPoster() {
         return $this->detailPoster;
     }
 
     /**
      * Set label id for a detail item
      * =============================
-     * @param int detaillabel
+     * @param string detailLabel
      **/
     public function setDetailLabel($detailLabel) {
         if (!empty($detailLabel)) {
-            $this->detailLabel = (int)$detailLabel;
+            $this->detailLabel = $detailLabel;
         }
     }
 
@@ -269,8 +270,29 @@ class Detail extends Database {
      * ============================
      * @return string
      **/
-    public function getdetailLabel() {
+    public function getDetailLabel() {
         return $this->detailLabel;
+    }
+
+    /**
+     * Set Label Array for a detail item
+     * =========================
+     * @param string labelArray
+     **/
+    public function setLabelArray($labelArray) {
+        if (!empty($labelArray)) {
+            $this->labelArray = trim($labelArray);
+            $this->labelArray = strip_tags($labelArray);
+        }
+    }
+
+    /**
+     * Get Label Array of a detail item
+     * ========================
+     * @return string
+     **/
+    public function getLabelArray() {
+        return $this->labelArray;
     }
 
     /**
@@ -358,7 +380,8 @@ class Detail extends Database {
         $description = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', 2, 1)';
-        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_feature, detail_img, detail_content, detail_date, status, userid, cateid, labelid) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailFeature. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  '.$this->detailLabel. ')';
+        //$sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_feature, detail_img, detail_content, detail_date, status, userid, cateid, labelid, label_array) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailFeature. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ',  ' .$this->detailLabel.', "' .$name. '")';
+        $sql = 'insert into detail(detail_name, detail_intro, SEO_keywords, SEO_description, detail_feature, detail_img, detail_content, detail_date, status, userid, cateid, label_array) values("' .$name. '", "' .$intro. '", "' .$keywords. '", "' .$description. '", "' .$this->detailFeature. '", "' .$this->detailImg. '", "' .$content. '", ' .$this->detailDate. ', "' .$this->detailStatus. '", ' .$this->detailPoster. ', ' .$this->detailCate. ', "' .$this->labelArray. '")';
         $this->query($sql);
     }
 
