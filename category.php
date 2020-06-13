@@ -79,6 +79,12 @@ $id = $_GET["id"];
                 <div id="slider" class="sub-slider slider-wrap web-slider-bg">
                     <div class="slider-ct">
                         <h1 class="h1_line">Giao Diện Web OnePage</h1>
+                        <div class="cate-search">
+                            <div class="search-wrap">
+                                <input class="search" autocomplete="off" type="text" placeholder="Tìm kiếm..." value="" />
+                                <div class="result"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- End Slider -->
@@ -86,34 +92,42 @@ $id = $_GET["id"];
 
 
                 <!-- Start Filter Isotope -->
-                <div class="sp-filter open-close"><p><i class="fa fa-filter"></i> Lọc Theo</p></div>
-                <div class="isotope_wrap clearfix">
-                    <div class="label_wrap">
-                        <a class="isotope_button isotope_all" data-filter="*">
-                            <p class="label_img"><img src="../img/common/bg-tat-ca.jpg" alt="Tất Cả"/></p>
-                            <p class="label_txt">Tất Cả</p>
-                        </a>
-                    </div>
-                    <?php
-
-    						//Kết nối CSDL
-    						require("libs/connect_db.php");
-
-    						// Lấy tất cả các danh mục tin tạo thành các liên kết
-    						$sql = 'SELECT * FROM label ORDER BY labelid DESC';
-    						$query = $mysqli->query($sql);;
-    						$menu = array();
-    						while ($data = $query -> fetch_assoc()) {
-    							$menu[] = $data;
-    						}
-    						foreach ($menu as $item) {
-                                $label = str_replace(' ', '', noneUniAlias($item["label_name"]));
-                                echo '<div class="label_wrap"><a class="isotope_button" data-filter=".' .$label. '"><p class="label_img"><img src="../data/label_img/'.$item["label_img"].'" alt="' .$item["label_name"]. '"></p><p class="label_txt">'.$item["label_name"].'</p></a></div>';
-    						}
-    				?>
+                
+                    
+                <div class="sp-filter">
+                    <div class="toogle-close-filter"></div>
+                    <p class="txt open-close"><i class="fa fa-filter"></i><span>Danh Mục </span><em>: Tất Cả</em></p>
+                    <div class="isotope_wrap clearfix">
+                        <h4 class="h6-line">Danh Mục :</h4>
+                        <div class="isotope_wrap_inner">
+                            <div class="label_wrap all">
+                                <a class="isotope_button isotope_all" data-filter="*">
+                                    <p class="label_txt">Tất Cả</p>
+                                </a>
+                            </div>
+                            <?php
+        
+            						//Kết nối CSDL
+            						require("libs/connect_db.php");
+        
+            						// Lấy tất cả các danh mục tin tạo thành các liên kết
+            						$sql = 'SELECT * FROM label ORDER BY labelid ASC';
+            						$query = $mysqli->query($sql);;
+            						$menu = array();
+            						while ($data = $query -> fetch_assoc()) {
+            							$menu[] = $data;
+            						}
+            						foreach ($menu as $item) {
+                                        $label = str_replace(' ', '', noneUniAlias($item["label_name"]));
+                                        echo '<div class="label_wrap"><a class="isotope_button" data-filter=".' .$label. '"><p class="label_txt">'.$item["label_name"].'</p></a></div>';
+            						}
+            				?>
+                        </div>
+                    </div>   
                 </div>
-                <!-- End Filter Isotope -->
 
+
+                
                 <!-- Start Filter Grip -->
                 <div class="isotope_grid">
                     <?php
