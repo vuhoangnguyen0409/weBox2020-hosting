@@ -23,9 +23,14 @@ $labeLlist = $label->listAllLabel();
 if (isset($_POST["btnDetailEdit"])) {
     if ($_POST["sltCate"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn danh mục');
-    } elseif ($_POST["sltLabel"] == 'none') {
+    }
+    //elseif ($_POST["sltLabel"] == 'none') {
+    //    ErrorHandler::setError('Vui lòng chọn thẻ');
+    //}
+    elseif (empty($_POST["labelArray"])) {
         ErrorHandler::setError('Vui lòng chọn thẻ');
-    } elseif (empty($_POST["txtName"])) {
+    }
+     elseif (empty($_POST["txtName"])) {
         ErrorHandler::setError('Vui lòng nhập tiêu đề');
     } elseif (empty($_POST["txtIntro"])) {
         ErrorHandler::setError('Vui lòng nhập giới thiệu');
@@ -46,7 +51,15 @@ if (isset($_POST["btnDetailEdit"])) {
         $detail->setDetailStatus($_POST["rdoPublic"]);
         $detail->setDetailPoster($_SESSION[$prefix."userid"]);
         $detail->setDetailCate($_POST["sltCate"]);
-        $detail->setDetailLabel($_POST["sltLabel"]);
+        $detail->setDetailCate($_POST["sltCate"]);
+        //$detail->setDetailLabel($_POST["sltLabel"]);
+        $labelArray = implode(",",$_POST["labelArray"]);
+        $detail->setLabelArray($labelArray);
+        print "<pre>";
+        //print_r($labelArray);
+        print_r($detail);
+        print "</pre>";
+        //die();
         // Kiểm tra lỗi upload
         if (!empty($_FILES["fImg"]["name"])) {
             $newDetail = clone $detail;
@@ -191,19 +204,10 @@ require('templates/header_default.php');?>
                             <div class="input-group">
                                 <label>Thẻ Tag</label>
                                 <div class="input-item fixright">
-                                    <select name="sltLabel">
-                                        <option value="none">Chọn Thẻ</option>
-                                        <?php foreach ($labeLlist as $label_item) {?>
-                                            <option value="<?php echo $label_item["labelid"]?>"
-                                            <?php if (isset($_POST["sltLabel"]) && $_POST["sltLabel"] == $label_item["labelid"]) {?>
-                                                selected="selected"
-                                            <?php } else {
-                                                if ($detail->getDetailLabel() == $label_item["labelid"]) {?>
-                                                    selected="selected"
-                                                <?php }
-                                            }?>><?php echo $label_item["label_name"]?></option>
-                                        <?php }?>
-                                    </select>
+                                    <?php foreach ($labeLlist as $label_item) {?>
+                                        <input type="checkbox" name="labelArray[]" value="<?php echo $label_item["labelid"]?>">
+                                        <label for="<?php echo $label_item["label_name"]?>"> <?php echo $label_item["label_name"]?></label><br>
+                                    <?php }?>
                                 </div>
                             </div>
                             <div class="input-group">

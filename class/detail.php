@@ -314,7 +314,8 @@ class Detail extends Database {
      **/
     public function listAllDetail($limit=null) {
         //$sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, label_name from detail left join category on detail.cateid=category.cateid left join user on detail.userid=user.userid left join label on detail.labelid=label.labelid order by detailid DESC';
-        $sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, label_name from detail left join user on detail.userid=user.userid left join category on detail.cateid=category.cateid left join label on detail.labelid=label.labelid order by detailid DESC';
+        //$sql = 'select detailid, detail_name, detail_intro, status, detail_date, username, cate_name, label_name from detail left join user on detail.userid=user.userid left join category on detail.cateid=category.cateid left join label on detail.labelid=label.labelid order by detailid DESC';
+        $sql = 'select detailid, detail_name, detail_intro, status, detail_date, label_array, username, cate_name from detail left join user on detail.userid=user.userid left join category on detail.cateid=category.cateid order by detailid DESC';
         if (!empty($limit)) {
             $sql .= ' '.$limit;
         }
@@ -406,6 +407,7 @@ class Detail extends Database {
         $this->detailPoster = $data["userid"];
         $this->detailCate = $data["cateid"];
         $this->detailLabel = $data["labelid"];
+        $this->labelArray = $data["label_array"];
     }
 
     /**
@@ -442,7 +444,8 @@ class Detail extends Database {
         $descritption = addslashes($this->detailDescription);
         $content = addslashes(str_replace($siteURL, '{$siteURL}', $this->detailContent));
         //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '", cateid=' .$this->detailCate. ', labelid=' .$this->detaillabel. ' where detailid='.$id;
-        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_feature="' .$this->detailFeature. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', labelid=' .$this->detailLabel. ' where detailid='.$id;
+        //$sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_feature="' .$this->detailFeature. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', labelid=' .$this->detailLabel. ' where detailid='.$id;
+        $sql = 'update detail set detail_name="' .$name. '", detail_intro="' .$intro. '", SEO_keywords="' .$keywords. '", SEO_description="' .$descritption. '", detail_feature="' .$this->detailFeature. '", detail_img="' .$this->detailImg. '", detail_content="' .$content. '", status="' .$this->detailStatus. '" , cateid=' .$this->detailCate. ', label_array="' .$this->labelArray. '"   where detailid='.$id;
         $this->query($sql);
     }
 

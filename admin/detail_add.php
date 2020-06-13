@@ -14,7 +14,7 @@ $labelList = $label->listAllLabel();
 if (isset($_POST["btnDetailAdd"])) {
     if ($_POST["sltCate"] == 'none') {
         ErrorHandler::setError('Vui lòng chọn danh mục');
-    } elseif ($_POST["labelArray"] == 'none') {
+    } elseif (empty($_POST["labelArray"])) {
         ErrorHandler::setError('Vui lòng chọn thẻ');
     } elseif (empty($_POST["txtName"])) {
         ErrorHandler::setError('Vui lòng nhập tiêu đề');
